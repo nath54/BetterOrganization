@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/fonts/merriweather.regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://pages/sheets/page_sheets.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="MainFiches" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 31.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 520.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Fiches :"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 35.0
+margin_right = 520.0
+margin_bottom = 39.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 43.0
+margin_right = 520.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 520.0
+margin_bottom = 897.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 520.0
+margin_bottom = 140.0
+size_flags_vertical = 3
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 144.0
+margin_right = 520.0
+margin_bottom = 285.0
+size_flags_vertical = 3
+
+[node name="Bt_Fiches" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 289.0
+margin_right = 520.0
+margin_bottom = 374.0
+rect_min_size = Vector2( 0, 85 )
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "Fiches"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 378.0
+margin_right = 520.0
+margin_bottom = 518.0
+size_flags_vertical = 3
+
+[node name="Bt_Quiz" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 522.0
+margin_right = 520.0
+margin_bottom = 607.0
+rect_min_size = Vector2( 0, 85 )
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "Quiz"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 611.0
+margin_right = 520.0
+margin_bottom = 752.0
+size_flags_vertical = 3
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 756.0
+margin_right = 520.0
+margin_bottom = 897.0
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/Bt_Fiches" to="." method="_on_Bt_Fiches_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/Bt_Quiz" to="." method="_on_Bt_Quiz_pressed"]

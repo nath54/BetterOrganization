@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=3]
+
+[node name="Reference" type="Button"]
+margin_right = 520.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/normal = ExtResource( 2 )
+text = "Calendrier"

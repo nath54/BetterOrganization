@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://pages/todos/page_todos.gd" type="Script" id=4]
+
+[node name="MainTodoList" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 45.0
+
+[node name="Bt_create" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 45.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "+"
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 49.0
+margin_right = 376.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Todo List :"
+align = 1
+valign = 1
+
+[node name="Bt_toggle_vis" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 380.0
+margin_right = 520.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 140, 0 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "Display all"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color( 0.403922, 0.403922, 0.403922, 1 )
+margin_top = 49.0
+margin_right = 520.0
+margin_bottom = 64.0
+custom_constants/separation = 15
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 520.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_create" to="." method="_on_Bt_create_pressed"]

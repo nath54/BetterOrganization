@@ -1,0 +1,102 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "Calendar",
+"language": "GDScript",
+"path": "res://addons/calendar_button/class/calendar.gd"
+}, {
+"base": "Reference",
+"class": "CalendarButtons",
+"language": "GDScript",
+"path": "res://addons/calendar_button/scripts/calendar_buttons.gd"
+}, {
+"base": "Node",
+"class": "Calendrier",
+"language": "GDScript",
+"path": "res://global/Calendar.gd"
+}, {
+"base": "Node",
+"class": "Data",
+"language": "GDScript",
+"path": "res://global/Data.gd"
+}, {
+"base": "Reference",
+"class": "Date",
+"language": "GDScript",
+"path": "res://addons/calendar_button/class/Date.gd"
+}, {
+"base": "Node",
+"class": "Fiche",
+"language": "GDScript",
+"path": "res://global/Sheet.gd"
+}, {
+"base": "Reference",
+"class": "WindowRestrictor",
+"language": "GDScript",
+"path": "res://addons/calendar_button/scripts/window_restrictor.gd"
+} ]
+_global_script_class_icons={
+"Calendar": "",
+"CalendarButtons": "",
+"Calendrier": "",
+"Data": "",
+"Date": "",
+"Fiche": "",
+"WindowRestrictor": ""
+}
+
+[application]
+
+config/name="BetterOrganization"
+run/main_scene="res://pages/main_page.tscn"
+
+[autoload]
+
+Global="*res://global/Global.gd"
+gidit="*res://global/gidit.gd"
+
+[display]
+
+window/size/width=540
+window/size/height=960
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/calendar_button/plugin.cfg" )
+
+[gui]
+
+theme/custom_font="res://res/fonts/merryweather.tres"
+
+[input]
+
+reset={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":0,"physical_scancode":89,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":0,"physical_scancode":90,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777220,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[mono]
+
+project/assembly_name="Emmy's Adventure"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_clear_color=Color( 0.0117647, 0.117647, 0.0352941, 1 )
+environment/default_environment="res://default_env.tres"

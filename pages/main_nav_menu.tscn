@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://res/ui/icons_alpha/timetable.png" type="Texture" id=1]
+[ext_resource path="res://res/ui/icons_alpha/events.png" type="Texture" id=2]
+[ext_resource path="res://res/ui/alpha_button/normal.png" type="Texture" id=3]
+[ext_resource path="res://res/ui/alpha_button/hover.png" type="Texture" id=4]
+[ext_resource path="res://res/ui/alpha_button/pressed.png" type="Texture" id=5]
+[ext_resource path="res://res/ui/icons_alpha/todo1.png" type="Texture" id=6]
+[ext_resource path="res://res/ui/icons_alpha/home.png" type="Texture" id=7]
+[ext_resource path="res://res/ui/icons_alpha/fiches.png" type="Texture" id=8]
+[ext_resource path="res://pages/main_nav_menu.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0980392, 0.0392157, 0.168627, 0.254902 )
+
+[node name="MainNavBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 100 )
+script = ExtResource( 9 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bt_Events" type="TextureButton" parent="HBoxContainer"]
+margin_right = 104.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="Text_Events" type="TextureRect" parent="HBoxContainer/Bt_Events"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Bt_Todos" type="TextureButton" parent="HBoxContainer"]
+margin_left = 108.0
+margin_right = 213.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="Text_Todos" type="TextureRect" parent="HBoxContainer/Bt_Todos"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="Bt_Home" type="TextureButton" parent="HBoxContainer"]
+margin_left = 217.0
+margin_right = 322.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="Text_Home" type="TextureRect" parent="HBoxContainer/Bt_Home"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Bt_Timetable" type="TextureButton" parent="HBoxContainer"]
+margin_left = 326.0
+margin_right = 431.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="Text_Timetable" type="TextureRect" parent="HBoxContainer/Bt_Timetable"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Bt_Sheets" type="TextureButton" parent="HBoxContainer"]
+margin_left = 435.0
+margin_right = 540.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="Text_Sheets" type="TextureRect" parent="HBoxContainer/Bt_Sheets"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
+[connection signal="pressed" from="HBoxContainer/Bt_Events" to="." method="_on_Bt_Events_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bt_Todos" to="." method="_on_Bt_Todos_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bt_Home" to="." method="_on_Bt_Home_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bt_Timetable" to="." method="_on_Bt_Timetable_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bt_Sheets" to="." method="_on_Bt_Sheets_pressed"]

@@ -1,0 +1,326 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://pages/timetable/page_timetable.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="MainTimeTable" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 40.0
+
+[node name="Bt_Create" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "+"
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 341.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Emplois du temps :"
+align = 1
+valign = 1
+
+[node name="Bt_manage" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 345.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 175, 0 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "gerer les EDT"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 520.0
+margin_bottom = 54.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 64.0
+margin_right = 520.0
+margin_bottom = 104.0
+
+[node name="Bt_period" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "3 jours"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 104.0
+margin_right = 520.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Bt_before" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+margin_left = 67.0
+margin_right = 91.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 24, 0 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "<"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+margin_left = 95.0
+margin_top = 4.0
+margin_right = 321.0
+margin_bottom = 35.0
+text = "01/01/23 - 03/01/23"
+
+[node name="Bt_after" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
+margin_left = 325.0
+margin_right = 349.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 24, 0 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = ">"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 114.0
+margin_right = 520.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 520.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="Heures" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_right = 86.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_right = 86.0
+margin_bottom = 31.0
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 35.0
+margin_right = 86.0
+margin_bottom = 144.0
+size_flags_vertical = 7
+text = "8h"
+
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 148.0
+margin_right = 86.0
+margin_bottom = 258.0
+size_flags_vertical = 7
+text = "10h"
+
+[node name="Label4" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 262.0
+margin_right = 86.0
+margin_bottom = 371.0
+size_flags_vertical = 7
+text = "12h"
+
+[node name="Label5" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 375.0
+margin_right = 86.0
+margin_bottom = 485.0
+size_flags_vertical = 7
+text = "14h"
+
+[node name="Label6" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 489.0
+margin_right = 86.0
+margin_bottom = 598.0
+size_flags_vertical = 7
+text = "16h"
+
+[node name="Label7" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 602.0
+margin_right = 86.0
+margin_bottom = 712.0
+size_flags_vertical = 7
+text = "18h"
+
+[node name="Label8" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/Heures"]
+margin_top = 716.0
+margin_right = 86.0
+margin_bottom = 826.0
+size_flags_vertical = 7
+text = "20h"
+
+[node name="j1" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 173.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j1"]
+margin_right = 87.0
+margin_bottom = 31.0
+text = "lun"
+align = 1
+valign = 1
+percent_visible = -0.333333
+
+[node name="j1" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j1"]
+margin_top = 35.0
+margin_right = 87.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="j2" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 173.0
+margin_right = 259.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j2"]
+margin_right = 86.0
+margin_bottom = 31.0
+text = "mar"
+align = 1
+valign = 1
+
+[node name="j2" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j2"]
+margin_top = 35.0
+margin_right = 86.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="j3" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 259.0
+margin_right = 346.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j3"]
+margin_right = 87.0
+margin_bottom = 31.0
+text = "mer"
+align = 1
+valign = 1
+
+[node name="j3" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j3"]
+margin_top = 35.0
+margin_right = 87.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="j4" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 346.0
+margin_right = 433.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j4"]
+margin_right = 87.0
+margin_bottom = 31.0
+text = "jeu"
+align = 1
+valign = 1
+
+[node name="j3" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j4"]
+margin_top = 35.0
+margin_right = 87.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="j5" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/HBoxContainer"]
+margin_left = 433.0
+margin_right = 520.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j5"]
+margin_right = 87.0
+margin_bottom = 31.0
+text = "ven"
+align = 1
+valign = 1
+
+[node name="j3" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j5"]
+margin_top = 35.0
+margin_right = 87.0
+margin_bottom = 826.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_Create" to="." method="_on_Bt_Create_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_manage" to="." method="_on_Bt_manage_pressed"]
