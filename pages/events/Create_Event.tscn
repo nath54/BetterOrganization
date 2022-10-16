@@ -117,8 +117,9 @@ script = ExtResource( 5 )
 
 [node name="Date" type="Label" parent="VBoxContainer/Date"]
 margin_left = 116.0
-margin_right = 116.0
+margin_right = 181.0
 margin_bottom = 31.0
+text = "0/0/0"
 
 [node name="Heure_Deb" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 255.0

@@ -75,8 +75,6 @@ func _on_Bt_cancel_pressed():
 func test():
 	return true;
 	
-func convert_str_to_heure(txt):
-	return 0.0;
 
 func _on_Bt_validate_pressed():
 	if test():
@@ -85,8 +83,8 @@ func _on_Bt_validate_pressed():
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
 				"date": {"day": day, "month": month, "year": year},
-				"heure_deb": convert_str_to_heure($VBoxContainer/Heure_Deb/LineEdit.text),
-				"heure_fin": convert_str_to_heure($VBoxContainer/Heure_Fin/LineEdit.text)
+				"heure_deb": Global.str_heure_to_float($VBoxContainer/Heure_Deb/LineEdit.text),
+				"heure_fin":  Global.str_heure_to_float($VBoxContainer/Heure_Fin/LineEdit.text)
 			})
 		elif mode == "edit":
 			if original_cal != -1:
@@ -95,8 +93,8 @@ func _on_Bt_validate_pressed():
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
 				"date": {"day": day, "month": month, "year": year},
-				"heure_deb": convert_str_to_heure($VBoxContainer/Heure_Deb/LineEdit.text),
-				"heure_fin": convert_str_to_heure($VBoxContainer/Heure_Fin/LineEdit.text)
+				"heure_deb":  Global.str_heure_to_float($VBoxContainer/Heure_Deb/LineEdit.text),
+				"heure_fin":  Global.str_heure_to_float($VBoxContainer/Heure_Fin/LineEdit.text)
 			});
 		Global.save_data();
 		Global.go_to_page("res://pages/events/page_events.tscn");

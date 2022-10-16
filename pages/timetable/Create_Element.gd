@@ -8,6 +8,7 @@ var hour_beg = 8;
 var hour_end = 10;
 var cal = -1;
 var original_cal = -1;
+var color = Color(150, 145, 63);
 
 var mode = "create";
 
@@ -22,11 +23,14 @@ func _ready():
 		day = 0;
 		cal = 0;
 		$VBoxContainer/Bt_suppr.visible = false;
+		$VBoxContainer/color/ColorPickerButton.color = color;
 	else:
 		mode = "edit";
 		#
 		elmt = Global.active_object;
 		day = elmt["day"];
+		color = elmt["color"];
+		$VBoxContainer/color/ColorPickerButton.color = color;
 		$VBoxContainer/Date/Jour.selected = day;
 		#
 		var i = 0;
@@ -39,7 +43,6 @@ func _ready():
 		#
 		$VBoxContainer/Titre/LineEdit.text = elmt["title"];
 		$VBoxContainer/Calendrier/OptionButton.selected = cal;
-		$VBoxContainer/Date/Date.text = String(day) + "/"+ String(month) + "/" + String(year);
 	#
 	var i = 0;
 	for c in Global.data.calendars:
@@ -64,9 +67,6 @@ func _on_Bt_cancel_pressed():
 
 func test():
 	return true;
-	
-func convert_str_to_heure(txt):
-	return 0.0;
 
 func _on_Bt_validate_pressed():
 	if test():
@@ -75,21 +75,27 @@ func _on_Bt_validate_pressed():
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
 				"day": day,
-				"heure_deb": convert_str_to_heure($VBoxContainer/Heure_Deb/LineEdit.text),
-				"heure_fin": convert_str_to_heure($VBoxContainer/Heure_Fin/LineEdit.text)
+				"color": color,
+				"heure_deb": Global.str_heure_to_float($VBoxContainer/Heure_Deb/LineEdit.text),
+				"heure_fin": Global.str_heure_to_float($VBoxContainer/Heure_Fin/LineEdit.text)
 			})
 		elif mode == "edit":
 			if original_cal != -1:
-				Global.data.calendars[original_cal].elements(elmt);
+				Global.data.calendars[original_cal].elements.erase(elmt);
 			Global.data.calendars[cal].elements.append({
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
 				"day": day,
-				"heure_deb": convert_str_to_heure($VBoxContainer/Heure_Deb/LineEdit.text),
-				"heure_fin": convert_str_to_heure($VBoxContainer/Heure_Fin/LineEdit.text)
+				"color": color,
+				"heure_deb": Global.str_heure_to_float($VBoxContainer/Heure_Deb/LineEdit.text),
+				"heure_fin": Global.str_heure_to_float($VBoxContainer/Heure_Fin/LineEdit.text)
 			});
 		Global.save_data();
 		Global.go_to_page("res://pages/timetable/page_timetable.tscn");
 
 func _on_OptionButton_item_selected(index):
 	cal = index;
+
+
+func _on_ColorPickerButton_color_changed(cl):
+	color = cl;

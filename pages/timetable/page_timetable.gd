@@ -21,28 +21,31 @@ func clear_timetable():
 
 func draw_timetable():
 	var js = {0: [], 1: [],2: [],3: [],4: [],5: [],6: []};
+	var dec = current_date["weekday"]+1;
 	# On récupère tous les éléments
 	for c in Global.data.calendars:
 		if c.active:
 			for e in c.elements:
-				js[int(e["day"])].append([[e["heure_deb"], e["heure_fin"]], e]);
+				js[int(fposmod(int(e["day"])+dec, 7))].append([[e["heure_deb"], e["heure_fin"]], e]);
 	# On va trier les élements de chaque jours
 	for k in js.keys():
-		js[k].sort_custom(Global, "custom_arrdate_sort");
+		var arr: Array = js[k]
+		print(arr)
+		arr.sort_custom(Global, "custom_arrdate_sort");
+		js[k] = arr;
 	#
-	var dec = current_date["weekday"];
 	var mi = 8.0;
 	var ma = 20.0;
 	# On veut récupérer l'heure min et l'heure max globaux
 	for i in range(iperiods[current_period]+1):
-		for e in js[(i+dec)%7]:
+		for e in js[i]:
 			if e[0][0] < mi: mi = [0][0];
 			if e[0][1] > ma: ma = e[0][1];
 	# On va maintenant afficher chacun des elements
 	for i in range(iperiods[current_period]+1):
 		var cont: Panel = get_node("VBoxContainer/ScrollContainer/HBoxContainer/j"+String(i)+"/j");
 		var hr = (cont.rect_size.y)/(ma-mi);
-		for e in js[(i+dec)%7]:
+		for e in js[i]:
 			var py = (e[0][0]-mi)*hr;
 			var ty = (e[0][1]-e[0][0])*hr;
 			var px = 0;
@@ -55,7 +58,13 @@ func draw_timetable():
 			bt.rect_size = Vector2(tx, ty);
 			bt.rect_min_size = Vector2(tx, ty);
 			bt.rect_position = Vector2(px, py);
+			bt.modulate = e[1]["color"];
+			bt.get_node("Button").connect("pressed", self, "_on_TTelt_pressed", [e[1]]);
 			#
+
+func _on_TTelt_pressed(elt):
+	Global.active_object = elt;
+	Global.go_to_page("res://pages/timetable/Create_Element.tscn");
 
 func _ready():
 	aff_date();

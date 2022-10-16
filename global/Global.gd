@@ -41,6 +41,10 @@ func load_data() -> void:
 		var dict: Dictionary = JSON.parse(file.get_as_text()).result;
 		file.close();
 		data = gidit._dict2inst(dict);
+		for c in data.calendars:
+			for e in c.elements:
+				var cl = e["color"].split(",");
+				e["color"] = Color(float(cl[0]), float(cl[1]), float(cl[2]))
 	else:
 		data = init_data();
 
@@ -56,7 +60,9 @@ func percent_of_subtask(st):
 	else:
 		return 0;
 
-func custom_arrdate_sort(ar1, ar2):
+func custom_arrdate_sort(bar1, bar2):
+	var ar1 = bar1[0];
+	var ar2 = bar2[0];
 	var l = min(len(ar1), len(ar2));
 	for i in range(l):
 		if ar1[i] > ar2[i]: return false;
