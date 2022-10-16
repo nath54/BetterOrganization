@@ -11,7 +11,7 @@ var original_cal = -1;
 
 var mode = "create";
 
-var evnt;
+var elmt;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,33 +19,27 @@ func _ready():
 	if Global.active_object == null:
 		mode = "create";
 		#
-		var date = OS.get_datetime();
-		day = date["day"];
-		month = date["month"];
-		year = date["year"];
+		day = 0;
 		cal = 0;
 		$VBoxContainer/Bt_suppr.visible = false;
 	else:
 		mode = "edit";
 		#
-		evnt = Global.active_object;
-		day = evnt["date"]["day"];
-		month = evnt["date"]["month"];
-		year = evnt["date"]["year"];
+		elmt = Global.active_object;
+		day = elmt["day"];
+		$VBoxContainer/Date/Jour.selected = day;
 		#
 		var i = 0;
 		for c in Global.data.calendars:
-			if evnt in c.events:
+			if elmt in c.elements:
 				cal = i;
 				original_cal = i;
 				break;
 			i+=1;
 		#
-		$VBoxContainer/Titre/LineEdit.text = evnt["title"];
+		$VBoxContainer/Titre/LineEdit.text = elmt["title"];
 		$VBoxContainer/Calendrier/OptionButton.selected = cal;
 		$VBoxContainer/Date/Date.text = String(day) + "/"+ String(month) + "/" + String(year);
-	#
-	display_date();
 	#
 	var i = 0;
 	for c in Global.data.calendars:
@@ -56,21 +50,17 @@ func _ready():
 		#
 		i+=1;
 
-
-func display_date():
-	$VBoxContainer/Date/Date.text = String(day)+"/"+String(month)+"/"+String(year);
-
 func _on_Bt_delete_pressed():
 	for c in Global.data.calendars:
-		if evnt in c.events:
-			c.events.erase(evnt);
+		if elmt in c.elements:
+			c.elements.erase(elmt);
 			break;
 	Global.save_data();
-	Global.go_to_page("res://pages/events/page_events.tscn");
+	Global.go_to_page("res://pages/timetable/page_timetable.tscn");
 
 
 func _on_Bt_cancel_pressed():
-	Global.go_to_page("res://pages/events/page_events.tscn");
+	Global.go_to_page("res://pages/timetable/page_timetable.tscn");
 
 func test():
 	return true;
@@ -81,33 +71,25 @@ func convert_str_to_heure(txt):
 func _on_Bt_validate_pressed():
 	if test():
 		if mode == "create":
-			Global.data.calendars[cal].events.append({
+			Global.data.calendars[cal].elements.append({
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
-				"date": {"day": day, "month": month, "year": year},
+				"day": day,
 				"heure_deb": convert_str_to_heure($VBoxContainer/Heure_Deb/LineEdit.text),
 				"heure_fin": convert_str_to_heure($VBoxContainer/Heure_Fin/LineEdit.text)
 			})
 		elif mode == "edit":
 			if original_cal != -1:
-				Global.data.calendars[original_cal].events.erase(evnt);
-			Global.data.calendars[cal].events.append({
+				Global.data.calendars[original_cal].elements(elmt);
+			Global.data.calendars[cal].elements.append({
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
-				"date": {"day": day, "month": month, "year": year},
+				"day": day,
 				"heure_deb": convert_str_to_heure($VBoxContainer/Heure_Deb/LineEdit.text),
 				"heure_fin": convert_str_to_heure($VBoxContainer/Heure_Fin/LineEdit.text)
 			});
 		Global.save_data();
-		Global.go_to_page("res://pages/events/page_events.tscn");
-	
-
-func _on_CalendarButton_date_selected(date_obj):
-	day = date_obj.day();
-	month = date_obj.month();
-	year = date_obj.year();
-	display_date();
-
+		Global.go_to_page("res://pages/timetable/page_timetable.tscn");
 
 func _on_OptionButton_item_selected(index):
 	cal = index;

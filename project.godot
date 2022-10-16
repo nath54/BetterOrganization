@@ -63,6 +63,7 @@ run/main_scene="res://pages/main_page.tscn"
 
 Global="*res://global/Global.gd"
 gidit="*res://global/gidit.gd"
+PriorityQueue="*res://global/PriorityQueue.gd"
 
 [display]
 
@@ -71,7 +72,7 @@ window/size/height=960
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/calendar_button/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [gui]
 
@@ -98,5 +99,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.0117647, 0.117647, 0.0352941, 1 )
+environment/default_clear_color=Color( 0.0470588, 0.329412, 0.290196, 1 )
 environment/default_environment="res://default_env.tres"

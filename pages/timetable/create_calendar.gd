@@ -33,7 +33,6 @@ func test():
 	if len(ititre.text) == 0 or len(ititre.text) > 50: return false;
 	for c in Global.data.calendars:
 		if Global.active_object != c and c.title == ititre.text:
-			print(c);
 			return false;
 	return true;
 

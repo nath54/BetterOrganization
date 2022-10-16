@@ -21,6 +21,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PageEvents" parent="VSplitContainer/Control" instance=ExtResource( 2 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 486.0

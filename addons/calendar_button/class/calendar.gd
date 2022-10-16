@@ -28,6 +28,29 @@ func get_days_in_month(month : int, year : int) -> int:
 	
 	return number_of_days
 
+func avance_days(i_day: int, i_month: int, i_year: int, nb_days: int):
+	var nb_days_month = get_days_in_month(i_month, i_year);
+	i_day += nb_days;
+	#
+	while i_day > nb_days_month:
+		i_month += 1
+		if i_month > 12:
+			i_month = 1;
+			i_year += 1;
+		#
+		nb_days_month = get_days_in_month(i_month, i_year);
+	#
+	while i_day < 0:
+		i_month -= 1
+		i_day += nb_days_month;
+		if i_month < 1:
+			i_month = 12;
+			i_year -= 1;
+		#
+		nb_days_month = get_days_in_month(i_month, i_year);
+	#
+	return {"day": i_day, "month": i_month, "year": i_year, "weekday": get_weekday(i_day, i_month, i_year)};
+
 func get_weekday(day : int, month : int, year : int) -> int:
 	var t : Array = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 	if(month < 3):

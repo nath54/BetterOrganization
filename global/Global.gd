@@ -44,5 +44,38 @@ func load_data() -> void:
 	else:
 		data = init_data();
 
+func percent_of_subtask(st):
+	var nb_finis: float = 0;
+	var total: float = 0
+	for row in st:
+		if row[1]:
+			nb_finis += 1.0;
+		total += 1.0;
+	if total > 0:
+		return nb_finis/total;
+	else:
+		return 0;
 
+func custom_arrdate_sort(ar1, ar2):
+	var l = min(len(ar1), len(ar2));
+	for i in range(l):
+		if ar1[i] > ar2[i]: return false;
+		elif ar1[i] < ar2[i]: return true;
+	return false;
+
+func float_to_heure(h: float):
+	var rh: int = floor(h);
+	h = h - rh;
+	var rm: int = h*60;
+	return [rh, rm];
+
+func float_to_heure_str(h: float):
+	var r = float_to_heure(h);
+	return String(r[0])+"h"+String(r[1]);
+
+func str_heure_to_float(s: String):
+	var hp: int = s.find("h");
+	var rh: float = int(s.substr(0, hp));
+	var rm: float = int(s.substr(hp+1, len(s)-hp-1));
+	return rh+rm/60.0;
 

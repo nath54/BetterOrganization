@@ -28,16 +28,16 @@ func dicts2insts(arr : Array) -> Array:
 	var inst_arr := []
 	for elem in arr:
 		if typeof(elem) == TYPE_DICTIONARY:
-			var inst := _dict2inst(elem)
+			var inst = _dict2inst(elem)
 			inst_arr.append(inst)
 		else:
 			return arr
 	return inst_arr
 
-func _dict2inst(dict : Dictionary) -> Object:
-	var i := 2
+func _dict2inst(dict : Dictionary):
+	if not "@path" in dict: return dict;
+	var i := 0
 	var new_dict: Dictionary = {}
-	new_dict["@path"] = dict["@path"];
 	while i < len(dict):
 		var key = dict.keys()[i]
 		var value = dict.values()[i]

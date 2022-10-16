@@ -16,7 +16,6 @@ func _on_Bt_Create_pressed():
 	Global.go_to_page("res://pages/timetable/create_calendar.tscn", false);
 
 func on_bt_dossier_pressed(cal: Calendrier):
-	print("Button press : ", cal.title);
 	Global.active_object = cal;
 	Global.go_to_page("res://pages/timetable/create_calendar.tscn");
 	
