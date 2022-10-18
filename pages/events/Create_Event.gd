@@ -8,6 +8,7 @@ var hour_beg = 8;
 var hour_end = 10;
 var cal = -1;
 var original_cal = -1;
+var color = Color(0.7, 0.65, 0.35);
 
 var mode = "create";
 
@@ -45,6 +46,7 @@ func _ready():
 		$VBoxContainer/Calendrier/OptionButton.selected = cal;
 		$VBoxContainer/Date/Date.text = String(day) + "/"+ String(month) + "/" + String(year);
 	#
+	$VBoxContainer/Color/ColorPickerButton.color = color;
 	display_date();
 	#
 	var i = 0;
@@ -82,6 +84,7 @@ func _on_Bt_validate_pressed():
 			Global.data.calendars[cal].events.append({
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
+				"color": color,
 				"date": {"day": day, "month": month, "year": year},
 				"heure_deb": Global.str_heure_to_float($VBoxContainer/Heure_Deb/LineEdit.text),
 				"heure_fin":  Global.str_heure_to_float($VBoxContainer/Heure_Fin/LineEdit.text)
@@ -92,6 +95,7 @@ func _on_Bt_validate_pressed():
 			Global.data.calendars[cal].events.append({
 				"title": $VBoxContainer/Titre/LineEdit.text,
 				"description": "",
+				"color": color,
 				"date": {"day": day, "month": month, "year": year},
 				"heure_deb":  Global.str_heure_to_float($VBoxContainer/Heure_Deb/LineEdit.text),
 				"heure_fin":  Global.str_heure_to_float($VBoxContainer/Heure_Fin/LineEdit.text)
@@ -109,3 +113,7 @@ func _on_CalendarButton_date_selected(date_obj):
 
 func _on_OptionButton_item_selected(index):
 	cal = index;
+
+
+func _on_ColorPickerButton_color_changed(cl):
+	color = cl;

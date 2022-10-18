@@ -3,14 +3,24 @@ class_name Calendar
 enum Month { JAN = 1, FEB = 2, MAR = 3, APR = 4, MAY = 5, JUN = 6, JUL = 7,
 		AUG = 8, SEP = 9, OCT = 10, NOV = 11, DEC = 12 }
 
-const MONTH_NAME = [ 
+"""const MONTH_NAME = [ 
 		"Jan", "Feb", "Mar", "Apr", 
 		"May", "Jun", "Jul", "Aug", 
-		"Sep", "Oct", "Nov", "Dec" ]
+		"Sep", "Oct", "Nov", "Dec" ]"""
+
+
+const MONTH_NAME = [ 
+		"Jan", "Feb", "Mars", "Avr", 
+		"Mai", "Juin", "Jul", "Aout", 
+		"Sep", "Oct", "Nov", "Dec" ];
+
+"""const WEEKDAY_NAME = [ 
+		"Sunday", "Monday", "Tuesday", "Wednesday", 
+		"Thursday", "Friday", "Saturday" ]"""
 
 const WEEKDAY_NAME = [ 
-		"Sunday", "Monday", "Tuesday", "Wednesday", 
-		"Thursday", "Friday", "Saturday" ]
+		"Dimanche", "Lundi", "Mardi", "Mercredi", 
+		"Jeudi", "Vendredi", "Samedi" ];
 
 func get_days_in_month(month : int, year : int) -> int:
 	var number_of_days : int

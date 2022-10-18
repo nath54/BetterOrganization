@@ -8,7 +8,7 @@ var hour_beg = 8;
 var hour_end = 10;
 var cal = -1;
 var original_cal = -1;
-var color = Color(150, 145, 63);
+var color = Color(0.7, 0.65, 0.35);
 
 var mode = "create";
 
@@ -32,6 +32,8 @@ func _ready():
 		color = elmt["color"];
 		$VBoxContainer/color/ColorPickerButton.color = color;
 		$VBoxContainer/Date/Jour.selected = day;
+		$VBoxContainer/Heure_Deb/LineEdit.text = Global.float_to_heure_str(elmt["heure_deb"]); 
+		$VBoxContainer/Heure_Fin/LineEdit.text = Global.float_to_heure_str(elmt["heure_fin"]);
 		#
 		var i = 0;
 		for c in Global.data.calendars:
@@ -99,3 +101,8 @@ func _on_OptionButton_item_selected(index):
 
 func _on_ColorPickerButton_color_changed(cl):
 	color = cl;
+
+
+
+func _on_Jour_item_selected(index):
+	day = index;

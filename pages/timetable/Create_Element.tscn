@@ -211,6 +211,7 @@ custom_styles/normal = ExtResource( 2 )
 text = "valider"
 
 [connection signal="item_selected" from="VBoxContainer/Calendrier/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Date/Jour" to="." method="_on_Jour_item_selected"]
 [connection signal="color_changed" from="VBoxContainer/color/ColorPickerButton" to="." method="_on_ColorPickerButton_color_changed"]
 [connection signal="pressed" from="VBoxContainer/Bt_suppr/Bt_delete" to="." method="_on_Bt_delete_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bt_ok_cancel/Bt_cancel" to="." method="_on_Bt_cancel_pressed"]

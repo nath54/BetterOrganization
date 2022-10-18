@@ -11,6 +11,8 @@ const DATA_PATH: String = "user://data.tscn";
 var file: File = File.new();
 var dire: Directory = Directory.new();
 
+var tt_crt_period: int = 1;
+
 func _ready():
 	load_data();
 
@@ -45,6 +47,9 @@ func load_data() -> void:
 			for e in c.elements:
 				var cl = e["color"].split(",");
 				e["color"] = Color(float(cl[0]), float(cl[1]), float(cl[2]))
+			for e in c.events:
+				var cl = e["color"].split(",");
+				e["color"] = Color(float(cl[0]), float(cl[1]), float(cl[2]))
 	else:
 		data = init_data();
 
@@ -77,7 +82,11 @@ func float_to_heure(h: float):
 
 func float_to_heure_str(h: float):
 	var r = float_to_heure(h);
-	return String(r[0])+"h"+String(r[1]);
+	var sh = String(r[0]);
+	var sm = String(r[1]);
+	#if len(sh) == 1: sh = "0"+sh;
+	if len(sm) == 1: sm = "0"+sm;
+	return sh+"h"+sm
 
 func str_heure_to_float(s: String):
 	var hp: int = s.find("h");
