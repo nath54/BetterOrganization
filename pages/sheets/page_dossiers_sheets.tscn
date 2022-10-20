@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
 [ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=3]
 [ext_resource path="res://pages/sheets/page_dossiers_sheets.gd" type="Script" id=4]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=5]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=7]
+[ext_resource path="res://res/ui/icons_alpha/pencil_icon.png" type="Texture" id=8]
 
 [node name="Create_" type="Control"]
 anchor_right = 1.0
@@ -22,8 +26,8 @@ margin_bottom = -10.0
 margin_right = 520.0
 margin_bottom = 40.0
 
-[node name="Bt_Create" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 40.0
+[node name="Bt_back" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 76.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -34,26 +38,103 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "+"
+text = "retour"
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 44.0
-margin_right = 520.0
+margin_left = 80.0
+margin_right = 476.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Dossiers :"
+text = "/"
 align = 1
 valign = 1
+autowrap = true
+
+[node name="Bt_Edit" type="Button" parent="VBoxContainer/HBoxContainer"]
+modulate = Color( 0.92549, 0.772549, 0.0784314, 1 )
+margin_left = 480.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 0 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Bt_Edit"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 44.0
 margin_right = 520.0
 margin_bottom = 48.0
 
-[node name="Dossiers" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Bts" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 52.0
 margin_right = 520.0
-margin_bottom = 52.0
+margin_bottom = 92.0
+custom_constants/separation = 15
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_Create" to="." method="_on_Bt_Create_pressed"]
+[node name="Bt_Create_Dir" type="Button" parent="VBoxContainer/Bts"]
+margin_right = 252.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "+sous-dossier"
+
+[node name="Bt_Create_Sheet" type="Button" parent="VBoxContainer/Bts"]
+margin_left = 267.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 3
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "+ fiche"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 520.0
+margin_bottom = 101.0
+custom_constants/separation = 5
+
+[node name="Sous_Dossiers" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 105.0
+margin_right = 520.0
+margin_bottom = 150.0
+
+[node name="Bt_prev_dir" type="Button" parent="VBoxContainer/Sous_Dossiers"]
+margin_right = 520.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "<-"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_back" to="." method="_on_Bt_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_Edit" to="." method="_on_Bt_Edit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bts/Bt_Create_Dir" to="." method="_on_Bt_Create_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bts/Bt_Create_Sheet" to="." method="_on_Bt_Create_Sheet_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sous_Dossiers/Bt_prev_dir" to="." method="_on_Bt_prev_dir_pressed"]

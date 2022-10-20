@@ -13,9 +13,16 @@ var dire: Directory = Directory.new();
 
 var tt_crt_period: int = 1;
 
+var current_dir: PoolStringArray = [];
+
+func get_cur_dir_dict():
+	var cd = Global.data.directories;
+	for i in range(len(current_dir)):
+		cd = cd[current_dir[i]];
+	return cd;
+
 func _ready():
 	load_data();
-
 
 func init_data() -> Data:
 	var dt: Data = Data.new();

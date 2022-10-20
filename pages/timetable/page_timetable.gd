@@ -26,6 +26,7 @@ func draw_timetable():
 	var js = {0: [], 1: [],2: [],3: [],4: [],5: [],6: []};
 	var dec = current_date["weekday"];
 	var jj: int;
+	print("BEGIN DRAW TIMETABLE : ", cdar, " - ", ndar);
 	# On récupère tous les éléments
 	for c in Global.data.calendars:
 		if c.active:
@@ -39,7 +40,7 @@ func draw_timetable():
 				var evdar = [[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"]]];
 				var c1: bool = Global.custom_arrdate_sort(cdar, evdar);
 				var c2: bool = Global.custom_arrdate_sort(evdar, ndar);
-				print(ev, "  c1 ", c1, "  c2 ", c2)
+				# print(ev, "  c1 ", c1, "  c2 ", c2)
 				if c1 and c2:
 					var wd: int = (cal.get_weekday(ev["date"]["day"], ev["date"]["month"], ev["date"]["year"]-1))%7;
 					jj = (int(wd+1-dec)%7);

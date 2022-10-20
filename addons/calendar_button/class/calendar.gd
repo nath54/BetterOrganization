@@ -41,8 +41,10 @@ func get_days_in_month(month : int, year : int) -> int:
 func avance_days(i_day: int, i_month: int, i_year: int, nb_days: int):
 	var nb_days_month = get_days_in_month(i_month, i_year);
 	i_day += nb_days;
+	print("NB_DAY : ", nb_days_month, "  - ", i_day);
 	#
 	while i_day > nb_days_month:
+		i_day -= nb_days_month;
 		i_month += 1
 		if i_month > 12:
 			i_month = 1;
