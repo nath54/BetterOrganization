@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/GodoTeX/LaTeX.cs" type="Script" id=1]
 [ext_resource path="res://pages/tests/TestScene.gd" type="Script" id=2]
@@ -12,12 +12,9 @@ data = {
 "width": 93
 }
 
-[sub_resource type="CSharpScript" id=2]
-
 [sub_resource type="ImageTexture" id=3]
 image = SubResource( 4 )
 size = Vector2( 93, 66 )
-script = SubResource( 2 )
 
 [node name="TestScene" type="Control"]
 anchor_right = 1.0

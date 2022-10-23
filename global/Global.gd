@@ -15,13 +15,19 @@ var tt_crt_period: int = 1;
 
 var current_dir: PoolStringArray = [];
 
-func get_cur_dir_dict():
+func get_cur_dir_dict() -> Dictionary:
 	var cd = Global.data.directories;
 	for i in range(len(current_dir)):
 		cd = cd[current_dir[i]];
 	return cd;
 
-func _ready():
+func get_next_free_sheet_name(dire: Dictionary) -> String:
+	var i: int = 1;
+	while "fiche"+String(i) in dire.keys():
+		i += 1;
+	return "fiche"+String(i);
+
+func _ready() -> void:
 	load_data();
 
 func init_data() -> Data:
@@ -60,7 +66,7 @@ func load_data() -> void:
 	else:
 		data = init_data();
 
-func percent_of_subtask(st):
+func percent_of_subtask(st: Array) -> float:
 	var nb_finis: float = 0;
 	var total: float = 0
 	for row in st:
@@ -70,9 +76,9 @@ func percent_of_subtask(st):
 	if total > 0:
 		return nb_finis/total;
 	else:
-		return 0;
+		return 0.0;
 
-func custom_arrdate_sort(bar1, bar2):
+func custom_arrdate_sort(bar1: Array, bar2: Array) -> bool:
 	var ar1 = bar1[0];
 	var ar2 = bar2[0];
 	var l = min(len(ar1), len(ar2));
@@ -81,13 +87,13 @@ func custom_arrdate_sort(bar1, bar2):
 		elif ar1[i] < ar2[i]: return true;
 	return false;
 
-func float_to_heure(h: float):
+func float_to_heure(h: float) -> Array:
 	var rh: int = floor(h);
 	h = h - rh;
 	var rm: int = h*60;
 	return [rh, rm];
 
-func float_to_heure_str(h: float):
+func float_to_heure_str(h: float) -> String:
 	var r = float_to_heure(h);
 	var sh = String(r[0]);
 	var sm = String(r[1]);
@@ -95,7 +101,7 @@ func float_to_heure_str(h: float):
 	if len(sm) == 1: sm = "0"+sm;
 	return sh+"h"+sm
 
-func str_heure_to_float(s: String):
+func str_heure_to_float(s: String) -> float:
 	var hp: int = s.find("h");
 	var rh: float = int(s.substr(0, hp));
 	var rm: float = int(s.substr(hp+1, len(s)-hp-1));

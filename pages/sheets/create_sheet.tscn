@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=5]
 [ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=6]
 [ext_resource path="res://pages/sheets/create_sheet.gd" type="Script" id=7]
+[ext_resource path="res://pages/sheets/Sheet_Element_Row_Ref.tscn" type="PackedScene" id=8]
 
 [node name="Create_sheet" type="Control"]
 anchor_right = 1.0
@@ -50,7 +51,7 @@ margin_bottom = 32.0
 size_flags_horizontal = 3
 text = "Titre"
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Titre"]
+[node name="TitleEdit" type="LineEdit" parent="VBoxContainer/Titre"]
 visible = false
 margin_left = 120.0
 margin_right = 452.0
@@ -110,31 +111,54 @@ margin_bottom = 35.0
 text = "Plusieurs possibilités pour une réponse"
 
 [node name="SepChar" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
 margin_top = 88.0
 margin_right = 520.0
 margin_bottom = 129.0
 
 [node name="Label" type="Label" parent="VBoxContainer/SepChar"]
 margin_top = 5.0
-margin_right = 123.0
+margin_right = 135.0
 margin_bottom = 36.0
-text = "Sep char : "
+text = "Sep chars : "
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/SepChar"]
-margin_left = 127.0
-margin_right = 221.0
+[node name="SepChars" type="LineEdit" parent="VBoxContainer/SepChar"]
+margin_left = 139.0
+margin_right = 233.0
 margin_bottom = 41.0
 text = "||"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 133.0
+margin_top = 88.0
 margin_right = 520.0
-margin_bottom = 137.0
+margin_bottom = 92.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 520.0
+margin_bottom = 132.0
+
+[node name="Bt_add_element" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 228.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 200, 36 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 1 )
+text = "ajouter un élement"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+margin_top = 136.0
+margin_right = 520.0
+margin_bottom = 140.0
 
 [node name="Cols" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 141.0
+margin_top = 144.0
 margin_right = 520.0
-margin_bottom = 174.0
+margin_bottom = 177.0
 custom_constants/separation = 10
 
 [node name="Col1" type="HBoxContainer" parent="VBoxContainer/Cols"]
@@ -228,11 +252,24 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 5 )
 
+[node name="Elements" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 181.0
+margin_right = 520.0
+margin_bottom = 181.0
+
+[node name="Sheet_Bt_Reference" parent="VBoxContainer/Elements" instance=ExtResource( 8 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 520.0
+margin_bottom = 39.0
+
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_back" to="." method="_on_Bt_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_validate_titre" to="." method="_on_Bt_validate_titre_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_edit_titre" to="." method="_on_Bt_edit_titre_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_delete_sheet" to="." method="_on_Bt_delete_sheet_pressed"]
 [connection signal="toggled" from="VBoxContainer/Cb_multi_pos/CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_add_element" to="." method="_on_Bt_add_element_pressed"]
 [connection signal="pressed" from="VBoxContainer/Cols/Col1/Bt_edit_col1" to="." method="_on_Bt_edit_col1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Cols/Col1/Bt_validate_col1" to="." method="_on_Bt_validate_col1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Cols/Col2/Bt_edit_col2" to="." method="_on_Bt_edit_col2_pressed"]

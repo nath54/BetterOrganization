@@ -9,7 +9,7 @@
 [ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=7]
 [ext_resource path="res://res/ui/icons_alpha/pencil_icon.png" type="Texture" id=8]
 
-[node name="Create_" type="Control"]
+[node name="Dossier_Sheets" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )

@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=1]
-[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
-[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=3]
-[ext_resource path="res://res/ui/icons_alpha/dir_icon.png" type="Texture" id=4]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/ui/icons_alpha/sheet_icon_white.png" type="Texture" id=4]
 
-[node name="Bt_dossier" type="Control"]
+[node name="Bt_Fiche" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -16,8 +16,8 @@ rect_min_size = Vector2( 0, 55 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-custom_styles/hover = ExtResource( 3 )
-custom_styles/pressed = ExtResource( 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -46,6 +46,6 @@ margin_bottom = 950.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Dossier"
+text = "Fiche"
 valign = 1
 autowrap = true
