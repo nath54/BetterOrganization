@@ -10,6 +10,7 @@ func _ready():
 	compile();
 
 func compile():
+	print("Compile : ", $C1/TextEdit.text, "  ", $C2/TextEdit.text);
 	# C1 : 
 	if $C1/TextEdit.text.begins_with("/math "):
 		$C1/C/C/Latex.LatexExpression =  $C1/TextEdit.text.substr(6);

@@ -20,8 +20,16 @@ func draw_subdirs() -> void:
 		if c != "@type":
 			if cur_dir_dict[c]["@type"] == "dir":
 				var bt = preload("res://pages/sheets/Bt_Dossier.tscn").instance();
-				bt.get_node("HBoxContainer/Label").text = c;
+				bt.name = c;
+				var res = get_nb_active(cur_dir_dict[c]);
+				var cl: Color = Color(0.5, 0.5, 0.5);
+				if res[1] != 0:
+					cl = Color(0.5, 0.5, 0.5)*(1.0-float(res[0])/float(res[1])) + Color(0, 1, 0)*float(res[0])/float(res[1]);
+				bt.get_node("Bt_activ").modulate = cl;
+				bt.get_node("Bt_activ").text = String(res[0])+"/"+String(res[1]);
+				bt.get_node("Button/HBoxContainer/Label").text = c;
 				bt.get_node("Button").connect("pressed", self, "_on_bt_dir_pressed", [c]);
+				bt.get_node("Bt_activ").connect("pressed", self, "_on_bt_dir_activ_pressed", [c]);
 				bt.rect_min_size.y = 55;
 				$VBoxContainer/Sous_Dossiers.add_child(bt);
 			elif cur_dir_dict[c]["@type"] == "sheet":
@@ -44,11 +52,60 @@ func draw_subdirs() -> void:
 					cl = Color(1, 1, 1);
 				#
 				var bt = preload("res://pages/sheets/Bt_Fiche.tscn").instance();
-				bt.get_node("HBoxContainer/Label").text = c;
+				bt.name = c;
+				if cur_dir_dict[c]["active"]:
+					bt.get_node("Bt_activ").modulate = Color(0,1,0);
+					bt.get_node("Bt_activ").text = "1";
+				else:
+					bt.get_node("Bt_activ").modulate = Color(0.5, 0.5, 0.5);
+					bt.get_node("Button/HBoxContainer/Label").text = "0";
+				bt.get_node("Button/HBoxContainer/Label").text = cur_dir_dict[c]["titre"];
 				bt.get_node("Button").connect("pressed", self, "_on_bt_fiche_pressed", [c]);
+				bt.get_node("Bt_activ").connect("pressed", self, "_on_bt_fiche_activ_pressed", [c]);
 				bt.rect_min_size.y = 55;
 				$VBoxContainer/Sous_Dossiers.add_child(bt);
-				
+
+
+func get_nb_active(d_dict: Dictionary) -> Array:
+	var nb: int = 0;
+	var nb_tot: int = 0;
+	for de in d_dict.keys():
+		if typeof(d_dict[de]) == TYPE_DICTIONARY:
+			if d_dict[de]["@type"] == "sheet":
+				nb_tot += 1;
+				if d_dict[de]["active"]: nb += 1;
+			elif d_dict[de]["@type"] == "dir":
+				var a = get_nb_active(d_dict[de]);
+				nb += a[0];
+				nb_tot += a[1];
+	return [nb, nb_tot];
+
+
+func _on_bt_fiche_activ_pressed(fiche_name: String) -> void:
+	cur_dir_dict[fiche_name]["active"] = not cur_dir_dict[fiche_name]["active"];
+	Global.save_data();
+	var bt:HBoxContainer = $VBoxContainer/Sous_Dossiers.get_node(fiche_name);
+	if cur_dir_dict[fiche_name]["active"]:
+		bt.get_node("Bt_activ").modulate = Color(0,1,0);
+		bt.get_node("Bt_activ").text = "1";
+	else:
+		bt.get_node("Bt_activ").modulate = Color(0.5, 0.5, 0.5);
+		bt.get_node("Bt_activ").text = "0";
+
+
+func _on_bt_dir_activ_pressed(dir_name: String) -> void:
+	for dd in cur_dir_dict[dir_name].keys():
+		if typeof(cur_dir_dict[dir_name][dd]) == TYPE_DICTIONARY:
+			if cur_dir_dict[dir_name][dd]["@type"] == "sheet":
+				cur_dir_dict[dir_name][dd]["active"] = not cur_dir_dict[dir_name][dd]["active"];
+	Global.save_data();
+	var res = get_nb_active(cur_dir_dict[dir_name]);
+	var bt:HBoxContainer = $VBoxContainer/Sous_Dossiers.get_node(dir_name);
+	var cl: Color = Color(0.5, 0.5, 0.5);
+	if res[1] != 0:
+		cl = Color(0.5, 0.5, 0.5)*(1.0-float(res[0])/float(res[1])) + Color(0, 1, 0)*float(res[0])/float(res[1]);
+	bt.get_node("Bt_activ").modulate = cl;
+	bt.get_node("Bt_activ").text = String(res[0])+"/"+String(res[1]);
 
 func _on_bt_fiche_pressed(fiche_name: String) -> void:
 	Global.active_object = cur_dir_dict[fiche_name];
@@ -72,10 +129,12 @@ func _on_Bt_Create_Sheet_pressed() -> void:
 	var titre: String = Global.get_next_free_sheet_name(d);
 	d[titre] = {
 		"@type": "sheet",
-		"titre": titre,
+		"id": titre, # NEVER CHANGE !
+		"titre": titre, # DISPLAYED NAME
 		"sep_chars": "||",
 		"col1": "Col1",
 		"col2": "Col2",
+		"active": false,
 		"data": [] # [col1, col2, knowledge lvl] # there will not be subelts or things like that (that would be for proof of a mathematical theorem for instance)
 	};
 	Global.active_object = d[titre];

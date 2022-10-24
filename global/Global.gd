@@ -15,6 +15,10 @@ var tt_crt_period: int = 1;
 
 var current_dir: PoolStringArray = [];
 
+var quiz_repeat: bool = true;
+var quiz_max_q: int = -1;
+
+
 func get_cur_dir_dict() -> Dictionary:
 	var cd = Global.data.directories;
 	for i in range(len(current_dir)):
@@ -95,15 +99,35 @@ func float_to_heure(h: float) -> Array:
 
 func float_to_heure_str(h: float) -> String:
 	var r = float_to_heure(h);
-	var sh = String(r[0]);
-	var sm = String(r[1]);
+	var sh: String = String(r[0]);
+	var sm: String = String(r[1]);
 	#if len(sh) == 1: sh = "0"+sh;
 	if len(sm) == 1: sm = "0"+sm;
-	return sh+"h"+sm
+	return sh+"h"+sm;
 
 func str_heure_to_float(s: String) -> float:
 	var hp: int = s.find("h");
 	var rh: float = int(s.substr(0, hp));
 	var rm: float = int(s.substr(hp+1, len(s)-hp-1));
 	return rh+rm/60.0;
+
+func gafs_aux(d: Dictionary) -> Array:
+	var res: Array = [];
+	for de in d.keys():
+		if typeof(d[de]) == TYPE_DICTIONARY:
+			if d[de]["@type"] == "dir":
+				res += gafs_aux(d[de]);
+			elif d[de]["@type"] == "sheet":
+				if d[de]["active"]:
+					res.append(d[de]);
+	return res;
+
+func get_all_fiches_selected():
+	return gafs_aux(self.data.directories);
+
+func get_fiches_sel_nb_elts(afs: Array) -> int:
+	var res:int = 0;
+	for e in afs:
+		res += len(e["data"]);
+	return res;
 

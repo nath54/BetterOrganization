@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
 [ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=3]
 [ext_resource path="res://res/ui/icons_alpha/dir_icon.png" type="Texture" id=4]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=6]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=7]
 
-[node name="Bt_dossier" type="Control"]
+[node name="Bt_dossier" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Button" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 481.0
+margin_bottom = 960.0
 rect_min_size = Vector2( 0, 55 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -20,7 +25,7 @@ custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -29,7 +34,7 @@ margin_right = -5.0
 margin_bottom = -5.0
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Button/HBoxContainer"]
 margin_right = 45.0
 margin_bottom = 950.0
 rect_min_size = Vector2( 45, 45 )
@@ -39,9 +44,9 @@ texture = ExtResource( 4 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="Label" type="Label" parent="Button/HBoxContainer"]
 margin_left = 49.0
-margin_right = 530.0
+margin_right = 471.0
 margin_bottom = 950.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
@@ -49,3 +54,16 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Dossier"
 valign = 1
 autowrap = true
+
+[node name="Bt_activ" type="Button" parent="."]
+margin_left = 485.0
+margin_right = 540.0
+margin_bottom = 960.0
+rect_min_size = Vector2( 55, 0 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/normal = ExtResource( 6 )
+text = "0"

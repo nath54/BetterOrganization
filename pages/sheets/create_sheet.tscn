@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=5]
 [ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=6]
 [ext_resource path="res://pages/sheets/create_sheet.gd" type="Script" id=7]
-[ext_resource path="res://pages/sheets/Sheet_Element_Row_Ref.tscn" type="PackedScene" id=8]
 
 [node name="Create_sheet" type="Control"]
 anchor_right = 1.0
@@ -256,13 +255,6 @@ custom_styles/normal = ExtResource( 5 )
 margin_top = 181.0
 margin_right = 520.0
 margin_bottom = 181.0
-
-[node name="Sheet_Bt_Reference" parent="VBoxContainer/Elements" instance=ExtResource( 8 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 520.0
-margin_bottom = 39.0
 
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_back" to="." method="_on_Bt_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_validate_titre" to="." method="_on_Bt_validate_titre_pressed"]

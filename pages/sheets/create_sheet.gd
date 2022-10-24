@@ -18,42 +18,48 @@ func _ready():
 		roelt.connect("element_changed", self, "on_element_changed", [elt, roelt]);
 		$VBoxContainer/Elements.add_child(roelt);
 
+func save_dt():
+	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;
+	Global.save_data();
+
 func on_element_changed(elt, roelt):
-	var t1: String = roelt.get_node("C1/Text_edit").text;
-	var t2: String = roelt.get_node("C2/Text_edit").text;
+	var t1: String = roelt.get_node("C1/TextEdit").text;
+	var t2: String = roelt.get_node("C2/TextEdit").text;
 	#
 	var id_elt = Global.active_object["data"].find(elt);
 	if id_elt != -1:
-		Global.active_object["data"][id_elt][0] = t1;
-		Global.active_object["data"][id_elt][1] = t2;
+		Global.get_cur_dir_dict()[Global.active_object["id"]]["data"][id_elt][0] = t1;
+		Global.get_cur_dir_dict()[Global.active_object["id"]]["data"][id_elt][1] = t2;
 		Global.save_data();
 
 func delete_row_elt(elt, roelt):
 	Global.active_object["data"].erase(elt);
 	roelt.queue_free();
-	Global.save_data();
+	save_dt();
 
 func _on_Bt_back_pressed():
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 
 func _on_Bt_validate_titre_pressed():
-	$VBoxContainer/Titre/Title.text = $VBoxContainer/Titre/LineEdit.text;
+	$VBoxContainer/Titre/Title.text = $VBoxContainer/Titre/TitleEdit.text;
 	$VBoxContainer/Titre/Title.visible = true;
 	$VBoxContainer/Titre/Bt_validate_titre.visible = false;
-	$VBoxContainer/Titre/LineEdit.visible = false;
+	$VBoxContainer/Titre/TitleEdit.visible = false;
 	$VBoxContainer/Titre/Bt_edit_titre.visible = true;
+	Global.active_object["titre"] = $VBoxContainer/Titre/TitleEdit.text;
+	Global.save_data();
 
 func _on_Bt_edit_titre_pressed():
-	$VBoxContainer/Titre/LineEdit.text = $VBoxContainer/Titre/Title.text;
+	$VBoxContainer/Titre/TitleEdit.text =  $VBoxContainer/Titre/Title.text;
 	$VBoxContainer/Titre/Title.visible = false;
 	$VBoxContainer/Titre/Bt_validate_titre.visible = true;
-	$VBoxContainer/Titre/LineEdit.visible = true;
+	$VBoxContainer/Titre/TitleEdit.visible = true;
 	$VBoxContainer/Titre/Bt_edit_titre.visible = false
 
 
 func _on_Bt_delete_sheet_pressed():
-	# TODO
-	pass
+	Global.get_cur_dir_dict().erase(Global.active_object["id"]);
+	Global.save_data();
 	#
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 
@@ -96,6 +102,7 @@ func _on_Bt_validate_col2_pressed():
 
 func _on_Bt_add_element_pressed():
 	Global.active_object["data"].append(["", "", -1]);
+	save_dt();
 	var roelt:RowSheetElement = preload("res://pages/sheets/Sheet_Element_Row_Ref.tscn").instance();
 	roelt.set_val("", "");
 	roelt.connect("delete_pressed", self, "delete_row_elt", [Global.active_object["data"][len(Global.active_object["data"])-1], roelt]);
