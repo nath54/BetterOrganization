@@ -1,5 +1,393 @@
-[gd_scene format=2]
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://pages/RenderText.tscn" type="PackedScene" id=1]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://pages/sheets/quiz/Page_quiz.gd" type="Script" id=5]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=7]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://res/fonts/merriweather.regular.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 9 )
 
 [node name="Page_quiz" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Question_mode_carte" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Question_mode_carte"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Titre" type="Label" parent="Question_mode_carte/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "Question : "
+align = 1
+valign = 1
+autowrap = true
+
+[node name="RenderText" parent="Question_mode_carte/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 44.0
+margin_right = 520.0
+margin_bottom = 757.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="VBoxContainer" parent="Question_mode_carte/VBoxContainer"]
+margin_top = 761.0
+margin_right = 520.0
+margin_bottom = 940.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+alignment = 1
+
+[node name="Button" type="Button" parent="Question_mode_carte/VBoxContainer/Control"]
+margin_left = 205.0
+margin_top = 69.0
+margin_right = 315.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 110, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "dévoiler"
+
+[node name="Question_mode_ecrire" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Question_mode_ecrire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Titre" type="Label" parent="Question_mode_ecrire/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+text = "Question : "
+valign = 1
+autowrap = true
+
+[node name="RenderText" parent="Question_mode_ecrire/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 44.0
+margin_right = 520.0
+margin_bottom = 326.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Control" type="VBoxContainer" parent="Question_mode_ecrire/VBoxContainer"]
+margin_top = 330.0
+margin_right = 520.0
+margin_bottom = 895.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Question_mode_ecrire/VBoxContainer/Control"]
+margin_right = 520.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer"]
+margin_top = 4.0
+margin_right = 122.0
+margin_bottom = 35.0
+text = "Réponse : "
+
+[node name="Bt_View" type="Button" parent="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer"]
+margin_left = 126.0
+margin_right = 166.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+
+[node name="Bt_Edit" type="Button" parent="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer"]
+visible = false
+margin_left = 170.0
+margin_right = 210.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+
+[node name="TextEdit" type="TextEdit" parent="Question_mode_ecrire/VBoxContainer/Control"]
+margin_top = 44.0
+margin_right = 520.0
+margin_bottom = 565.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RenderText" parent="Question_mode_ecrire/VBoxContainer/Control" instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 306.0
+margin_right = 520.0
+margin_bottom = 565.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Bt_devoiler" type="VBoxContainer" parent="Question_mode_ecrire/VBoxContainer"]
+margin_top = 899.0
+margin_right = 520.0
+margin_bottom = 939.0
+
+[node name="Bt_devoiler" type="Button" parent="Question_mode_ecrire/VBoxContainer/Bt_devoiler"]
+margin_left = 205.0
+margin_right = 315.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 110, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "dévoiler"
+
+[node name="Reponse_mode_carte" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Reponse_mode_carte"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TitreBonneRep" type="Label" parent="Reponse_mode_carte/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 31.0
+text = "Bonne réponse :"
+
+[node name="RenderText" parent="Reponse_mode_carte/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 520.0
+margin_bottom = 887.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Reponse_mode_carte/VBoxContainer"]
+margin_top = 891.0
+margin_right = 520.0
+margin_bottom = 940.0
+
+[node name="TitreNoterConnaissance" type="Label" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+custom_fonts/font = SubResource( 1 )
+text = "Noter votre connaissance de cet élément :"
+autowrap = true
+
+[node name="Bt_eval0" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 304.0
+margin_top = 4.0
+margin_right = 344.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+text = "0"
+
+[node name="Bt_eval1" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.952941, 0.423529, 0, 1 )
+margin_left = 348.0
+margin_top = 4.0
+margin_right = 388.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+text = "1"
+
+[node name="Bt_eval2" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.839216, 0.647059, 0, 1 )
+margin_left = 392.0
+margin_top = 4.0
+margin_right = 432.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+text = "2"
+
+[node name="Bt_eval3" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.631373, 0.835294, 0, 1 )
+margin_left = 436.0
+margin_top = 4.0
+margin_right = 476.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+text = "3"
+
+[node name="Bt_eval4" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+modulate = Color( 0.14902, 1, 0, 1 )
+margin_left = 480.0
+margin_top = 4.0
+margin_right = 520.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 4
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+text = "4"
+
+[node name="Reponse_mode_ecrire" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Reponse_mode_ecrire"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TitreBonneRep" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 31.0
+text = "Bonne réponse :"
+
+[node name="RenderText" parent="Reponse_mode_ecrire/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 520.0
+margin_bottom = 427.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="JUSTE" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
+modulate = Color( 0.407843, 1, 0, 1 )
+margin_top = 431.0
+margin_right = 520.0
+margin_bottom = 462.0
+text = "JUSTE !"
+align = 1
+
+[node name="FAUX" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+margin_top = 472.0
+margin_right = 520.0
+margin_bottom = 503.0
+text = "FAUX !"
+align = 1
+
+[node name="TitreVotreRep" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
+margin_top = 466.0
+margin_right = 520.0
+margin_bottom = 497.0
+text = "Votre réponse :"
+
+[node name="RenderText2" parent="Reponse_mode_ecrire/VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 501.0
+margin_right = 520.0
+margin_bottom = 894.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Reponse_mode_ecrire/VBoxContainer"]
+margin_top = 898.0
+margin_right = 520.0
+margin_bottom = 940.0
+
+[node name="Bt_arreter" type="Button" parent="Reponse_mode_ecrire/VBoxContainer/HBoxContainer"]
+margin_right = 258.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 42 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "arreter"
+
+[node name="Bt_suivant" type="Button" parent="Reponse_mode_ecrire/VBoxContainer/HBoxContainer"]
+margin_left = 262.0
+margin_right = 520.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 42 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "suivant"

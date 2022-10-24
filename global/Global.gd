@@ -17,6 +17,7 @@ var current_dir: PoolStringArray = [];
 
 var quiz_repeat: bool = true;
 var quiz_max_q: int = -1;
+var quiz_mode: int = 0; # 0 = cartes, 1 = écrire
 
 
 func get_cur_dir_dict() -> Dictionary:
