@@ -60,7 +60,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 alignment = 1
 
-[node name="Button" type="Button" parent="Question_mode_carte/VBoxContainer/Control"]
+[node name="Bt_devoiler_cartes" type="Button" parent="Question_mode_carte/VBoxContainer/Control"]
 margin_left = 205.0
 margin_top = 69.0
 margin_right = 315.0
@@ -164,7 +164,7 @@ margin_top = 899.0
 margin_right = 520.0
 margin_bottom = 939.0
 
-[node name="Bt_devoiler" type="Button" parent="Question_mode_ecrire/VBoxContainer/Bt_devoiler"]
+[node name="Bt_devoiler_ecrire" type="Button" parent="Question_mode_ecrire/VBoxContainer/Bt_devoiler"]
 margin_left = 205.0
 margin_right = 315.0
 margin_bottom = 40.0
@@ -301,6 +301,7 @@ custom_styles/normal = ExtResource( 7 )
 text = "4"
 
 [node name="Reponse_mode_ecrire" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -391,3 +392,86 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 text = "suivant"
+
+[node name="Ecran_Fin" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = -15.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ecran_Fin"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="Ecran_Fin/VBoxContainer"]
+margin_top = 362.0
+margin_right = 510.0
+margin_bottom = 393.0
+text = "Fin du quiz !"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="Ecran_Fin/VBoxContainer"]
+margin_top = 408.0
+margin_right = 510.0
+margin_bottom = 412.0
+
+[node name="score" type="Label" parent="Ecran_Fin/VBoxContainer"]
+margin_top = 427.0
+margin_right = 510.0
+margin_bottom = 492.0
+text = "Vous avez effectué 0 questions, avec une réussite de 0%"
+autowrap = true
+
+[node name="HSeparator2" type="HSeparator" parent="Ecran_Fin/VBoxContainer"]
+margin_top = 507.0
+margin_right = 510.0
+margin_bottom = 511.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ecran_Fin/VBoxContainer"]
+margin_top = 526.0
+margin_right = 510.0
+margin_bottom = 568.0
+custom_constants/separation = 15
+
+[node name="Bt_restart_the_same" type="Button" parent="Ecran_Fin/VBoxContainer/HBoxContainer"]
+margin_right = 247.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 42 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "refaire pareil"
+
+[node name="Bt_go_menu" type="Button" parent="Ecran_Fin/VBoxContainer/HBoxContainer"]
+margin_left = 262.0
+margin_right = 510.0
+margin_bottom = 42.0
+rect_min_size = Vector2( 0, 42 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "menu"
+
+[connection signal="pressed" from="Question_mode_carte/VBoxContainer/Control/Bt_devoiler_cartes" to="." method="_on_Bt_devoiler_cartes_pressed"]
+[connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_View" to="." method="_on_Bt_View_pressed"]
+[connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_Edit" to="." method="_on_Bt_Edit_pressed"]
+[connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Bt_devoiler/Bt_devoiler_ecrire" to="." method="_on_Bt_devoiler_ecrire_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval0" to="." method="_on_Bt_eval0_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval1" to="." method="_on_Bt_eval1_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval2" to="." method="_on_Bt_eval2_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval3" to="." method="_on_Bt_eval3_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval4" to="." method="_on_Bt_eval4_pressed"]

@@ -92,6 +92,22 @@ func custom_arrdate_sort(bar1: Array, bar2: Array) -> bool:
 		elif ar1[i] < ar2[i]: return true;
 	return false;
 
+
+# Décroissant, 1 seul elt
+func custom_arrdate2_sort(ar1: Array, ar2: Array, sens_croissant:bool=false, max_e: int=1) -> bool:
+	var l = min(len(ar1), len(ar2));
+	if max_e != -1: l = min(l, max_e);
+	#
+	for i in range(l):
+		if sens_croissant:
+			if ar1[i] > ar2[i]: return false;
+			elif ar1[i] < ar2[i]: return true;
+		else:
+			if ar1[i] < ar2[i]: return false;
+			elif ar1[i] > ar2[i]: return true;
+	# égalité, on ne permute pas les ojets
+	return false;
+
 func float_to_heure(h: float) -> Array:
 	var rh: int = floor(h);
 	h = h - rh;
