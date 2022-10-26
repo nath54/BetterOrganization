@@ -202,16 +202,16 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 35.0
 margin_right = 520.0
-margin_bottom = 887.0
+margin_bottom = 846.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Reponse_mode_carte/VBoxContainer"]
-margin_top = 891.0
+[node name="HBoxScore" type="HBoxContainer" parent="Reponse_mode_carte/VBoxContainer"]
+margin_top = 850.0
 margin_right = 520.0
-margin_bottom = 940.0
+margin_bottom = 899.0
 
-[node name="TitreNoterConnaissance" type="Label" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+[node name="TitreNoterConnaissance" type="Label" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 margin_right = 300.0
 margin_bottom = 49.0
 size_flags_horizontal = 3
@@ -220,7 +220,7 @@ custom_fonts/font = SubResource( 1 )
 text = "Noter votre connaissance de cet élément :"
 autowrap = true
 
-[node name="Bt_eval0" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+[node name="Bt_eval0" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 1, 0, 0, 1 )
 margin_left = 304.0
 margin_top = 4.0
@@ -236,7 +236,7 @@ custom_styles/pressed = ExtResource( 8 )
 custom_styles/normal = ExtResource( 7 )
 text = "0"
 
-[node name="Bt_eval1" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+[node name="Bt_eval1" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.952941, 0.423529, 0, 1 )
 margin_left = 348.0
 margin_top = 4.0
@@ -252,7 +252,7 @@ custom_styles/pressed = ExtResource( 8 )
 custom_styles/normal = ExtResource( 7 )
 text = "1"
 
-[node name="Bt_eval2" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+[node name="Bt_eval2" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.839216, 0.647059, 0, 1 )
 margin_left = 392.0
 margin_top = 4.0
@@ -268,7 +268,7 @@ custom_styles/pressed = ExtResource( 8 )
 custom_styles/normal = ExtResource( 7 )
 text = "2"
 
-[node name="Bt_eval3" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+[node name="Bt_eval3" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.631373, 0.835294, 0, 1 )
 margin_left = 436.0
 margin_top = 4.0
@@ -284,7 +284,7 @@ custom_styles/pressed = ExtResource( 8 )
 custom_styles/normal = ExtResource( 7 )
 text = "3"
 
-[node name="Bt_eval4" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxContainer"]
+[node name="Bt_eval4" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.14902, 1, 0, 1 )
 margin_left = 480.0
 margin_top = 4.0
@@ -299,6 +299,37 @@ custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 8 )
 custom_styles/normal = ExtResource( 7 )
 text = "4"
+
+[node name="HBoxBts" type="HBoxContainer" parent="Reponse_mode_carte/VBoxContainer"]
+visible = false
+margin_top = 903.0
+margin_right = 520.0
+margin_bottom = 940.0
+
+[node name="Bt_arreter" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxBts"]
+margin_right = 258.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "arreter"
+
+[node name="Bt_suivant" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxBts"]
+margin_left = 262.0
+margin_right = 520.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "suivant"
 
 [node name="Reponse_mode_ecrire" type="Control" parent="."]
 visible = false
@@ -470,8 +501,10 @@ text = "menu"
 [connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_View" to="." method="_on_Bt_View_pressed"]
 [connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_Edit" to="." method="_on_Bt_Edit_pressed"]
 [connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Bt_devoiler/Bt_devoiler_ecrire" to="." method="_on_Bt_devoiler_ecrire_pressed"]
-[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval0" to="." method="_on_Bt_eval0_pressed"]
-[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval1" to="." method="_on_Bt_eval1_pressed"]
-[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval2" to="." method="_on_Bt_eval2_pressed"]
-[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval3" to="." method="_on_Bt_eval3_pressed"]
-[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxContainer/Bt_eval4" to="." method="_on_Bt_eval4_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxScore/Bt_eval0" to="." method="_on_Bt_eval0_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxScore/Bt_eval1" to="." method="_on_Bt_eval1_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxScore/Bt_eval2" to="." method="_on_Bt_eval2_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxScore/Bt_eval3" to="." method="_on_Bt_eval3_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxScore/Bt_eval4" to="." method="_on_Bt_eval4_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxBts/Bt_arreter" to="." method="_on_Bt_arreter_pressed"]
+[connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxBts/Bt_suivant" to="." method="_on_Bt_suivant_pressed"]

@@ -19,12 +19,14 @@ var quiz_repeat: bool = true;
 var quiz_max_q: int = -1;
 var quiz_mode: int = 0; # 0 = cartes, 1 = écrire
 
+func get_dict_at_path(path: Array) -> Dictionary:
+	var cd: Dictionary = Global.data.directories;
+	for i in range(len(path)):
+		cd = cd[path[i]];
+	return cd;
 
 func get_cur_dir_dict() -> Dictionary:
-	var cd = Global.data.directories;
-	for i in range(len(current_dir)):
-		cd = cd[current_dir[i]];
-	return cd;
+	return get_dict_at_path(current_dir);
 
 func get_next_free_sheet_name(dire: Dictionary) -> String:
 	var i: int = 1;
@@ -128,19 +130,20 @@ func str_heure_to_float(s: String) -> float:
 	var rm: float = int(s.substr(hp+1, len(s)-hp-1));
 	return rh+rm/60.0;
 
-func gafs_aux(d: Dictionary) -> Array:
+func gafs_aux(d: Dictionary, cur_path: Array) -> Array:
 	var res: Array = [];
 	for de in d.keys():
 		if typeof(d[de]) == TYPE_DICTIONARY:
 			if d[de]["@type"] == "dir":
-				res += gafs_aux(d[de]);
+				res += gafs_aux(d[de], cur_path+[de]);
 			elif d[de]["@type"] == "sheet":
 				if d[de]["active"]:
+					d[de]["path"] = cur_path+[de];
 					res.append(d[de]);
 	return res;
 
 func get_all_fiches_selected():
-	return gafs_aux(self.data.directories);
+	return gafs_aux(self.data.directories, []);
 
 func get_fiches_sel_nb_elts(afs: Array) -> int:
 	var res:int = 0;

@@ -4,9 +4,15 @@ const con_import: Dictionary = {
 	-1: 8,
 	0: 10,
 	1: 7,
-	2: 4,
-	3: 3,
-	4: 1
+	2: 6,
+	3: 5,
+	4: 4,
+	5: 3,
+	6: 3,
+	7: 2,
+	8: 2,
+	9: 1,
+	10:1
 }
 
 var state: int = 0; # 0 = rien, 1 = question, 2 = réponse, 3 = fini
@@ -38,14 +44,18 @@ func _ready() -> void:
 	# On va préparer les questions
 	# On récupère tous les éléments
 	var idsh: int = 0;
+	tot_tire = 0;
 	for sh in ss:
+		var id_elt_in_sh: int = 0;
 		for e in sh["data"]:
-			qsts.append([con_import[e[2]], e[0], e[1], idsh]);
-			tot_tire += con_import[e[2]];
+			qsts.append([con_import[int(e[2])], e[0], e[1], idsh, id_elt_in_sh]); # 0 = importance, 1 = col1, 2 = col2, 3 = idx sheet, 4 = idx elt in sheet data
+			tot_tire += con_import[int(e[2])];
+			id_elt_in_sh+=1;
 		idsh += 1;
 	# On trie les éléments
 	qsts.sort_custom(Global, "custom_arrdate2_sort");
 	#
+	suivant();
 
 func suivant() -> void:
 	if not state in [0, 2]:
@@ -59,9 +69,10 @@ func suivant() -> void:
 		ecran_fin();
 	# On tire la prochaine question
 	var a: int = rng.randi_range(0, tot_tire);
+	print("Liste : ", qsts, "\n val tirée : ", a, "\n tot_tire : ", tot_tire);
 	var ii: int = 0;
 	var st: int = qsts[0][0];
-	while st < a and ii < len(qsts) - 1:
+	while st <= a and ii < len(qsts) - 1:
 		ii += 1;
 		st += qsts[ii][0];
 	#
@@ -102,32 +113,94 @@ func _on_Bt_Edit_pressed():
 func _on_Bt_devoiler_cartes_pressed():
 	if state != 1: return;
 	#
+	state = 2;
 	aff_page(false, false, true, false, false);
+	$Reponse_mode_carte/VBoxContainer/HBoxScore.visible = true;
+	$Reponse_mode_carte/VBoxContainer/HBoxBts.visible = false;
 	$Reponse_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_rep+1]);
 
 
+func bt_eval_gen(val: int):
+	Global.get_dict_at_path(ss[qsts[id_q][3]]["path"])["data"][qsts[id_q][4]][2] = val;
+	Global.save_data();
+	var new_val = con_import[int(val)];
+	tot_tire += new_val - qsts[id_q][0];
+	qsts[id_q][0] = new_val;
+	qsts.sort_custom(Global, "custom_arrdate2_sort");
+	nb_q += 1;
+	score += float(val)/10.0;
+	$Reponse_mode_carte/VBoxContainer/HBoxScore.visible = false;
+	$Reponse_mode_carte/VBoxContainer/HBoxBts.visible = true;
+
 
 func _on_Bt_eval0_pressed():
-	pass # Replace with function body.
-
+	bt_eval_gen(0);
 
 func _on_Bt_eval1_pressed():
-	pass # Replace with function body.
-
+	bt_eval_gen(2);
 
 func _on_Bt_eval2_pressed():
-	pass # Replace with function body.
-
+	bt_eval_gen(5);
 
 func _on_Bt_eval3_pressed():
-	pass # Replace with function body.
-
+	bt_eval_gen(8);
 
 func _on_Bt_eval4_pressed():
-	pass # Replace with function body.
+	bt_eval_gen(10);
 
 
+func _on_Bt_arreter_pressed():
+	ecran_fin();
 
+
+func _on_Bt_suivant_pressed():
+	suivant();
+
+
+func compare_txt_maths(t1: String, t2: String) -> int:
+	if t1 == t2:
+		return 10;
+	return 0;
+
+func compare_txt_norm(t1: String, t2: String) -> int:
+	if t1 == t2:
+		return 10;
+	return 0;
 
 func _on_Bt_devoiler_ecrire_pressed():
-	pass # Replace with function body.
+	aff_page(false, false, false, true, false);
+	var t1: String = qsts[id_q][col_rep+1];
+	var t2: String = $Question_mode_ecrire/VBoxContainer/Control/TextEdit.text;
+	$Reponse_mode_ecrire/VBoxContainer/RenderText.set_text(t1);
+	$Reponse_mode_ecrire/VBoxContainer/RenderText2.set_text(t2);
+	var val: int;
+	if qsts[id_q][col_rep+1].begins_with("/math"):
+		val = compare_txt_maths(t1, t2);
+	else:
+		val = compare_txt_norm(t1, t2);
+	#
+	if val > 5.0:
+		$Reponse_mode_ecrire/VBoxContainer/JUSTE.visible = true;
+		$Reponse_mode_ecrire/VBoxContainer/FAUX.visible = false;
+	else:
+		$Reponse_mode_ecrire/VBoxContainer/JUSTE.visible = false;
+		$Reponse_mode_ecrire/VBoxContainer/FAUX.visible = true;
+	#
+	Global.get_dict_at_path(ss[qsts[id_q][3]]["path"])["data"][qsts[id_q][4]][2] = val;
+	Global.save_data();
+	var new_val = con_import[int(val)];
+	tot_tire += new_val - qsts[id_q][0];
+	qsts[id_q][0] = new_val;
+	qsts.sort_custom(Global, "custom_arrdate2_sort");
+	nb_q += 1;
+	score += float(val)/10.0;
+	
+	
+	
+
+
+
+
+
+
+
