@@ -6,6 +6,7 @@ onready var ctr = $VSplitContainer/Control;
 func _ready():
 	Global.main_nav = self;
 	$VSplitContainer/MainNavBar.connect("change_page", self, "change_page");
+	Global.go_to_page("res://pages/home/page_home.tscn");
 
 var pages = {
 	"events": "res://pages/events/page_events.tscn",

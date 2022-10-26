@@ -19,6 +19,11 @@ var quiz_repeat: bool = true;
 var quiz_max_q: int = -1;
 var quiz_mode: int = 0; # 0 = cartes, 1 = écrire
 
+var current_date: Dictionary = OS.get_date();
+var cdar: Array = [current_date["year"], current_date["month"], current_date["day"]];
+
+var cal: Calendar = Calendar.new();
+
 func get_dict_at_path(path: Array) -> Dictionary:
 	var cd: Dictionary = Global.data.directories;
 	for i in range(len(path)):
@@ -58,18 +63,29 @@ func save_data() -> void:
 
 func load_data() -> void:
 	if file.file_exists(DATA_PATH):
-		print("file exists");
+		# print("file exists");
 		file.open(DATA_PATH, File.READ);
 		var dict: Dictionary = JSON.parse(file.get_as_text()).result;
 		file.close();
 		data = gidit._dict2inst(dict);
 		for c in data.calendars:
+			var asup: Array = [];
 			for e in c.elements:
 				var cl = e["color"].split(",");
 				e["color"] = Color(float(cl[0]), float(cl[1]), float(cl[2]))
 			for e in c.events:
+				# On marque les "vieux" évenements
+				#print(e);
+				#print("Distance DAY : ", cal.distance_days([e["date"]["year"], e["date"]["month"], e["date"]["day"]], cdar));
+				if cal.distance_days([e["date"]["year"], e["date"]["month"], e["date"]["day"]], cdar) > Global.data.setting_period_delete_evnt:
+					asup.append(e);
 				var cl = e["color"].split(",");
 				e["color"] = Color(float(cl[0]), float(cl[1]), float(cl[2]))
+			# On supprime les "vieux" évenements
+			for e in asup:
+				c.elements.erase(e);
+		#
+		Global.save_data();
 	else:
 		data = init_data();
 

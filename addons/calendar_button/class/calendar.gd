@@ -63,6 +63,45 @@ func avance_days(i_day: int, i_month: int, i_year: int, nb_days: int):
 	#
 	return {"day": i_day, "month": i_month, "year": i_year, "weekday": get_weekday(i_day, i_month, i_year)};
 
+# On suppose que Global sera déjà chargé
+func distance_days(d1: Array, d2: Array) -> int: # d1 et d2 de la forme [année, moi, jour]
+	var dist: int = 0;
+	var sens: int = 1;
+	if Global.custom_arrdate_sort([d1], [d2]): sens = -1; # On recule
+	# On est pas dans la même année
+	while d1[0] != d2[0]:
+		if d1[2] != 1: # On se remet au premier jour du moi
+			dist -= (d1[2] - 1);
+			d1[2] = 1;
+		if sens == -1:  # On recule
+			while d1[1] > 1:
+				dist -= get_days_in_month(d1[1], d1[0]);
+				d1[1] = d1[1] - 1;
+			d1[0] -= 1;
+			d1[1] = 12;
+			d1[2] = get_days_in_month(d1[1], d1[0]);
+		else: # On avance
+			while d1[1] <= 12:
+				dist += get_days_in_month(d1[1], d1[0]);
+				d1[1] = d1[1] + 1;
+			d1[0] += 1;
+			d1[1] = 1;
+			d1[2] = 1;
+	# On est dans la même année, tant que l'on est pas dans le même moi
+	while d1[1] != d2[1]:
+		if d1[2] != 1: # On se remet au premier jour du moi
+			dist -= (d1[2] - 1);
+			d1[2] = 1;
+		if sens == -1: # On recule
+			dist -= get_days_in_month(d1[1], d1[0]);
+			d1[1] = d1[1] - 1;
+		else: # On avance
+			dist += get_days_in_month(d1[1], d1[0]);
+			d1[1] = d1[1] + 1;
+	# On est dans la même année et dans le même moi
+	dist += d2[2] - d1[2]
+	return dist;
+
 func get_weekday(day : int, month : int, year : int) -> int:
 	var t : Array = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 	if(month < 3):

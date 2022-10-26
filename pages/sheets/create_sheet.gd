@@ -38,6 +38,7 @@ func delete_row_elt(elt, roelt):
 	save_dt();
 
 func _on_Bt_back_pressed():
+	save_dt();
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 
 func _on_Bt_validate_titre_pressed():
@@ -82,6 +83,8 @@ func _on_Bt_validate_col1_pressed():
 	$VBoxContainer/Cols/Col1/edt_col1.visible = false;
 	$VBoxContainer/Cols/Col1/Bt_edit_col1.visible = true;
 	$VBoxContainer/Cols/Col1/Bt_validate_col1.visible = false;
+	Global.active_object["col1"] = $VBoxContainer/Cols/Col1/col1.text;
+	Global.save_data();
 
 
 func _on_Bt_edit_col2_pressed():
@@ -98,7 +101,8 @@ func _on_Bt_validate_col2_pressed():
 	$VBoxContainer/Cols/Col2/edt_col2.visible = false;
 	$VBoxContainer/Cols/Col2/Bt_edit_col2.visible = true;
 	$VBoxContainer/Cols/Col2/Bt_validate_col2.visible = false;
-
+	Global.active_object["col2"] = $VBoxContainer/Cols/Col2/col2.text;
+	Global.save_data();
 
 func _on_Bt_add_element_pressed():
 	Global.active_object["data"].append(["", "", -1]);

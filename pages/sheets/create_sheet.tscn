@@ -23,11 +23,11 @@ margin_bottom = -10.0
 
 [node name="Titre" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 33.0
+margin_bottom = 37.0
 
 [node name="Bt_back" type="Button" parent="VBoxContainer/Titre"]
-margin_right = 76.0
-margin_bottom = 33.0
+margin_right = 84.0
+margin_bottom = 37.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
@@ -36,17 +36,17 @@ custom_styles/normal = ExtResource( 1 )
 text = "retour"
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 80.0
-margin_top = 1.0
-margin_right = 159.0
-margin_bottom = 32.0
+margin_left = 88.0
+margin_top = 3.0
+margin_right = 167.0
+margin_bottom = 34.0
 text = "Fiche :"
 
 [node name="Title" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 163.0
-margin_top = 1.0
+margin_left = 171.0
+margin_top = 3.0
 margin_right = 432.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 text = "Titre"
 
@@ -72,7 +72,7 @@ custom_styles/normal = ExtResource( 5 )
 modulate = Color( 0.92549, 0.929412, 0.196078, 1 )
 margin_left = 436.0
 margin_right = 476.0
-margin_bottom = 33.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 40, 0 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
@@ -82,21 +82,21 @@ custom_styles/normal = ExtResource( 5 )
 modulate = Color( 1, 0.0627451, 0.0627451, 1 )
 margin_left = 480.0
 margin_right = 520.0
-margin_bottom = 33.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 40, 0 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 5 )
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 37.0
+margin_top = 41.0
 margin_right = 520.0
-margin_bottom = 41.0
+margin_bottom = 45.0
 
 [node name="Cb_multi_pos" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 45.0
+margin_top = 49.0
 margin_right = 520.0
-margin_bottom = 84.0
+margin_bottom = 88.0
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Cb_multi_pos"]
 margin_right = 24.0
@@ -128,18 +128,18 @@ margin_bottom = 41.0
 text = "||"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 88.0
+margin_top = 92.0
 margin_right = 520.0
-margin_bottom = 92.0
+margin_bottom = 96.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 96.0
+margin_top = 100.0
 margin_right = 520.0
-margin_bottom = 132.0
+margin_bottom = 137.0
 
 [node name="Bt_add_element" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 228.0
-margin_bottom = 36.0
+margin_right = 236.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 200, 36 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -150,14 +150,14 @@ custom_styles/normal = ExtResource( 1 )
 text = "ajouter un élement"
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-margin_top = 136.0
+margin_top = 141.0
 margin_right = 520.0
-margin_bottom = 140.0
+margin_bottom = 145.0
 
 [node name="Cols" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 144.0
+margin_top = 149.0
 margin_right = 520.0
-margin_bottom = 177.0
+margin_bottom = 182.0
 custom_constants/separation = 10
 
 [node name="Col1" type="HBoxContainer" parent="VBoxContainer/Cols"]
@@ -252,9 +252,9 @@ custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 5 )
 
 [node name="Elements" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 181.0
+margin_top = 186.0
 margin_right = 520.0
-margin_bottom = 181.0
+margin_bottom = 186.0
 
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_back" to="." method="_on_Bt_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_validate_titre" to="." method="_on_Bt_validate_titre_pressed"]
