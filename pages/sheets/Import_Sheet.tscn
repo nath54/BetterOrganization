@@ -1,0 +1,305 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://pages/sheets/Import_Sheet.gd" type="Script" id=3]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/fonts/merriweather.regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="ExportSheet" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="TItre" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 37.0
+
+[node name="Bt_back" type="Button" parent="VBoxContainer/TItre"]
+margin_right = 84.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "retour"
+
+[node name="Label" type="Label" parent="VBoxContainer/TItre"]
+margin_left = 88.0
+margin_right = 520.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Importer une fiche"
+align = 1
+valign = 1
+
+[node name="ImportType" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 41.0
+margin_right = 520.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="VBoxContainer/ImportType"]
+margin_top = 3.0
+margin_right = 254.0
+margin_bottom = 34.0
+text = "Type d'importation : "
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/ImportType"]
+margin_left = 258.0
+margin_right = 346.0
+margin_bottom = 37.0
+text = "JSON"
+items = [ "CSV", null, false, 0, null, "JSON", null, false, 1, null ]
+selected = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 82.0
+margin_right = 520.0
+margin_bottom = 86.0
+
+[node name="CSV_OPTION" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 90.0
+margin_right = 520.0
+margin_bottom = 246.0
+
+[node name="TitreCSV" type="Label" parent="VBoxContainer/CSV_OPTION"]
+margin_right = 520.0
+margin_bottom = 31.0
+text = "Options d'importation CSV :"
+
+[node name="Row_Sep" type="HBoxContainer" parent="VBoxContainer/CSV_OPTION"]
+margin_top = 35.0
+margin_right = 520.0
+margin_bottom = 76.0
+
+[node name="Label" type="Label" parent="VBoxContainer/CSV_OPTION/Row_Sep"]
+margin_top = 5.0
+margin_right = 263.0
+margin_bottom = 36.0
+text = "Separation de lignes : "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CSV_OPTION/Row_Sep"]
+margin_left = 267.0
+margin_right = 361.0
+margin_bottom = 41.0
+text = "\\n"
+
+[node name="Col_Sep" type="HBoxContainer" parent="VBoxContainer/CSV_OPTION"]
+margin_top = 80.0
+margin_right = 520.0
+margin_bottom = 121.0
+
+[node name="Label" type="Label" parent="VBoxContainer/CSV_OPTION/Col_Sep"]
+margin_top = 5.0
+margin_right = 303.0
+margin_bottom = 36.0
+text = "Separation de colonnes  : "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/CSV_OPTION/Col_Sep"]
+margin_left = 307.0
+margin_right = 401.0
+margin_bottom = 41.0
+text = "|^|"
+
+[node name="Label" type="Label" parent="VBoxContainer/CSV_OPTION"]
+margin_top = 125.0
+margin_right = 520.0
+margin_bottom = 148.0
+custom_fonts/font = SubResource( 2 )
+text = "Si vous ne savez pas, laisser par défaut"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/CSV_OPTION"]
+margin_top = 152.0
+margin_right = 520.0
+margin_bottom = 156.0
+
+[node name="DETAILS_CSV" type="VBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 90.0
+margin_right = 520.0
+margin_bottom = 274.0
+
+[node name="Titre" type="HBoxContainer" parent="VBoxContainer/DETAILS_CSV"]
+margin_right = 520.0
+margin_bottom = 41.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DETAILS_CSV/Titre"]
+margin_top = 5.0
+margin_right = 81.0
+margin_bottom = 36.0
+text = "Titre : "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DETAILS_CSV/Titre"]
+margin_left = 85.0
+margin_right = 520.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Feuille"
+
+[node name="Sep_Char" type="HBoxContainer" parent="VBoxContainer/DETAILS_CSV"]
+margin_top = 45.0
+margin_right = 520.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DETAILS_CSV/Sep_Char"]
+margin_top = 5.0
+margin_right = 127.0
+margin_bottom = 36.0
+text = "Sep Char : "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DETAILS_CSV/Sep_Char"]
+margin_left = 131.0
+margin_right = 225.0
+margin_bottom = 41.0
+text = "||"
+
+[node name="Explaination" type="Label" parent="VBoxContainer/DETAILS_CSV/Sep_Char"]
+margin_left = 229.0
+margin_top = 9.0
+margin_right = 520.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "(Pour des réponses multiples)"
+valign = 1
+autowrap = true
+
+[node name="Col1" type="HBoxContainer" parent="VBoxContainer/DETAILS_CSV"]
+margin_top = 90.0
+margin_right = 520.0
+margin_bottom = 131.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DETAILS_CSV/Col1"]
+margin_top = 5.0
+margin_right = 193.0
+margin_bottom = 36.0
+text = "Nom de la col1 : "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DETAILS_CSV/Col1"]
+margin_left = 197.0
+margin_right = 520.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "col1"
+
+[node name="Col2" type="HBoxContainer" parent="VBoxContainer/DETAILS_CSV"]
+margin_top = 135.0
+margin_right = 520.0
+margin_bottom = 176.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DETAILS_CSV/Col2"]
+margin_top = 5.0
+margin_right = 197.0
+margin_bottom = 36.0
+text = "Nom de la col2 : "
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DETAILS_CSV/Col2"]
+margin_left = 201.0
+margin_right = 520.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "col2"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/DETAILS_CSV"]
+margin_top = 180.0
+margin_right = 520.0
+margin_bottom = 184.0
+
+[node name="Chemin" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 90.0
+margin_right = 520.0
+margin_bottom = 127.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Chemin"]
+margin_top = 3.0
+margin_right = 107.0
+margin_bottom = 34.0
+text = "FIchier : "
+
+[node name="PATH" type="Label" parent="VBoxContainer/Chemin"]
+margin_left = 111.0
+margin_right = 451.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "NONE "
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Bt_Path" type="Button" parent="VBoxContainer/Chemin"]
+margin_left = 455.0
+margin_right = 520.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "Path"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+margin_top = 131.0
+margin_right = 520.0
+margin_bottom = 135.0
+
+[node name="Button_Import" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 139.0
+margin_right = 520.0
+margin_bottom = 184.0
+alignment = 1
+
+[node name="Bt_Import" type="Button" parent="VBoxContainer/Button_Import"]
+margin_left = 185.0
+margin_right = 335.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "Importer"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 48.0
+margin_right = 32.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 150, 70 )
+rect_scale = Vector2( 0.9, 0.9 )
+window_title = "Enregistrer un fichier"
+
+[connection signal="pressed" from="VBoxContainer/TItre/Bt_back" to="." method="_on_Bt_back_pressed"]
+[connection signal="item_selected" from="VBoxContainer/ImportType/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="VBoxContainer/Chemin/Bt_Path" to="." method="_on_Bt_Path_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button_Import/Bt_Import" to="." method="_on_Bt_Import_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

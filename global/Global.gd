@@ -172,6 +172,59 @@ func custom_arrdate2_sort(ar1: Array, ar2: Array, sens_croissant:bool=false, max
 	# égalité, on ne permute pas les ojets
 	return false;
 
+func is_str_integer(t: String):
+	if len(t) == 0:
+		return false;
+	#
+	var pos: int = 0;
+	for c in t:
+		if c == "-":
+			if pos != 0:
+				return false;
+		elif not (c in "0123456789"):
+			return false;
+		pos += 1;
+	return true;
+
+func is_str_float(t: String):
+	if len(t) == 0:
+		return false;
+	var nb_point: int = 0;
+	var last_c: String = "";
+	var pos: int = 0;
+	for c in t:
+		if c == ".":
+			nb_point += 1;
+			if nb_point > 1:
+				return false;
+		elif c == "-":
+			if pos != 0:
+				return false;
+		elif not (c in "0123456789"):
+			return false;
+		last_c = c;
+		pos += 1;
+	#
+	if last_c == ".":
+		return false;
+	#
+	return true;
+
+func is_heure_str_bon_format(s: String) -> bool:
+	var hp: int = s.find("h");
+	if hp == -1:
+		return false;
+	var rh: String = s.substr(0, hp);
+	var rm: String = s.substr(hp+1, len(s)-hp-1);
+	if not (is_str_integer(rh) and (rm == "" or is_str_integer(rm))):
+		return false;
+	var h: int = int(rh);
+	var m: int = 0;
+	if rm != "": m = int(rm);
+	if h < 0 or h >= 24: return false;
+	if m < 0 or m >= 60: return false;
+	return true;
+
 func float_to_heure(h: float) -> Array:
 	var rh: int = floor(h);
 	h = h - rh;
@@ -189,7 +242,9 @@ func float_to_heure_str(h: float) -> String:
 func str_heure_to_float(s: String) -> float:
 	var hp: int = s.find("h");
 	var rh: float = int(s.substr(0, hp));
-	var rm: float = int(s.substr(hp+1, len(s)-hp-1));
+	var rrm: String = s.substr(hp+1, len(s)-hp-1);
+	var rm: float = 0;
+	if rrm != "": rm = int(rrm);
 	return rh+rm/60.0;
 
 func gafs_aux(d: Dictionary, cur_path: Array) -> Array:

@@ -29,6 +29,11 @@ func _on_Bt_Cancel_pressed():
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn");
 
 func test():
+	if $VBoxContainer/ScrollContainer/Inputs/Titre/LineEdit.text == "":
+		return false;
+	if mode == "create":
+		if $VBoxContainer/ScrollContainer/Inputs/Titre/LineEdit.text in Global.get_cur_dir_dict().keys():
+			return false;
 	return true;
 
 func _on_Bt_Validate_pressed():

@@ -70,6 +70,12 @@ func _on_Bt_cancel_pressed():
 	Global.go_to_page("res://pages/timetable/page_timetable.tscn");
 
 func test():
+	if $VBoxContainer/Titre/LineEdit.text == "":
+		return false;
+	if not Global.is_heure_str_bon_format($VBoxContainer/Heure_Deb/LineEdit.text):
+		return false;
+	if not Global.is_heure_str_bon_format($VBoxContainer/Heure_Fin/LineEdit.text):
+		return false;
 	return true;
 
 func _on_Bt_validate_pressed():

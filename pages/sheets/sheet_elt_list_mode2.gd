@@ -127,3 +127,6 @@ func _on_Bt_add_element_pressed():
 
 func _on_Bt_toggle_mode_to_mode1_pressed():
 	Global.go_to_page("res://pages/sheets/create_sheet.tscn", false);
+
+func _on_Bt_Export_pressed():
+	Global.go_to_page("res://pages/sheets/Export_Sheet.tscn");

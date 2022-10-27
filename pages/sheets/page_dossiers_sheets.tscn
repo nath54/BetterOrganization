@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=6]
 [ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=7]
 [ext_resource path="res://res/ui/icons_alpha/pencil_icon.png" type="Texture" id=8]
+[ext_resource path="res://res/ui/icons_alpha/import_icon.png" type="Texture" id=9]
 
 [node name="Dossier_Sheets" type="Control"]
 anchor_right = 1.0
@@ -81,7 +82,7 @@ margin_bottom = 92.0
 custom_constants/separation = 15
 
 [node name="Bt_Create_Dir" type="Button" parent="VBoxContainer/Bts"]
-margin_right = 252.0
+margin_right = 225.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_horizontal = 3
@@ -96,8 +97,8 @@ custom_styles/normal = ExtResource( 2 )
 text = "+sous-dossier"
 
 [node name="Bt_Create_Sheet" type="Button" parent="VBoxContainer/Bts"]
-margin_left = 267.0
-margin_right = 520.0
+margin_left = 240.0
+margin_right = 465.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_horizontal = 3
@@ -110,6 +111,23 @@ custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 text = "+ fiche"
+
+[node name="Bt_import_sheet" type="Button" parent="VBoxContainer/Bts"]
+modulate = Color( 0.92549, 0.768627, 0.396078, 1 )
+margin_left = 480.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Bts/Bt_import_sheet"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 margin_top = 96.0
@@ -137,4 +155,5 @@ text = "<-"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_Edit" to="." method="_on_Bt_Edit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bts/Bt_Create_Dir" to="." method="_on_Bt_Create_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bts/Bt_Create_Sheet" to="." method="_on_Bt_Create_Sheet_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bts/Bt_import_sheet" to="." method="_on_Bt_import_sheet_pressed"]
 [connection signal="pressed" from="VBoxContainer/Sous_Dossiers/Bt_prev_dir" to="." method="_on_Bt_prev_dir_pressed"]

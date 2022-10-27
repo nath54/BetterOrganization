@@ -120,3 +120,7 @@ func _on_Bt_add_element_pressed():
 
 func _on_Bt_toggle_mode_to_mode_2_pressed():
 	Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn", false);
+
+
+func _on_Bt_Export_pressed():
+	Global.go_to_page("res://pages/sheets/Export_Sheet.tscn");

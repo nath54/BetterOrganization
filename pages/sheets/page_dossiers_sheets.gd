@@ -4,7 +4,7 @@ var cur_dir_dict = Global.get_cur_dir_dict();
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("READY : dir : ", Global.current_dir)
+	# print("READY : dir : ", Global.current_dir)
 	$VBoxContainer/HBoxContainer/Label.text = "/"+Global.current_dir.join("/");
 	draw_subdirs();
 	#
@@ -157,3 +157,7 @@ func _on_Bt_prev_dir_pressed() -> void:
 func _on_Bt_Edit_pressed() -> void:
 	Global.active_object = Global.current_dir;
 	Global.go_to_page("res://pages/sheets/create_dossier.tscn", false);
+
+
+func _on_Bt_import_sheet_pressed():
+	Global.go_to_page("res://pages/sheets/Import_Sheet.tscn");

@@ -116,6 +116,8 @@ func _on_Bt_cancel_pressed():
 	Global.go_to_page("res://pages/todos/page_todos.tscn");
 
 func test():
+	if $VBoxContainer/Titre/LineEdit.text == "":
+		return false;
 	return true;
 
 
