@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=5]
 [ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=6]
 [ext_resource path="res://pages/home/settings/page_settings.gd" type="Script" id=7]
+[ext_resource path="res://res/ui/icons_alpha/pencil2_icon.png" type="Texture" id=8]
+[ext_resource path="res://res/ui/icons_alpha/validation_icon.png" type="Texture" id=9]
 
 [node name="Page_settings" type="Control"]
 anchor_right = 1.0
@@ -207,6 +209,13 @@ custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 5 )
 
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/DataLoc/Bt_path_edit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+
 [node name="InpDataPath" type="LineEdit" parent="VBoxContainer/DataLoc"]
 visible = false
 margin_left = 382.0
@@ -225,6 +234,13 @@ rect_min_size = Vector2( 40, 40 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/DataLoc/Bt_path_validate"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 303.0

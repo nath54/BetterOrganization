@@ -1,0 +1,208 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://pages/sheets/Feuille_Elt_mode2.gd" type="Script" id=1]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://pages/RenderText.tscn" type="PackedScene" id=5]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=6]
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=7]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://res/ui/icons_alpha/trash_icon.png" type="Texture" id=9]
+
+[node name="Feuille_Elt_mode2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 40.0
+
+[node name="Bt_retour" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 84.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+text = "retour"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 476.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "col 1/2"
+align = 1
+valign = 1
+
+[node name="Bt_delete" type="Button" parent="VBoxContainer/HBoxContainer"]
+modulate = Color( 0.745098, 0.0509804, 0.0509804, 1 )
+margin_left = 480.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Bt_delete"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="BoxNoRender" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 44.0
+margin_right = 520.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BoxNoRender"]
+margin_left = 492.0
+margin_right = 520.0
+margin_bottom = 37.0
+alignment = 2
+
+[node name="Bt_show_render" type="Button" parent="VBoxContainer/BoxNoRender/VBoxContainer"]
+margin_right = 28.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+text = "↓"
+
+[node name="BoxRender" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 44.0
+margin_right = 520.0
+margin_bottom = 465.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RenderText" parent="VBoxContainer/BoxRender" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 488.0
+margin_bottom = 421.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BoxRender"]
+margin_left = 492.0
+margin_right = 520.0
+margin_bottom = 421.0
+alignment = 2
+
+[node name="Bt_hide_rendert" type="Button" parent="VBoxContainer/BoxRender/VBoxContainer"]
+margin_top = 384.0
+margin_right = 28.0
+margin_bottom = 421.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+text = "↑"
+
+[node name="BoxEdit" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 469.0
+margin_right = 520.0
+margin_bottom = 891.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/BoxEdit"]
+margin_right = 488.0
+margin_bottom = 422.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BoxEdit"]
+margin_left = 492.0
+margin_right = 520.0
+margin_bottom = 422.0
+
+[node name="Bt_hide_textedit" type="Button" parent="VBoxContainer/BoxEdit/VBoxContainer"]
+margin_right = 28.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+text = "↓"
+
+[node name="BoxNoEdit" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 854.0
+margin_right = 520.0
+margin_bottom = 891.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BoxNoEdit"]
+margin_left = 492.0
+margin_right = 520.0
+margin_bottom = 37.0
+alignment = 2
+
+[node name="Bt_show_edit" type="Button" parent="VBoxContainer/BoxNoEdit/VBoxContainer"]
+margin_right = 28.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+text = "↑"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 895.0
+margin_right = 520.0
+margin_bottom = 940.0
+alignment = 1
+
+[node name="Bt_flip" type="Button" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 170.0
+margin_right = 350.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 180, 45 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+text = "Flip the card"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_retour" to="." method="_on_Bt_retour_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_delete" to="." method="_on_Bt_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer/BoxNoRender/VBoxContainer/Bt_show_render" to="." method="_on_Bt_show_render_pressed"]
+[connection signal="pressed" from="VBoxContainer/BoxRender/VBoxContainer/Bt_hide_rendert" to="." method="_on_Bt_hide_rendert_pressed"]
+[connection signal="text_changed" from="VBoxContainer/BoxEdit/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/BoxEdit/VBoxContainer/Bt_hide_textedit" to="." method="_on_Bt_hide_textedit_pressed"]
+[connection signal="pressed" from="VBoxContainer/BoxNoEdit/VBoxContainer/Bt_show_edit" to="." method="_on_Bt_show_edit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Bt_flip" to="." method="_on_Bt_flip_pressed"]

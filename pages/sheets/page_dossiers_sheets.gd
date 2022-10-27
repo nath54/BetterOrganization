@@ -111,7 +111,10 @@ func _on_bt_dir_activ_pressed(dir_name: String) -> void:
 
 func _on_bt_fiche_pressed(fiche_name: String) -> void:
 	Global.active_object = cur_dir_dict[fiche_name];
-	Global.main_nav.really_change_page("res://pages/sheets/create_sheet.tscn", false);
+	if (not "mode_aff" in Global.active_object.keys()) or Global.active_object["mode_aff"] == 1:
+		Global.main_nav.really_change_page("res://pages/sheets/create_sheet.tscn", false);
+	else:
+		Global.main_nav.really_change_page("res://pages/sheets/sheet_elt_list_mode2.tscn", false);
 
 
 func _on_bt_dir_pressed(dir_name: String) -> void:
@@ -133,6 +136,7 @@ func _on_Bt_Create_Sheet_pressed() -> void:
 		"@type": "sheet",
 		"id": titre, # NEVER CHANGE !
 		"titre": titre, # DISPLAYED NAME
+		"mode_aff": 1, # mode d'affichage 1 ou 2
 		"sep_chars": "||",
 		"col1": "Col1",
 		"col2": "Col2",

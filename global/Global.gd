@@ -4,7 +4,8 @@ var page: String = "home";
 var main_nav: Node = null;
 
 var data: Data;
-var active_object;
+var active_object = null;
+var active_elt = null; # For sheets, because active_object is already used
 
 const DATA_PATH: String = "user://data.json";
 const SETTINGS_PATH: String = "user://settings.json";

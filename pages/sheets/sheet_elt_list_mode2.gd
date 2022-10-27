@@ -1,37 +1,47 @@
 extends Control
 
+const col0: Color = Color(1, 0, 0);
+const col1: Color = Color(0, 1, 0);
+const colm1: Color = Color(0.5, 0.5, 0.5);
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.active_object == null:
 		Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
-	Global.active_object["mode_aff"] = 1;
+	Global.active_object["mode_aff"] = 2;
 	save_dt();
 	#
 	$VBoxContainer/Titre/Title.text = Global.active_object["titre"];
-	$VBoxContainer/SepChar/SepChars.text = Global.active_object["sep_chars"];
 	$VBoxContainer/Cols/Col1/col1.text = Global.active_object["col1"];
 	$VBoxContainer/Cols/Col2/col2.text = Global.active_object["col2"];
 	#
+	var id_elt: int = 0;
 	for elt in Global.active_object["data"]:
-		var roelt:RowSheetElement = preload("res://pages/sheets/Sheet_Element_Row_Ref.tscn").instance();
-		roelt.set_val(elt[0], elt[1]);
-		roelt.connect("delete_pressed", self, "delete_row_elt", [elt, roelt]);
-		roelt.connect("element_changed", self, "on_element_changed", [elt, roelt]);
+		var roelt:Control = preload("res://pages/sheets/Bt_elt_mode2.tscn").instance();
+		roelt.get_node("Button").connect("pressed", self, "element_clicked", [id_elt]);
+		roelt.get_node("RenderText").set_text(elt[0]);
+		if elt[2] == -1:
+			roelt.get_node("Button").modulate = colm1;
+		else:
+			roelt.get_node("Button").modulate = Color(1.0-(elt[2]/10.0), elt[2]/10.0, 0);
 		$VBoxContainer/Elements.add_child(roelt);
+		id_elt += 1;
 	#
 	Global.resize_all_fonts();
+
+func element_clicked(id_elt):
+	Global.active_elt = id_elt;
+	Global.go_to_page("res://pages/sheets/Feuille_Elt_mode2.tscn");
 
 func save_dt():
 	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;
 	Global.save_data();
 
 func on_element_changed(elt, roelt):
-	var t1: String = roelt.text1;
-	var t2: String = roelt.text2;
+	var t1: String = roelt.get_node("C1/TextEdit").text;
+	var t2: String = roelt.get_node("C2/TextEdit").text;
 	#
 	var id_elt = Global.active_object["data"].find(elt);
-	# print("ID ELT : ", id_elt);
 	if id_elt != -1:
 		Global.get_cur_dir_dict()[Global.active_object["id"]]["data"][id_elt][0] = t1;
 		Global.get_cur_dir_dict()[Global.active_object["id"]]["data"][id_elt][1] = t2;
@@ -110,13 +120,10 @@ func _on_Bt_validate_col2_pressed():
 	Global.save_data();
 
 func _on_Bt_add_element_pressed():
-	Global.active_object["data"].append(["", "", -1]);
+	Global.active_object["data"].append(["element col1", "element col1", -1]);
 	save_dt();
-	var roelt:RowSheetElement = preload("res://pages/sheets/Sheet_Element_Row_Ref.tscn").instance();
-	roelt.set_val("", "");
-	roelt.connect("delete_pressed", self, "delete_row_elt", [Global.active_object["data"][len(Global.active_object["data"])-1], roelt]);
-	$VBoxContainer/Elements.add_child(roelt);
+	Global.active_elt = len(Global.active_object["data"])-1;
+	Global.go_to_page("res://pages/sheets/Feuille_Elt_mode2.tscn", false);
 
-
-func _on_Bt_toggle_mode_to_mode_2_pressed():
-	Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn", false);
+func _on_Bt_toggle_mode_to_mode1_pressed():
+	Global.go_to_page("res://pages/sheets/create_sheet.tscn", false);

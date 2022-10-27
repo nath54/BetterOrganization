@@ -332,7 +332,6 @@ custom_styles/normal = ExtResource( 2 )
 text = "suivant"
 
 [node name="Reponse_mode_ecrire" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -508,3 +507,7 @@ text = "menu"
 [connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxScore/Bt_eval4" to="." method="_on_Bt_eval4_pressed"]
 [connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxBts/Bt_arreter" to="." method="_on_Bt_arreter_pressed"]
 [connection signal="pressed" from="Reponse_mode_carte/VBoxContainer/HBoxBts/Bt_suivant" to="." method="_on_Bt_suivant_pressed"]
+[connection signal="pressed" from="Reponse_mode_ecrire/VBoxContainer/HBoxContainer/Bt_arreter" to="." method="_on_Bt_arreter_pressed"]
+[connection signal="pressed" from="Reponse_mode_ecrire/VBoxContainer/HBoxContainer/Bt_suivant" to="." method="_on_Bt_suivant_pressed"]
+[connection signal="pressed" from="Ecran_Fin/VBoxContainer/HBoxContainer/Bt_restart_the_same" to="." method="_on_Bt_restart_the_same_pressed"]
+[connection signal="pressed" from="Ecran_Fin/VBoxContainer/HBoxContainer/Bt_go_menu" to="." method="_on_Bt_go_menu_pressed"]

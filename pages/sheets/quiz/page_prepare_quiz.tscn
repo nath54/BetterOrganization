@@ -129,15 +129,34 @@ margin_bottom = 41.0
 text = "10"
 placeholder_text = "-1"
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+[node name="Mode" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 330.0
 margin_right = 520.0
-margin_bottom = 334.0
+margin_bottom = 367.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Mode"]
+margin_top = 3.0
+margin_right = 88.0
+margin_bottom = 34.0
+text = "Mode : "
+
+[node name="ModeOptBt" type="OptionButton" parent="VBoxContainer/Mode"]
+margin_left = 92.0
+margin_right = 196.0
+margin_bottom = 37.0
+text = "Cartes"
+items = [ "Cartes", null, false, 0, null, "Ecrire", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 382.0
+margin_right = 520.0
+margin_bottom = 386.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 349.0
+margin_top = 401.0
 margin_right = 520.0
-margin_bottom = 394.0
+margin_bottom = 446.0
 alignment = 1
 
 [node name="Bt_lancer" type="Button" parent="VBoxContainer/HBoxContainer"]

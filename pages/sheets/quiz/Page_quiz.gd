@@ -170,6 +170,9 @@ func compare_txt_norm(t1: String, t2: String) -> int:
 	return 0;
 
 func _on_Bt_devoiler_ecrire_pressed():
+	if state != 1: return;
+	state = 2;
+	#
 	aff_page(false, false, false, true, false);
 	var t1: String = qsts[id_q][col_rep+1];
 	var t2: String = $Question_mode_ecrire/VBoxContainer/Control/TextEdit.text;
@@ -196,13 +199,9 @@ func _on_Bt_devoiler_ecrire_pressed():
 	qsts.sort_custom(Global, "custom_arrdate2_sort");
 	nb_q += 1;
 	score += float(val)/10.0;
-	
-	
-	
 
+func _on_Bt_restart_the_same_pressed():
+	Global.go_to_page("res://pages/sheets/quiz/Page_quiz.tscn", false);
 
-
-
-
-
-
+func _on_Bt_go_menu_pressed():
+	Global.go_to_page("res://pages/sheets/quiz/page_prepare_quiz.tscn", false);
