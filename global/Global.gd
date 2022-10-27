@@ -73,6 +73,10 @@ func get_next_free_sheet_name(dire: Dictionary) -> String:
 	return "fiche"+String(i);
 
 func _ready() -> void:
+	#
+	if OS.get_name() == "Android":
+		OS.request_permissions();
+	#
 	load_params();
 	load_data();
 
@@ -103,14 +107,14 @@ func go_to_page(path: String, show_bar: bool=true) -> void:
 
 func save_data() -> void:
 	var dict: Dictionary = gidit._inst2dict(self.data);
-	file.open(DATA_PATH, File.WRITE);
+	file.open(self.settings["data_path"], File.WRITE);
 	file.store_string(JSON.print(dict));
 	file.close();
 
 func load_data() -> void:
-	if file.file_exists(DATA_PATH):
+	if file.file_exists(self.settings["data_path"]):
 		# print("file exists");
-		file.open(DATA_PATH, File.READ);
+		file.open(self.settings["data_path"], File.READ);
 		var dict: Dictionary = JSON.parse(file.get_as_text()).result;
 		file.close();
 		data = gidit._dict2inst(dict);

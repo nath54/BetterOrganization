@@ -79,6 +79,7 @@ PriorityQueue="*res://global/PriorityQueue.gd"
 
 window/size/width=540
 window/size/height=960
+window/handheld/orientation="sensor"
 
 [editor_plugins]
 

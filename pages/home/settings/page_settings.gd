@@ -32,6 +32,14 @@ func _on_Bt_apply_pressed():
 	# TODO, sauvegarder les données et recharger la page
 	Global.settings["font_size"] = $VBoxContainer/FontSize/InpFontSize.value;
 	Global.settings["language"] = $VBoxContainer/Langue/OptionButton.selected;
+	if $VBoxContainer/DataLoc/DataPath.text != Global.settings["data_path"]:
+		# On supprime l'ancien fichier de data
+		var dir: Directory = Directory.new();
+		dir.remove(Global.settings["data_path"]);
+		# On change le parametre
+		Global.settings["data_path"] = $VBoxContainer/DataLoc/DataPath.text;
+		# On sauvegarde à nouveau le fichier
+		Global.save_data();
 	#
 	Global.save_params();
 	Global.go_to_page("res://pages/home/settings/page_settings.tscn", false);
