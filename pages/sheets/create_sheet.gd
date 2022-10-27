@@ -17,6 +17,8 @@ func _ready():
 		roelt.connect("delete_pressed", self, "delete_row_elt", [elt, roelt]);
 		roelt.connect("element_changed", self, "on_element_changed", [elt, roelt]);
 		$VBoxContainer/Elements.add_child(roelt);
+	#
+	Global.resize_all_fonts();
 
 func save_dt():
 	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;

@@ -161,6 +161,8 @@ func _ready():
 	clear_timetable();
 	draw_timetable();
 	get_tree().get_root().connect("size_changed", self, "_on_resized")
+	#
+	Global.resize_all_fonts();
 
 func update_period():
 	$VBoxContainer/HBoxContainer2/Bt_period.text = periods[Global.tt_crt_period];
@@ -169,7 +171,7 @@ func update_period():
 
 
 func _on_Bt_manage_pressed():
-	Global.go_to_page("res://pages/timetable/gerer_edt.tscn");
+	Global.go_to_page("res://pages/timetable/gerer_edt.tscn", false);
 
 
 func _on_Bt_Create_pressed():

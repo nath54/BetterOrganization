@@ -11,6 +11,8 @@ func _ready():
 		mode = "edit";
 		$VBoxContainer/ScrollContainer/Inputs/Titre/LineEdit.text = Global.current_dir[len(Global.current_dir)-1];
 		$VBoxContainer/ScrollContainer/Inputs/VBoxContainer2.visible = true;
+	#
+	Global.resize_all_fonts();
 
 func _on_Bt_Delete_pressed():
 	if len(Global.current_dir) > 0:

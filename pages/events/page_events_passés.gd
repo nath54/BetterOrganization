@@ -33,6 +33,8 @@ func _ready():
 			btev.modulate = ev[1]["color"];
 			btev.connect("pressed", self, "on_bt_clicked", [ev[1]]);
 			$VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer.add_child(btev);
+	#
+	Global.resize_all_fonts();
 
 
 

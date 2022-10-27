@@ -1,0 +1,279 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=5]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=6]
+[ext_resource path="res://pages/home/settings/page_settings.gd" type="Script" id=7]
+
+[node name="Page_settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+custom_constants/separation = 15
+
+[node name="Titre" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 31.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Titre"]
+margin_left = 211.0
+margin_right = 309.0
+margin_bottom = 31.0
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="FontSize" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 46.0
+margin_right = 520.0
+margin_bottom = 77.0
+
+[node name="Label" type="Label" parent="VBoxContainer/FontSize"]
+margin_right = 130.0
+margin_bottom = 31.0
+text = "Font size : "
+
+[node name="InpFontSize" type="HSlider" parent="VBoxContainer/FontSize"]
+margin_left = 134.0
+margin_right = 451.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 25.0
+max_value = 400.0
+value = 100.0
+
+[node name="FontSize" type="Label" parent="VBoxContainer/FontSize"]
+margin_left = 455.0
+margin_right = 520.0
+margin_bottom = 31.0
+text = "100%"
+
+[node name="Langue" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 92.0
+margin_right = 520.0
+margin_bottom = 129.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Langue"]
+margin_top = 3.0
+margin_right = 109.0
+margin_bottom = 34.0
+text = "Langue : "
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Langue"]
+margin_left = 113.0
+margin_right = 242.0
+margin_bottom = 37.0
+text = "Francais"
+items = [ "Francais", null, false, 0, null ]
+selected = 0
+
+[node name="MainPageType" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 144.0
+margin_right = 520.0
+margin_bottom = 181.0
+
+[node name="Label" type="Label" parent="VBoxContainer/MainPageType"]
+margin_top = 3.0
+margin_right = 270.0
+margin_bottom = 34.0
+text = "Type page principale : "
+
+[node name="Bt_mpt_prec" type="Button" parent="VBoxContainer/MainPageType"]
+margin_left = 274.0
+margin_right = 300.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "<"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/MainPageType"]
+margin_left = 304.0
+margin_right = 490.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/MainPageType/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "date"
+align = 1
+valign = 1
+
+[node name="Bt_mpt_suiv" type="Button" parent="VBoxContainer/MainPageType"]
+margin_left = 494.0
+margin_right = 520.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = ">"
+
+[node name="ThemeApp" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 196.0
+margin_right = 520.0
+margin_bottom = 233.0
+
+[node name="Label" type="Label" parent="VBoxContainer/ThemeApp"]
+margin_top = 3.0
+margin_right = 206.0
+margin_bottom = 34.0
+text = "Theme de l'app : "
+
+[node name="Bt_mpt_prec" type="Button" parent="VBoxContainer/ThemeApp"]
+margin_left = 210.0
+margin_right = 236.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "<"
+
+[node name="Panel" type="Panel" parent="VBoxContainer/ThemeApp"]
+margin_left = 240.0
+margin_right = 490.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/ThemeApp/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "theme 1"
+align = 1
+valign = 1
+
+[node name="Bt_mpt_suiv" type="Button" parent="VBoxContainer/ThemeApp"]
+margin_left = 494.0
+margin_right = 520.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = ">"
+
+[node name="DataLoc" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 248.0
+margin_right = 520.0
+margin_bottom = 288.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DataLoc"]
+margin_right = 236.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Chemin du data : "
+autowrap = true
+
+[node name="DataPath" type="Label" parent="VBoxContainer/DataLoc"]
+margin_left = 240.0
+margin_right = 476.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "/user/"
+
+[node name="Bt_path_edit" type="Button" parent="VBoxContainer/DataLoc"]
+modulate = Color( 0.92549, 0.65098, 0.0705882, 1 )
+margin_left = 480.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 5 )
+
+[node name="InpDataPath" type="LineEdit" parent="VBoxContainer/DataLoc"]
+visible = false
+margin_left = 382.0
+margin_right = 476.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Bt_path_validate" type="Button" parent="VBoxContainer/DataLoc"]
+visible = false
+modulate = Color( 0.482353, 0.964706, 0.0784314, 1 )
+margin_left = 480.0
+margin_right = 520.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 303.0
+margin_right = 520.0
+margin_bottom = 368.0
+custom_colors/font_color = Color( 0.815686, 0.403922, 0.403922, 1 )
+text = "! Ne changez le chemin du data que si vous savez ce que vous faites !"
+autowrap = true
+
+[node name="Empty" type="Control" parent="VBoxContainer"]
+margin_top = 383.0
+margin_right = 520.0
+margin_bottom = 880.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 895.0
+margin_right = 520.0
+margin_bottom = 940.0
+
+[node name="Bt_retour" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 87.0
+margin_right = 171.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "retour"
+
+[node name="Bt_apply" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 329.0
+margin_right = 452.0
+margin_bottom = 45.0
+size_flags_horizontal = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "appliquer"
+
+[connection signal="value_changed" from="VBoxContainer/FontSize/InpFontSize" to="." method="_on_InpFontSize_value_changed"]
+[connection signal="pressed" from="VBoxContainer/DataLoc/Bt_path_edit" to="." method="_on_Bt_path_edit_pressed"]
+[connection signal="pressed" from="VBoxContainer/DataLoc/Bt_path_validate" to="." method="_on_Bt_path_validate_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_retour" to="." method="_on_Bt_retour_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_apply" to="." method="_on_Bt_apply_pressed"]

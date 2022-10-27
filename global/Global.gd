@@ -6,7 +6,8 @@ var main_nav: Node = null;
 var data: Data;
 var active_object;
 
-const DATA_PATH: String = "user://data.tscn";
+const DATA_PATH: String = "user://data.json";
+const SETTINGS_PATH: String = "user://settings.json";
 
 var file: File = File.new();
 var dire: Directory = Directory.new();
@@ -24,6 +25,37 @@ var cdar: Array = [current_date["year"], current_date["month"], current_date["da
 
 var cal: Calendar = Calendar.new();
 
+var settings: Dictionary = {
+	"font_size": 100, # %
+	"language": 0,
+	"data_path": DATA_PATH,
+	"type_page_princip": 0,
+	"theme_app": 0
+};
+
+var original_font_sizes: Dictionary = {};
+
+var already_modif_fonts: Array = [];
+
+func resize_aux(node: Node) -> void:
+	#
+	if (node is Label) or (node is Button) or (node is LineEdit) or (node is TextEdit):
+		var font: Font = node.get_font("font");
+		var sf: String = font.to_string();
+		if not sf in original_font_sizes.keys():
+			original_font_sizes[sf] = font.size;
+		if not font in already_modif_fonts:
+			# print("Node: ", node, "  font : ", font, "sf : ", sf);
+			font.size = float(original_font_sizes[sf]) * float(settings["font_size"]) / 100.0;
+			already_modif_fonts.append(font);
+	#
+	for c in node.get_children():
+		resize_aux(c);
+
+func resize_all_fonts() -> void:
+	already_modif_fonts = [];
+	resize_aux(get_tree().root);
+
 func get_dict_at_path(path: Array) -> Dictionary:
 	var cd: Dictionary = Global.data.directories;
 	for i in range(len(path)):
@@ -40,7 +72,20 @@ func get_next_free_sheet_name(dire: Dictionary) -> String:
 	return "fiche"+String(i);
 
 func _ready() -> void:
+	load_params();
 	load_data();
+
+func load_params() -> void:
+	if file.file_exists(SETTINGS_PATH):
+		# print("file exists");
+		file.open(SETTINGS_PATH, File.READ);
+		settings = JSON.parse(file.get_as_text()).result;
+		file.close();
+
+func save_params():
+	file.open(SETTINGS_PATH, File.WRITE);
+	file.store_string(JSON.print(settings));
+	file.close();
 
 func init_data() -> Data:
 	var dt: Data = Data.new();

@@ -54,6 +54,8 @@ func _ready():
 			$VBoxContainer/Calendrier/OptionButton.selected = i;
 		#
 		i+=1;
+	#
+	Global.resize_all_fonts();
 
 func _on_Bt_delete_pressed():
 	for c in Global.data.calendars:

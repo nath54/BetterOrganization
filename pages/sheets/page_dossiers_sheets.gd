@@ -7,6 +7,8 @@ func _ready() -> void:
 	print("READY : dir : ", Global.current_dir)
 	$VBoxContainer/HBoxContainer/Label.text = "/"+Global.current_dir.join("/");
 	draw_subdirs();
+	#
+	Global.resize_all_fonts();
 
 func draw_subdirs() -> void:
 	if len(Global.current_dir) == 0:

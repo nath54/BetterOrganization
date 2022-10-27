@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	#
+	Global.resize_all_fonts();
+
 func _on_Bt_Fiches_pressed():
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 

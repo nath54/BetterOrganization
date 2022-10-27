@@ -73,4 +73,5 @@ stretch_mode = 6
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_params" to="." method="_on_Bt_params_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -27,6 +27,8 @@ func _ready():
 			bttd.get_node("VBoxContainer/HBoxContainer/ProgressBar").value = pc;
 			bttd.get_node("VBoxContainer/HBoxContainer/Label").text = String(int(pc))+"% done";
 			$VBoxContainer/ScrollContainer/VBoxContainer.add_child(bttd);
+	#
+	Global.resize_all_fonts();
 
 func _on_Bt_create_pressed():
 	Global.active_object = null;

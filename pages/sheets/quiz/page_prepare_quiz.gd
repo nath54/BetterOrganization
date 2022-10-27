@@ -13,6 +13,8 @@ func _ready():
 	#
 	$VBoxContainer/Repeat/CheckBox.pressed = Global.quiz_repeat;
 	$VBoxContainer/Max_q/InpNbMaxQ.text = String(Global.quiz_max_q);
+	#
+	Global.resize_all_fonts();
 
 
 func _on_Bt_back_pressed():

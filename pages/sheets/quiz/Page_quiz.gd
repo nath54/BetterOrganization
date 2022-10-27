@@ -56,6 +56,8 @@ func _ready() -> void:
 	qsts.sort_custom(Global, "custom_arrdate2_sort");
 	#
 	suivant();
+	#
+	Global.resize_all_fonts();
 
 func suivant() -> void:
 	if not state in [0, 2]:

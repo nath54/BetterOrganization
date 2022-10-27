@@ -66,6 +66,8 @@ func _ready():
 	for st in subtasks:
 		add_subtask_ui(st[0], st[1], i);
 		i+=1;
+	#
+	Global.resize_all_fonts();
 
 func add_subtask_ui(t, done, idx):
 	var hb = HBoxContainer.new();

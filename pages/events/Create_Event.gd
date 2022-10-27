@@ -57,6 +57,8 @@ func _ready():
 			$VBoxContainer/Calendrier/OptionButton.selected = i;
 		#
 		i+=1;
+	#
+	Global.resize_all_fonts();
 
 
 func display_date():

@@ -13,6 +13,8 @@ func _ready():
 		ititre.text = Global.active_object.title;
 		$"VBoxContainer/ScrollContainer/Inputs/Activé/CheckBox".pressed = Global.active_object.active;
 		$VBoxContainer/ScrollContainer/Inputs/VBoxContainer2.visible = true;
+	#
+	Global.resize_all_fonts();
 
 
 

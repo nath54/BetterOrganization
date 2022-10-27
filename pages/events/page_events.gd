@@ -41,6 +41,8 @@ func _ready():
 		#
 		if len(events_list) > limit:
 			$VBoxContainer/ScrollContainer/VBoxContainer/Bt_voir_tout.visible = true;
+	#
+	Global.resize_all_fonts();
 
 func tout_afficher():
 	Global.empty_childs($VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer);
