@@ -8,6 +8,8 @@ A godot project to help life organisation (especially for students), with todoli
 
 This project is currently in alpha phase, I still have a few features to add before it goes into beta phase.
 
+You can test the app [here](https://github.com/nath54/BetterOrganization/releases/tag/alpha) to report issues.
+
 ### Goals to end alpha phase
 
 * [ ] add a translation to the app
