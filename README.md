@@ -13,6 +13,7 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 ### Goals to end alpha phase
 
 * [ ] add a translation to the app
+* [ ] add a search page to allow users to search directly for an element instead of browsing into directories and sheet element lists
 * [ ] fix some major interface issues
 
 ### Further potential goals for potential new versions
