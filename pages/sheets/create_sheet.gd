@@ -18,7 +18,7 @@ func _ready():
 		roelt.set_val(elt[0], elt[1]);
 		roelt.connect("delete_pressed", self, "delete_row_elt", [elt, roelt]);
 		roelt.connect("element_changed", self, "on_element_changed", [elt, roelt]);
-		$VBoxContainer/Elements.add_child(roelt);
+		$VBoxContainer/ScrollContainer/Elements.add_child(roelt);
 	#
 	Global.resize_all_fonts();
 
@@ -115,7 +115,7 @@ func _on_Bt_add_element_pressed():
 	var roelt:RowSheetElement = preload("res://pages/sheets/Sheet_Element_Row_Ref.tscn").instance();
 	roelt.set_val("", "");
 	roelt.connect("delete_pressed", self, "delete_row_elt", [Global.active_object["data"][len(Global.active_object["data"])-1], roelt]);
-	$VBoxContainer/Elements.add_child(roelt);
+	$VBoxContainer/ScrollContainer/Elements.add_child(roelt);
 
 
 func _on_Bt_toggle_mode_to_mode_2_pressed():

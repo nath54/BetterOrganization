@@ -57,7 +57,8 @@ modulate = Color( 0.92549, 0.772549, 0.0784314, 1 )
 margin_left = 480.0
 margin_right = 520.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 40, 0 )
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 6
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
@@ -135,25 +136,34 @@ margin_right = 520.0
 margin_bottom = 101.0
 custom_constants/separation = 5
 
-[node name="Sous_Dossiers" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 margin_top = 105.0
 margin_right = 520.0
-margin_bottom = 150.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Bt_prev_dir" type="Button" parent="VBoxContainer/Sous_Dossiers"]
+[node name="Sous_Dossiers" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 520.0
+margin_bottom = 835.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Bt_prev_dir" type="Button" parent="VBoxContainer/ScrollContainer/Sous_Dossiers"]
 margin_right = 520.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 0, 45 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "<-"
+text = "../"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_back" to="." method="_on_Bt_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_Edit" to="." method="_on_Bt_Edit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bts/Bt_Create_Dir" to="." method="_on_Bt_Create_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bts/Bt_Create_Sheet" to="." method="_on_Bt_Create_Sheet_pressed"]
 [connection signal="pressed" from="VBoxContainer/Bts/Bt_import_sheet" to="." method="_on_Bt_import_sheet_pressed"]
-[connection signal="pressed" from="VBoxContainer/Sous_Dossiers/Bt_prev_dir" to="." method="_on_Bt_prev_dir_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/Sous_Dossiers/Bt_prev_dir" to="." method="_on_Bt_prev_dir_pressed"]

@@ -12,10 +12,10 @@ func _ready() -> void:
 
 func draw_subdirs() -> void:
 	if len(Global.current_dir) == 0:
-		$VBoxContainer/Sous_Dossiers/Bt_prev_dir.visible = false;
+		$VBoxContainer/ScrollContainer/Sous_Dossiers/Bt_prev_dir.visible = false;
 		$VBoxContainer/HBoxContainer/Bt_Edit.visible = false;
 	else:
-		$VBoxContainer/Sous_Dossiers/Bt_prev_dir.visible = true;
+		$VBoxContainer/ScrollContainer/Sous_Dossiers/Bt_prev_dir.visible = true;
 		$VBoxContainer/HBoxContainer/Bt_Edit.visible = true;
 	#
 	for c in cur_dir_dict.keys():
@@ -29,11 +29,12 @@ func draw_subdirs() -> void:
 					cl = Color(0.5, 0.5, 0.5)*(1.0-float(res[0])/float(res[1])) + Color(0, 1, 0)*float(res[0])/float(res[1]);
 				bt.get_node("Bt_activ").modulate = cl;
 				bt.get_node("Bt_activ").text = String(res[0])+"/"+String(res[1]);
-				bt.get_node("Button/HBoxContainer/Label").text = c;
+				# bt.get_node("Button/HBoxContainer/Label").text = c;
 				bt.get_node("Button").connect("pressed", self, "_on_bt_dir_pressed", [c]);
 				bt.get_node("Bt_activ").connect("pressed", self, "_on_bt_dir_activ_pressed", [c]);
 				bt.rect_min_size.y = 55;
-				$VBoxContainer/Sous_Dossiers.add_child(bt);
+				$VBoxContainer/ScrollContainer/Sous_Dossiers.add_child(bt);
+				bt.set_text(c);
 			elif cur_dir_dict[c]["@type"] == "sheet":
 				var sum_known: float = 0;
 				var nb_known: int = 0;
@@ -65,7 +66,7 @@ func draw_subdirs() -> void:
 				bt.get_node("Button").connect("pressed", self, "_on_bt_fiche_pressed", [c]);
 				bt.get_node("Bt_activ").connect("pressed", self, "_on_bt_fiche_activ_pressed", [c]);
 				bt.rect_min_size.y = 55;
-				$VBoxContainer/Sous_Dossiers.add_child(bt);
+				$VBoxContainer/ScrollContainer/Sous_Dossiers.add_child(bt);
 
 
 func get_nb_active(d_dict: Dictionary) -> Array:
@@ -86,7 +87,7 @@ func get_nb_active(d_dict: Dictionary) -> Array:
 func _on_bt_fiche_activ_pressed(fiche_name: String) -> void:
 	cur_dir_dict[fiche_name]["active"] = not cur_dir_dict[fiche_name]["active"];
 	Global.save_data();
-	var bt:HBoxContainer = $VBoxContainer/Sous_Dossiers.get_node(fiche_name);
+	var bt:HBoxContainer = $VBoxContainer/ScrollContainer/Sous_Dossiers.get_node(fiche_name);
 	if cur_dir_dict[fiche_name]["active"]:
 		bt.get_node("Bt_activ").modulate = Color(0,1,0);
 		bt.get_node("Bt_activ").text = "1";
@@ -102,7 +103,7 @@ func _on_bt_dir_activ_pressed(dir_name: String) -> void:
 				cur_dir_dict[dir_name][dd]["active"] = not cur_dir_dict[dir_name][dd]["active"];
 	Global.save_data();
 	var res = get_nb_active(cur_dir_dict[dir_name]);
-	var bt:HBoxContainer = $VBoxContainer/Sous_Dossiers.get_node(dir_name);
+	var bt:HBoxContainer = $VBoxContainer/ScrollContainer/Sous_Dossiers.get_node(dir_name);
 	var cl: Color = Color(0.5, 0.5, 0.5);
 	if res[1] != 0:
 		cl = Color(0.5, 0.5, 0.5)*(1.0-float(res[0])/float(res[1])) + Color(0, 1, 0)*float(res[0])/float(res[1]);

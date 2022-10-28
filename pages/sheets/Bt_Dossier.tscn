@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=2]
@@ -7,17 +7,20 @@
 [ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=5]
 [ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=6]
 [ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://pages/sheets/Bt_Dossier.gd" type="Script" id=8]
 
 [node name="Bt_dossier" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 50 )
+script = ExtResource( 8 )
 
 [node name="Button" type="Button" parent="."]
 margin_right = 481.0
 margin_bottom = 960.0
 rect_min_size = Vector2( 0, 55 )
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 7
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -33,6 +36,7 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 mouse_filter = 2
+size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="Button/HBoxContainer"]
 margin_right = 45.0
@@ -46,10 +50,11 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="Button/HBoxContainer"]
 margin_left = 49.0
+margin_top = 459.0
 margin_right = 471.0
-margin_bottom = 950.0
+margin_bottom = 490.0
 size_flags_horizontal = 3
-size_flags_vertical = 5
+size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Dossier"
 valign = 1
@@ -59,7 +64,9 @@ autowrap = true
 margin_left = 485.0
 margin_right = 540.0
 margin_bottom = 960.0
-rect_min_size = Vector2( 55, 0 )
+rect_min_size = Vector2( 55, 55 )
+size_flags_horizontal = 5
+size_flags_vertical = 7
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

@@ -343,10 +343,18 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 6
 
-[node name="Elements" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 margin_top = 242.0
 margin_right = 520.0
-margin_bottom = 242.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Elements" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 520.0
+margin_bottom = 698.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_back" to="." method="_on_Bt_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_validate_titre" to="." method="_on_Bt_validate_titre_pressed"]

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Control",
+"class": "Bt_elt_mode2",
+"language": "GDScript",
+"path": "res://pages/sheets/Bt_elt_mode2.gd"
+}, {
 "base": "Reference",
 "class": "Calendar",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_classes=[ {
 "path": "res://addons/calendar_button/scripts/window_restrictor.gd"
 } ]
 _global_script_class_icons={
+"Bt_elt_mode2": "",
 "Calendar": "",
 "CalendarButtons": "",
 "Calendrier": "",
@@ -99,6 +105,10 @@ reset={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777220,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [mono]
 

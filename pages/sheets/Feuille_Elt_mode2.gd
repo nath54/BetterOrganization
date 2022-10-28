@@ -9,7 +9,7 @@ var side: int = 0; # 0 = col1,   1 = col2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.active_elt == null:
-		Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn");
+		Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn", false);
 	#
 	t1 = Global.active_object["data"][Global.active_elt][0];
 	t2 = Global.active_object["data"][Global.active_elt][1];
@@ -17,6 +17,7 @@ func _ready():
 	$VBoxContainer/BoxEdit/TextEdit.text = t1;
 	$VBoxContainer/BoxRender/RenderText.set_text(t1);
 	$VBoxContainer/HBoxContainer/Label.text = Global.active_object["col1"];
+	$VBoxContainer/BoxRender/RenderText.min_scale = 0.05;
 
 
 func _on_Bt_hide_rendert_pressed():
@@ -66,11 +67,11 @@ func _on_Bt_retour_pressed():
 	Global.active_object["data"][Global.active_elt][1] = t2;
 	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;
 	Global.save_data();
-	Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn");
+	Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn", false);
 
 
 func _on_Bt_delete_pressed():
 	Global.active_object["data"].remove(Global.active_elt);
 	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;
 	Global.save_data();
-	Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn");
+	Global.go_to_page("res://pages/sheets/sheet_elt_list_mode2.tscn", false);

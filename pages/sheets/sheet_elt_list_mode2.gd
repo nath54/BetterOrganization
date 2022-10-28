@@ -19,19 +19,20 @@ func _ready():
 	for elt in Global.active_object["data"]:
 		var roelt:Control = preload("res://pages/sheets/Bt_elt_mode2.tscn").instance();
 		roelt.get_node("Button").connect("pressed", self, "element_clicked", [id_elt]);
-		roelt.get_node("RenderText").set_text(elt[0]);
+		# roelt.get_node("RenderText").set_text(elt[0]);
 		if elt[2] == -1:
 			roelt.get_node("Button").modulate = colm1;
 		else:
 			roelt.get_node("Button").modulate = Color(1.0-(elt[2]/10.0), elt[2]/10.0, 0);
-		$VBoxContainer/Elements.add_child(roelt);
+		$VBoxContainer/ScrollContainer/Elements.add_child(roelt);
+		roelt.set_text(elt[0]);
 		id_elt += 1;
 	#
 	Global.resize_all_fonts();
 
 func element_clicked(id_elt):
 	Global.active_elt = id_elt;
-	Global.go_to_page("res://pages/sheets/Feuille_Elt_mode2.tscn");
+	Global.go_to_page("res://pages/sheets/Feuille_Elt_mode2.tscn", false);
 
 func save_dt():
 	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;
