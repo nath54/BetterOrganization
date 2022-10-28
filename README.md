@@ -14,6 +14,7 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 
 * [ ] add a translation to the app
 * [ ] add a search page to allow users to search directly for an element instead of browsing into directories and sheet element lists
+* [ ] add a system to reduce the knowledge of elements with time to force the user to learn them again and don't forget them
 * [ ] fix some major interface issues
 
 ### Further potential goals for potential new versions
