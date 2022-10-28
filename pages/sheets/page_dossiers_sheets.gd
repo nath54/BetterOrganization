@@ -4,6 +4,7 @@ var cur_dir_dict = Global.get_cur_dir_dict();
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.ancient_page = "res://pages/sheets/page_dossiers_sheets.tscn";
 	# print("READY : dir : ", Global.current_dir)
 	$VBoxContainer/HBoxContainer/Label.text = "/"+Global.current_dir.join("/");
 	draw_subdirs();

@@ -1,0 +1,149 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=1]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://pages/sheets/Search/Search.gd" type="Script" id=4]
+[ext_resource path="res://pages/RenderText.tscn" type="PackedScene" id=5]
+
+[node name="Search" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Titre" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 37.0
+
+[node name="Bt_retour" type="Button" parent="VBoxContainer/Titre"]
+margin_right = 84.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 1 )
+text = "retour"
+
+[node name="Label" type="Label" parent="VBoxContainer/Titre"]
+margin_left = 88.0
+margin_right = 520.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Rechercher un élément"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 41.0
+margin_right = 520.0
+margin_bottom = 45.0
+
+[node name="Search" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 49.0
+margin_right = 520.0
+margin_bottom = 90.0
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Search"]
+margin_right = 402.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+
+[node name="Bt_search" type="Button" parent="VBoxContainer/Search"]
+margin_left = 406.0
+margin_right = 520.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 1 )
+text = "chercher"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+margin_top = 94.0
+margin_right = 520.0
+margin_bottom = 98.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 102.0
+margin_right = 520.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Results" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 520.0
+margin_bottom = 838.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AffElement" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AffElement"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AffElement/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 37.0
+
+[node name="Bt_retour2" type="Button" parent="AffElement/VBoxContainer/HBoxContainer"]
+margin_right = 84.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 1 )
+text = "retour"
+
+[node name="col1_l" type="Label" parent="AffElement/VBoxContainer"]
+margin_top = 41.0
+margin_right = 520.0
+margin_bottom = 72.0
+text = "Col1 :"
+
+[node name="col1_rt" parent="AffElement/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 76.0
+margin_right = 520.0
+margin_bottom = 488.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="col2_l" type="Label" parent="AffElement/VBoxContainer"]
+margin_top = 492.0
+margin_right = 520.0
+margin_bottom = 523.0
+text = "Col2 :"
+
+[node name="col2_rt" parent="AffElement/VBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 527.0
+margin_right = 520.0
+margin_bottom = 940.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/Titre/Bt_retour" to="." method="_on_Bt_retour_pressed"]
+[connection signal="pressed" from="VBoxContainer/Search/Bt_search" to="." method="_on_Bt_search_pressed"]
+[connection signal="pressed" from="AffElement/VBoxContainer/HBoxContainer/Bt_retour2" to="." method="_on_Bt_retour2_pressed"]

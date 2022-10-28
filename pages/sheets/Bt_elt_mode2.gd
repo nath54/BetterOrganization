@@ -5,7 +5,7 @@ class_name Bt_elt_mode2
 var changed: bool = false;
 
 func set_text(t: String):
-	print("SET TEXT : ", t);
+	# print("SET TEXT : ", t);
 	$RenderText.set_text(t);
 	changed = true;
 

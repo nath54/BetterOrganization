@@ -21,6 +21,8 @@ var quiz_repeat: bool = true;
 var quiz_max_q: int = -1;
 var quiz_mode: int = 0; # 0 = cartes, 1 = écrire
 
+var ancient_page: String = "";
+
 var current_date: Dictionary = OS.get_date();
 var cdar: Array = [current_date["year"], current_date["month"], current_date["day"]];
 
@@ -272,3 +274,11 @@ func get_fiches_sel_nb_elts(afs: Array) -> int:
 		res += len(e["data"]);
 	return res;
 
+func get_fiche_knowledge_score(fiche: Dictionary) -> float:
+	if fiche["data"] == []: return 0.0;
+	#
+	var score: float = 0.0; # négatif = plutot mauvais, positif = plutot bon
+	for row in fiche["data"]:
+		score += row[2] - 5;
+	score /= float(len(fiche["data"]));
+	return score;

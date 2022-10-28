@@ -102,15 +102,11 @@ func _on_Bt_View_pressed():
 	$Question_mode_ecrire/VBoxContainer/Control/RenderText.visible = true;
 	$Question_mode_ecrire/VBoxContainer/Control/RenderText.set_text($Question_mode_ecrire/VBoxContainer/Control/TextEdit.text);
 
-
 func _on_Bt_Edit_pressed():
 	$Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_View.visible = true;
 	$Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_Edit.visible = false;
 	$Question_mode_ecrire/VBoxContainer/Control/TextEdit.visible = true;
 	$Question_mode_ecrire/VBoxContainer/Control/RenderText.visible = false;
-
-
-
 
 func _on_Bt_devoiler_cartes_pressed():
 	if state != 1: return;
@@ -120,7 +116,6 @@ func _on_Bt_devoiler_cartes_pressed():
 	$Reponse_mode_carte/VBoxContainer/HBoxScore.visible = true;
 	$Reponse_mode_carte/VBoxContainer/HBoxBts.visible = false;
 	$Reponse_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_rep+1]);
-
 
 func bt_eval_gen(val: int):
 	Global.get_dict_at_path(ss[qsts[id_q][3]]["path"])["data"][qsts[id_q][4]][2] = val;
@@ -133,7 +128,6 @@ func bt_eval_gen(val: int):
 	score += float(val)/10.0;
 	$Reponse_mode_carte/VBoxContainer/HBoxScore.visible = false;
 	$Reponse_mode_carte/VBoxContainer/HBoxBts.visible = true;
-
 
 func _on_Bt_eval0_pressed():
 	bt_eval_gen(0);
@@ -150,24 +144,17 @@ func _on_Bt_eval3_pressed():
 func _on_Bt_eval4_pressed():
 	bt_eval_gen(10);
 
-
 func _on_Bt_arreter_pressed():
 	ecran_fin();
-
 
 func _on_Bt_suivant_pressed():
 	suivant();
 
-
 func compare_txt_maths(t1: String, t2: String) -> int:
-	if t1 == t2:
-		return 10;
-	return 0;
+	return int(t1.similarity(t2) * 10);
 
 func compare_txt_norm(t1: String, t2: String) -> int:
-	if t1 == t2:
-		return 10;
-	return 0;
+	return int(t1.similarity(t2) * 10);
 
 func _on_Bt_devoiler_ecrire_pressed():
 	if state != 1: return;
