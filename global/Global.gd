@@ -28,7 +28,7 @@ var cdar: Array = [current_date["year"], current_date["month"], current_date["da
 
 var cal: Calendar = Calendar.new();
 
-var settings: Dictionary = {
+const default_settings: Dictionary = {
 	"font_size": 100, # %
 	"language": 0,
 	"data_path": DATA_PATH,
@@ -37,6 +37,8 @@ var settings: Dictionary = {
 	"deb_lat": "\\[",
 	"end_lat": "\\]"
 };
+
+var settings: Dictionary = default_settings;
 
 var original_font_sizes: Dictionary = {};
 
@@ -90,10 +92,9 @@ func load_params() -> void:
 		file.open(SETTINGS_PATH, File.READ);
 		settings = JSON.parse(file.get_as_text()).result;
 		file.close();
-		if not "deb_lat" in settings.keys():
-			settings["deb_lat"] = "\\[";
-		if not "end_lat" in settings.keys():
-			settings["end_lat"] = "\\]";
+		for k in default_settings.keys():
+			if not k in settings.keys():
+				settings[k] = default_settings[k];
 
 func save_params():
 	file.open(SETTINGS_PATH, File.WRITE);

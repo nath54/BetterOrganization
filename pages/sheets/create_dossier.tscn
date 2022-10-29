@@ -20,11 +20,11 @@ margin_bottom = -10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "Créer/Modifier un dossier :"
@@ -32,12 +32,12 @@ align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 39.0
+margin_bottom = 37.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 43.0
+margin_top = 41.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -45,35 +45,35 @@ size_flags_vertical = 3
 
 [node name="Inputs" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 897.0
+margin_bottom = 899.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 520.0
-margin_bottom = 255.0
+margin_bottom = 257.0
 size_flags_vertical = 3
 
 [node name="Titre" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
-margin_top = 259.0
+margin_top = 261.0
 margin_right = 520.0
-margin_bottom = 335.0
+margin_bottom = 333.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 text = "Nom :"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 76.0
+margin_bottom = 72.0
 placeholder_text = "Nom du dossier"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 339.0
+margin_top = 337.0
 margin_right = 520.0
 margin_bottom = 594.0
 size_flags_vertical = 3
@@ -145,7 +145,7 @@ text = "Valider"
 modulate = Color( 1, 1, 1, 0 )
 margin_top = 642.0
 margin_right = 520.0
-margin_bottom = 897.0
+margin_bottom = 899.0
 size_flags_vertical = 3
 
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/Inputs/VBoxContainer2/Bt_Delete" to="." method="_on_Bt_Delete_pressed"]

@@ -18,6 +18,10 @@ func _ready():
 	var id_elt: int = 0;
 	for elt in Global.active_object["data"]:
 		var roelt:Control = preload("res://pages/sheets/Bt_elt_mode2.tscn").instance();
+		roelt.anchor_top = 0;
+		roelt.anchor_bottom = 1;
+		roelt.anchor_left = 0;
+		roelt.anchor_right = 1;
 		roelt.get_node("Button").connect("pressed", self, "element_clicked", [id_elt]);
 		# roelt.get_node("RenderText").set_text(elt[0]);
 		if elt[2] == -1:

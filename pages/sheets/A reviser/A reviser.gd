@@ -50,6 +50,7 @@ func _ready():
 			bt.get_node("Bt_activ").connect("pressed", self, "_on_bt_fiche_activ_pressed", [lf]);
 			bt.rect_min_size.y = 55;
 			bt.set_text(f["titre"]);
+			bt.get_node("Button").modulate = cl;
 			$VBoxContainer/ScrollContainer/VBoxContainer.add_child(bt);
 
 

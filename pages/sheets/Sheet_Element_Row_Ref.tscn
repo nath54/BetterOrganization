@@ -108,10 +108,10 @@ wrap_enabled = true
 [node name="Bt_delete" type="Button" parent="C2"]
 modulate = Color( 0.988235, 0, 0, 1 )
 margin_left = 228.0
-margin_top = 463.0
+margin_top = 460.0
 margin_right = 268.0
-margin_bottom = 496.0
-rect_min_size = Vector2( 40, 0 )
+margin_bottom = 500.0
+rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 6
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 5 )

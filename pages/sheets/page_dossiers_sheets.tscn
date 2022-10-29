@@ -28,7 +28,7 @@ margin_right = 520.0
 margin_bottom = 40.0
 
 [node name="Bt_back" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 84.0
+margin_right = 78.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -42,7 +42,7 @@ custom_styles/normal = ExtResource( 2 )
 text = "retour"
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 88.0
+margin_left = 82.0
 margin_right = 476.0
 margin_bottom = 40.0
 size_flags_horizontal = 3

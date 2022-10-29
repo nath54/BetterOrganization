@@ -68,6 +68,7 @@ func draw_subdirs() -> void:
 				bt.get_node("Bt_activ").connect("pressed", self, "_on_bt_fiche_activ_pressed", [c]);
 				bt.rect_min_size.y = 55;
 				bt.set_text(cur_dir_dict[c]["titre"]);
+				bt.get_node("Button").modulate = cl;
 				$VBoxContainer/ScrollContainer/Sous_Dossiers.add_child(bt);
 
 

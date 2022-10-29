@@ -50,9 +50,9 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="Button/HBoxContainer"]
 margin_left = 49.0
-margin_top = 459.0
+margin_top = 460.0
 margin_right = 471.0
-margin_bottom = 490.0
+margin_bottom = 489.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )

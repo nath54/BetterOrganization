@@ -23,43 +23,34 @@ func create_math(t: String) -> Control:
 	var ctr: Control = Control.new();
 	ctr.name = "Control";
 	ctr.mouse_filter = Control.MOUSE_FILTER_IGNORE;
-	# ctr.anchor_left = 0;
-	# ctr.anchor_top = 0;
-	# ctr.anchor_bottom = 1;
-	# ctr.anchor_right = 1;
-	# ctr.size_flags_horizontal = SIZE_EXPAND_FILL;
-	# ctr.size_flags_vertical = SIZE_EXPAND_FILL;
-	# FOR DEBUGGING
-	var pnl: Panel = Panel.new();
-	pnl.anchor_left = 0;
-	pnl.anchor_top = 0;
-	pnl.anchor_bottom = 1;
-	pnl.anchor_right = 1;
-	ctr.add_child(pnl);
 	#
 	var ctr2: Control = Control.new();
 	ctr2.name = "Control";
 	ctr2.mouse_filter = Control.MOUSE_FILTER_IGNORE;
-	ctr.anchor_left = 0.5;
-	ctr.anchor_top = 0.5;
-	ctr.anchor_bottom = 0.5;
-	ctr.anchor_right = 0.5;
+	ctr2.anchor_left = 0.5;
+	ctr2.anchor_top = 0.5;
+	ctr2.anchor_bottom = 0.5;
+	ctr2.anchor_right = 0.5;
 	ctr.add_child(ctr2);
 	var sprt: Sprite = Sprite.new();
 	sprt.name = "Sprite";
 	ctr2.add_child(sprt);
 	sprt.set_script(load("res://addons/GodoTeX/LaTeX.cs"));
+	sprt.FontSize = 80;
+	sprt.scale = Vector2(0.25, 0.25);
 	sprt.LatexExpression = t;
 	sprt.Render();
 	#
-	sprt.position = Vector2(0,0);
+	sprt.position = Vector2(0,5.0*float(Global.settings["font_size"])/100.0);
+	sprt.centered = true;
 	ctr.rect_min_size = sprt.texture.size * sprt.scale;
+	ctr.rect_min_size.y /= 2.0;
 	return ctr;
 
 func create_empty_row() -> Node:
 	var lbl = Panel.new();
 	lbl.modulate = Color(0, 0, 0, 0);
-	lbl.rect_min_size.x = hflow.rect_size.x*1.5;
+	lbl.rect_min_size.x = hflow.rect_size.x*1;
 	lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE;
 	return lbl;
 
@@ -92,17 +83,16 @@ func decompose_parties_base(txt: String) -> void:
 		if idm == 0 or txt[idm-1] != "\\":
 			# On cherche s'il y a bien une balise de fermeture pour la séquence de math
 			var ifm: int = txt.find(el, idm+len(dl));
-			var good: bool = false;
 			while ifm != -1 and txt[ifm-1] == "\\": # On en a trouvée une, mais elle est annulée par un '\'
 				ifm = txt.find(el, ifm+len(ifm)); # Donc on en cherche une plus loin
 			if ifm != -1:
 				# On ajoute d'abord le text avant :
-				decompose_text(txt.substr(i0, idm));
+				decompose_text(txt.substr(i0, idm-i0));
 				# On ajoute ensuite la partie de math
 				parties.append([txt.substr(idm+len(dl), ifm-idm-len(el)), 1]);
 				# On update le curseur dans notre texte
-				i0 = ifm+len(dl);
-			if not good:
+				i0 = ifm+len(el);
+			else:
 				# Il n'y a pas de parties de math
 				# On ajoute tout le texte restant
 				decompose_text(txt.substr(i0));
@@ -145,6 +135,10 @@ func _process(delta):
 			changed = false;
 			for c in hflow.get_children():
 				if c is Control and not (c is Label or c is Panel):
-					var sprt = c.get_node("Control/Sprite");
-					sprt.position = Vector2(0,0);
+					var sprt: Sprite = c.get_node("Control/Sprite");
+					sprt.position = Vector2(0,5.0*float(Global.settings["font_size"])/100.0);
+					sprt.centered = true;
 					c.rect_min_size = sprt.texture.size * sprt.scale;
+					c.rect_min_size.y /= 2.0;
+			#
+			$Control.rect_min_size = $Control/HFlowContainer.rect_size;
