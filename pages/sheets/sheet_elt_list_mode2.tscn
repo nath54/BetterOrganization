@@ -27,11 +27,11 @@ margin_bottom = -10.0
 
 [node name="Titre" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 35.0
+margin_bottom = 40.0
 
 [node name="Bt_back" type="Button" parent="VBoxContainer/Titre"]
 margin_right = 78.0
-margin_bottom = 35.0
+margin_bottom = 40.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
@@ -41,16 +41,16 @@ text = "retour"
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
 margin_left = 82.0
-margin_top = 3.0
+margin_top = 5.0
 margin_right = 156.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 text = "Fiche :"
 
 [node name="Title" type="Label" parent="VBoxContainer/Titre"]
 margin_left = 160.0
-margin_top = 3.0
+margin_top = 5.0
 margin_right = 432.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 text = "Titre"
 autowrap = true
@@ -68,7 +68,8 @@ modulate = Color( 0.305882, 0.929412, 0.196078, 1 )
 margin_left = 392.0
 margin_right = 432.0
 margin_bottom = 37.0
-rect_min_size = Vector2( 40, 0 )
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 6
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
@@ -84,8 +85,9 @@ stretch_mode = 6
 modulate = Color( 0.92549, 0.929412, 0.196078, 1 )
 margin_left = 436.0
 margin_right = 476.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 40, 0 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 6
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
@@ -101,8 +103,9 @@ stretch_mode = 6
 modulate = Color( 1, 0.0627451, 0.0627451, 1 )
 margin_left = 480.0
 margin_right = 520.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 40, 0 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 6
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
@@ -115,14 +118,14 @@ expand = true
 stretch_mode = 6
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 39.0
+margin_top = 44.0
 margin_right = 520.0
-margin_bottom = 43.0
+margin_bottom = 48.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 47.0
+margin_top = 52.0
 margin_right = 520.0
-margin_bottom = 82.0
+margin_bottom = 87.0
 alignment = 2
 
 [node name="Bt_Export" type="Button" parent="VBoxContainer/HBoxContainer2"]
@@ -154,14 +157,14 @@ custom_styles/normal = ExtResource( 1 )
 text = "mode 1"
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
-margin_top = 86.0
+margin_top = 91.0
 margin_right = 520.0
-margin_bottom = 90.0
+margin_bottom = 95.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 94.0
+margin_top = 99.0
 margin_right = 520.0
-margin_bottom = 130.0
+margin_bottom = 135.0
 
 [node name="Bt_add_element" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_right = 219.0
@@ -176,14 +179,14 @@ custom_styles/normal = ExtResource( 1 )
 text = "ajouter un élement"
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-margin_top = 134.0
+margin_top = 139.0
 margin_right = 520.0
-margin_bottom = 138.0
+margin_bottom = 143.0
 
 [node name="Cols" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 142.0
+margin_top = 147.0
 margin_right = 520.0
-margin_bottom = 182.0
+margin_bottom = 187.0
 custom_constants/separation = 10
 
 [node name="Col1" type="HBoxContainer" parent="VBoxContainer/Cols"]
@@ -213,6 +216,7 @@ margin_left = 208.0
 margin_right = 248.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 6
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
@@ -275,7 +279,8 @@ modulate = Color( 0.92549, 0.929412, 0.196078, 1 )
 margin_left = 208.0
 margin_right = 248.0
 margin_bottom = 40.0
-rect_min_size = Vector2( 40, 0 )
+rect_min_size = Vector2( 40, 40 )
+size_flags_vertical = 6
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
@@ -306,7 +311,7 @@ expand = true
 stretch_mode = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 186.0
+margin_top = 191.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -314,7 +319,7 @@ size_flags_vertical = 3
 
 [node name="Elements" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 754.0
+margin_bottom = 749.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
