@@ -28,6 +28,8 @@ var cdar: Array = [current_date["year"], current_date["month"], current_date["da
 
 var cal: Calendar = Calendar.new();
 
+const langs: Array = ["fr", "en"];
+
 const default_settings: Dictionary = {
 	"font_size": 100, # %
 	"language": 0,
@@ -95,6 +97,8 @@ func load_params() -> void:
 		for k in default_settings.keys():
 			if not k in settings.keys():
 				settings[k] = default_settings[k];
+	#
+	TranslationServer.set_locale(Global.langs[Global.settings["language"]]);
 
 func save_params():
 	file.open(SETTINGS_PATH, File.WRITE);

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://pages/timetable/create_calendar.gd" type="Script" id=1]
 [ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=2]
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=3]
 [ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/ui/checkbox/checked2.png" type="Texture" id=5]
+[ext_resource path="res://res/ui/checkbox/unchecked2.png" type="Texture" id=6]
 
 [node name="Create Calendar" type="Control"]
 anchor_right = 1.0
@@ -20,11 +22,11 @@ margin_bottom = -10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "Créer/Modifier un calendrier :"
@@ -32,12 +34,12 @@ align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 39.0
+margin_bottom = 37.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 43.0
+margin_top = 41.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -45,7 +47,7 @@ size_flags_vertical = 3
 
 [node name="Inputs" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 897.0
+margin_bottom = 899.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 15
@@ -53,46 +55,48 @@ custom_constants/separation = 15
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 520.0
-margin_bottom = 222.0
+margin_bottom = 221.0
 size_flags_vertical = 3
 
 [node name="Titre" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
-margin_top = 237.0
+margin_top = 236.0
 margin_right = 520.0
-margin_bottom = 313.0
+margin_bottom = 308.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 text = "Nom :"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 76.0
+margin_bottom = 72.0
 placeholder_text = "Nom du calendrier"
 
 [node name="Activé" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
-margin_top = 328.0
+margin_top = 323.0
 margin_right = 520.0
-margin_bottom = 367.0
+margin_bottom = 371.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Inputs/Activé"]
-margin_top = 4.0
-margin_right = 89.0
-margin_bottom = 35.0
+margin_top = 9.0
+margin_right = 82.0
+margin_bottom = 38.0
 text = "Activé :"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/ScrollContainer/Inputs/Activé"]
-margin_left = 93.0
-margin_right = 117.0
-margin_bottom = 39.0
+margin_left = 86.0
+margin_right = 134.0
+margin_bottom = 48.0
+custom_icons/checked = ExtResource( 5 )
+custom_icons/unchecked = ExtResource( 6 )
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 382.0
+margin_top = 386.0
 margin_right = 520.0
-margin_bottom = 604.0
+margin_bottom = 607.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
@@ -124,9 +128,9 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
-margin_top = 619.0
+margin_top = 622.0
 margin_right = 520.0
-margin_bottom = 659.0
+margin_bottom = 662.0
 
 [node name="Bt_Cancel" type="Button" parent="VBoxContainer/ScrollContainer/Inputs/VBoxContainer"]
 margin_right = 258.0
@@ -160,9 +164,9 @@ text = "Valider"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
-margin_top = 674.0
+margin_top = 677.0
 margin_right = 520.0
-margin_bottom = 897.0
+margin_bottom = 899.0
 size_flags_vertical = 3
 
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/Inputs/VBoxContainer2/Bt_Delete" to="." method="_on_Bt_Delete_pressed"]

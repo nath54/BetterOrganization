@@ -23,22 +23,22 @@ margin_right = 520.0
 margin_bottom = 35.0
 
 [node name="Bt_retour" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 78.0
+margin_right = 163.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 1 )
-text = "retour"
+text = "KEY_RETOUR"
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 82.0
+margin_left = 167.0
 margin_right = 520.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Fiches à réviser en priorité :"
+text = "KEY_FICHES_PRIORITE"
 align = 1
 valign = 1
 

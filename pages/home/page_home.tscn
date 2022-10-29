@@ -20,49 +20,49 @@ margin_bottom = -10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 alignment = 2
 
 [node name="Bt_params" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 374.0
+margin_left = 335.0
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Paramètres"
+text = "KEY_SETTINGS"
 
 [node name="Titre_Date" type="Label" parent="VBoxContainer"]
-margin_top = 41.0
+margin_top = 39.0
 margin_right = 520.0
-margin_bottom = 72.0
-text = "Date : "
+margin_bottom = 68.0
+text = "KEY_DATE"
 
 [node name="Date" type="Label" parent="VBoxContainer"]
-margin_top = 76.0
+margin_top = 72.0
 margin_right = 520.0
-margin_bottom = 107.0
+margin_bottom = 101.0
 text = "Mercredi 27 octobre 2022"
 align = 1
 
 [node name="Titre_Heure" type="Label" parent="VBoxContainer"]
-margin_top = 111.0
+margin_top = 105.0
 margin_right = 520.0
-margin_bottom = 142.0
-text = "Heure :"
+margin_bottom = 134.0
+text = "KEY_HEURE"
 
 [node name="Heure" type="Label" parent="VBoxContainer"]
-margin_top = 146.0
+margin_top = 138.0
 margin_right = 520.0
-margin_bottom = 177.0
+margin_bottom = 167.0
 text = "18h30"
 align = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_top = 181.0
+margin_top = 171.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3

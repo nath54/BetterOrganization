@@ -32,10 +32,11 @@ func _on_Bt_retour_pressed():
 
 func _on_Bt_apply_pressed():
 	# TODO, sauvegarder les données et recharger la page
-	Global.settings["font_size"] = $VBoxContainer/FontSize/InpFontSize.value;
+	Global.settings["font_size"] = float($VBoxContainer/FontSize/InpFontSize.value);
 	Global.settings["language"] = $VBoxContainer/Langue/OptionButton.selected;
 	Global.settings["deb_lat"] = $VBoxContainer/DebLat/LineEdit.text;
 	Global.settings["end_lat"] = $VBoxContainer/EndLat/LineEdit.text;
+	TranslationServer.set_locale(Global.langs[Global.settings["language"]]);
 	if $VBoxContainer/DataLoc/DataPath.text != Global.settings["data_path"]:
 		# On supprime l'ancien fichier de data
 		var dir: Directory = Directory.new();

@@ -30,10 +30,10 @@ margin_bottom = 29.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 215.0
-margin_right = 304.0
+margin_left = 172.0
+margin_right = 347.0
 margin_bottom = 29.0
-text = "Settings"
+text = "KEY_SETTINGS"
 align = 1
 valign = 1
 
@@ -43,18 +43,19 @@ margin_right = 520.0
 margin_bottom = 73.0
 
 [node name="Label" type="Label" parent="VBoxContainer/FontSize"]
-margin_right = 122.0
+margin_right = 193.0
 margin_bottom = 29.0
-text = "Font size : "
+text = "KEY_FONT_SIZE"
 
 [node name="InpFontSize" type="HSlider" parent="VBoxContainer/FontSize"]
-margin_left = 126.0
+margin_left = 197.0
 margin_right = 455.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-min_value = 25.0
-max_value = 400.0
+min_value = 50.0
+max_value = 150.0
+step = 0.5
 value = 100.0
 
 [node name="FontSize" type="Label" parent="VBoxContainer/FontSize"]
@@ -70,16 +71,16 @@ margin_bottom = 123.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Langue"]
 margin_top = 3.0
-margin_right = 102.0
+margin_right = 155.0
 margin_bottom = 32.0
-text = "Langue : "
+text = "KEY_LANGUE"
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/Langue"]
-margin_left = 106.0
-margin_right = 227.0
+margin_left = 159.0
+margin_right = 280.0
 margin_bottom = 35.0
 text = "Francais"
-items = [ "Francais", null, false, 0, null ]
+items = [ "Francais", null, false, 0, null, "English", null, false, 1, null ]
 selected = 0
 
 [node name="DebLat" type="HBoxContainer" parent="VBoxContainer"]
@@ -89,13 +90,13 @@ margin_bottom = 177.0
 
 [node name="Label" type="Label" parent="VBoxContainer/DebLat"]
 margin_top = 5.0
-margin_right = 273.0
+margin_right = 230.0
 margin_bottom = 34.0
-text = "Sequence to begin latex :"
+text = "KEY_SEQ_BEG_LAT"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/DebLat"]
-margin_left = 277.0
-margin_right = 371.0
+margin_left = 234.0
+margin_right = 328.0
 margin_bottom = 39.0
 
 [node name="EndLat" type="HBoxContainer" parent="VBoxContainer"]
@@ -105,13 +106,13 @@ margin_bottom = 231.0
 
 [node name="Label" type="Label" parent="VBoxContainer/EndLat"]
 margin_top = 5.0
-margin_right = 254.0
+margin_right = 234.0
 margin_bottom = 34.0
-text = "Sequence to end latex :"
+text = "KEY_SEQ_END_LAT"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/EndLat"]
-margin_left = 258.0
-margin_right = 352.0
+margin_left = 238.0
+margin_right = 332.0
 margin_bottom = 39.0
 
 [node name="MainPageType" type="HBoxContainer" parent="VBoxContainer"]
@@ -121,13 +122,13 @@ margin_bottom = 281.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MainPageType"]
 margin_top = 3.0
-margin_right = 250.0
+margin_right = 260.0
 margin_bottom = 32.0
-text = "Type page principale : "
+text = "KEY_TYPE_MAINPAGE"
 
 [node name="Bt_mpt_prec" type="Button" parent="VBoxContainer/MainPageType"]
-margin_left = 254.0
-margin_right = 279.0
+margin_left = 264.0
+margin_right = 289.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -138,7 +139,7 @@ custom_styles/normal = ExtResource( 2 )
 text = "<"
 
 [node name="Panel" type="Panel" parent="VBoxContainer/MainPageType"]
-margin_left = 283.0
+margin_left = 293.0
 margin_right = 491.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
@@ -169,13 +170,13 @@ margin_bottom = 331.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ThemeApp"]
 margin_top = 3.0
-margin_right = 193.0
+margin_right = 188.0
 margin_bottom = 32.0
-text = "Theme de l'app : "
+text = "KEY_APPTHEME"
 
 [node name="Bt_mpt_prec" type="Button" parent="VBoxContainer/ThemeApp"]
-margin_left = 197.0
-margin_right = 222.0
+margin_left = 192.0
+margin_right = 217.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -186,7 +187,7 @@ custom_styles/normal = ExtResource( 2 )
 text = "<"
 
 [node name="Panel" type="Panel" parent="VBoxContainer/ThemeApp"]
-margin_left = 226.0
+margin_left = 221.0
 margin_right = 491.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
@@ -220,7 +221,7 @@ margin_right = 236.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Chemin du data : "
+text = "KEY_DATAPATH"
 autowrap = true
 
 [node name="DataPath" type="Label" parent="VBoxContainer/DataLoc"]
@@ -277,13 +278,13 @@ stretch_mode = 6
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 401.0
 margin_right = 520.0
-margin_bottom = 462.0
+margin_bottom = 430.0
 custom_colors/font_color = Color( 0.815686, 0.403922, 0.403922, 1 )
-text = "! Ne changez le chemin du data que si vous savez ce que vous faites !"
+text = "KEY_WARNING_DATAPATH"
 autowrap = true
 
 [node name="Empty" type="Control" parent="VBoxContainer"]
-margin_top = 477.0
+margin_top = 445.0
 margin_right = 520.0
 margin_bottom = 880.0
 size_flags_vertical = 3
@@ -294,8 +295,8 @@ margin_right = 520.0
 margin_bottom = 940.0
 
 [node name="Bt_retour" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 90.0
-margin_right = 168.0
+margin_left = 47.0
+margin_right = 210.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 0, 45 )
 size_flags_horizontal = 6
@@ -305,11 +306,11 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "retour"
+text = "KEY_RETOUR"
 
 [node name="Bt_apply" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 334.0
-margin_right = 447.0
+margin_left = 319.0
+margin_right = 462.0
 margin_bottom = 45.0
 size_flags_horizontal = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -318,7 +319,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "appliquer"
+text = "KEY_APPLY"
 
 [connection signal="value_changed" from="VBoxContainer/FontSize/InpFontSize" to="." method="_on_InpFontSize_value_changed"]
 [connection signal="pressed" from="VBoxContainer/DataLoc/Bt_path_edit" to="." method="_on_Bt_path_edit_pressed"]

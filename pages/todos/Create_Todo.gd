@@ -74,6 +74,8 @@ func add_subtask_ui(t, done, idx):
 	var cb = CheckBox.new();
 	var lb = Label.new();
 	var bt = Button.new();
+	cb.add_icon_override("checked", preload("res://res/ui/checkbox/checked2.png"));
+	cb.add_icon_override("unchecked", preload("res://res/ui/checkbox/unchecked2.png"));
 	#
 	cb.pressed = done;
 	lb.text = t;

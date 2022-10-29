@@ -50,7 +50,7 @@ margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 custom_fonts/font = SubResource( 1 )
-text = "Prochains évenements :"
+text = "KEY_PROCHAIN_EVENTS"
 align = 1
 valign = 1
 
@@ -68,8 +68,8 @@ margin_bottom = 113.0
 alignment = 1
 
 [node name="Bt_voir_events_passes" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 58.0
-margin_right = 462.0
+margin_left = 110.0
+margin_right = 409.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 45, 45 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -80,7 +80,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = ExtResource( 5 )
-text = "voir les évenements qui sont passés"
+text = "KEY_VOIR_OLD_EVENTS"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 modulate = Color( 0.372549, 0.372549, 0.372549, 1 )
@@ -113,7 +113,7 @@ margin_right = 520.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
-text = "Vous n'avez pas de prochains évenements"
+text = "KEY_NO_EVENTS"
 align = 1
 valign = 1
 autowrap = true

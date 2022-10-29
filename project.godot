@@ -110,6 +110,10 @@ reset={
 
 pointing/emulate_touch_from_mouse=true
 
+[locale]
+
+translations=PoolStringArray( "res://res/translations/BetterOrganization Localisation Sheet - Feuille 1.en.translation", "res://res/translations/BetterOrganization Localisation Sheet - Feuille 1.es.translation", "res://res/translations/BetterOrganization Localisation Sheet - Feuille 1.fr.translation" )
+
 [mono]
 
 project/assembly_name="Emmy's Adventure"

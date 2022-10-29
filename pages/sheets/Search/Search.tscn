@@ -21,61 +21,61 @@ margin_bottom = -10.0
 
 [node name="Titre" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 
 [node name="Bt_retour" type="Button" parent="VBoxContainer/Titre"]
-margin_right = 84.0
-margin_bottom = 37.0
+margin_right = 163.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 1 )
-text = "retour"
+text = "KEY_RETOUR"
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 88.0
+margin_left = 167.0
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Rechercher un élément"
+text = "KEY_CHERCHER_ELT"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 41.0
+margin_top = 39.0
 margin_right = 520.0
-margin_bottom = 45.0
+margin_bottom = 43.0
 
 [node name="Search" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 49.0
+margin_top = 47.0
 margin_right = 520.0
-margin_bottom = 90.0
+margin_bottom = 86.0
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Search"]
-margin_right = 402.0
-margin_bottom = 41.0
+margin_right = 355.0
+margin_bottom = 39.0
 size_flags_horizontal = 3
 
 [node name="Bt_search" type="Button" parent="VBoxContainer/Search"]
-margin_left = 406.0
+margin_left = 359.0
 margin_right = 520.0
-margin_bottom = 41.0
+margin_bottom = 39.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 1 )
-text = "chercher"
+text = "KEY_SEARCH"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 94.0
+margin_top = 90.0
 margin_right = 520.0
-margin_bottom = 98.0
+margin_bottom = 94.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 102.0
+margin_top = 98.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -83,7 +83,7 @@ size_flags_vertical = 3
 
 [node name="Results" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 838.0
+margin_bottom = 842.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

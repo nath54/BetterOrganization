@@ -8,8 +8,8 @@ var nb_elts: int = Global.get_fiches_sel_nb_elts(ss);
 func _ready():
 	var ss: Array = Global.get_all_fiches_selected();
 	var nb_elts: int = Global.get_fiches_sel_nb_elts(ss);
-	$VBoxContainer/Nb_fiches.text = "Vous avez sélectionné "+String(len(ss))+" fiches";
-	$VBoxContainer/Nb_elements.text = "Pour un total de "+String(nb_elts)+" élements";
+	$VBoxContainer/Nb_fiches/Nb_fiches.text = String(len(ss));
+	$VBoxContainer/Nb_elts/Nb_elts.text = String(nb_elts);
 	#
 	$VBoxContainer/Repeat/CheckBox.pressed = Global.quiz_repeat;
 	$VBoxContainer/Max_q/InpNbMaxQ.text = String(Global.quiz_max_q);
