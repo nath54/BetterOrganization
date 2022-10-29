@@ -2,7 +2,7 @@
 
 ## Short Description
 
-A godot project to help life organisation (especially for students), with todolists, timetable, and even a sheet system to learn and remind notions !
+A godot project to help life organization (especially for students), with todolists, timetable, and even a sheet system to learn and remind notions !
 
 ## State
 
@@ -13,7 +13,7 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 ### Goals to end alpha phase
 
 * [ ] add a translation to the app
-* [ ] add a search page to allow users to search directly for an element instead of browsing into directories and sheet element lists
+* [x] add a search page to allow users to search directly for an element instead of browsing into directories and sheet element lists
 * [ ] add a system to reduce the knowledge of elements with time to force the user to learn them again and don't forget them
 * [ ] fix some major interface issues
 

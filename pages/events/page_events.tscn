@@ -68,8 +68,8 @@ margin_bottom = 113.0
 alignment = 1
 
 [node name="Bt_voir_events_passes" type="Button" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 42.0
-margin_right = 478.0
+margin_left = 58.0
+margin_right = 462.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 45, 45 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -110,7 +110,7 @@ size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
 text = "Vous n'avez pas de prochains évenements"

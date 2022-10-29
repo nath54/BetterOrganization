@@ -84,7 +84,7 @@ func decompose_parties_base(txt: String) -> void:
 			# On cherche s'il y a bien une balise de fermeture pour la séquence de math
 			var ifm: int = txt.find(el, idm+len(dl));
 			while ifm != -1 and txt[ifm-1] == "\\": # On en a trouvée une, mais elle est annulée par un '\'
-				ifm = txt.find(el, ifm+len(ifm)); # Donc on en cherche une plus loin
+				ifm = txt.find(el, ifm+len(el)); # Donc on en cherche une plus loin
 			if ifm != -1:
 				# On ajoute d'abord le text avant :
 				decompose_text(txt.substr(i0, idm-i0));
@@ -103,7 +103,7 @@ func decompose_parties_base(txt: String) -> void:
 		idm = txt.find(dl, i0);
 	#
 	# On ajoute le texte restant s'il y en a un
-	if len(txt)-i0 > 1:
+	if len(txt)-i0 > 0:
 		decompose_text(txt.substr(i0));
 
 func set_text(txt: String):
