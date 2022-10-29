@@ -1,4 +1,4 @@
-# BetterOrganisation
+# BetterOrganization
 
 ## Short Description
 
