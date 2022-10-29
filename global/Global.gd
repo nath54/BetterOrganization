@@ -33,7 +33,9 @@ var settings: Dictionary = {
 	"language": 0,
 	"data_path": DATA_PATH,
 	"type_page_princip": 0,
-	"theme_app": 0
+	"theme_app": 0,
+	"deb_lat": "\\[",
+	"end_lat": "\\]"
 };
 
 var original_font_sizes: Dictionary = {};
@@ -88,6 +90,10 @@ func load_params() -> void:
 		file.open(SETTINGS_PATH, File.READ);
 		settings = JSON.parse(file.get_as_text()).result;
 		file.close();
+		if not "deb_lat" in settings.keys():
+			settings["deb_lat"] = "\\[";
+		if not "end_lat" in settings.keys():
+			settings["end_lat"] = "\\]";
 
 func save_params():
 	file.open(SETTINGS_PATH, File.WRITE);

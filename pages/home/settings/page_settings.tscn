@@ -26,31 +26,31 @@ custom_constants/separation = 15
 
 [node name="Titre" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 211.0
-margin_right = 309.0
-margin_bottom = 31.0
+margin_left = 215.0
+margin_right = 304.0
+margin_bottom = 29.0
 text = "Settings"
 align = 1
 valign = 1
 
 [node name="FontSize" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 46.0
+margin_top = 44.0
 margin_right = 520.0
-margin_bottom = 77.0
+margin_bottom = 73.0
 
 [node name="Label" type="Label" parent="VBoxContainer/FontSize"]
-margin_right = 130.0
-margin_bottom = 31.0
+margin_right = 122.0
+margin_bottom = 29.0
 text = "Font size : "
 
 [node name="InpFontSize" type="HSlider" parent="VBoxContainer/FontSize"]
-margin_left = 134.0
-margin_right = 451.0
-margin_bottom = 31.0
+margin_left = 126.0
+margin_right = 455.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 min_value = 25.0
@@ -58,45 +58,77 @@ max_value = 400.0
 value = 100.0
 
 [node name="FontSize" type="Label" parent="VBoxContainer/FontSize"]
-margin_left = 455.0
+margin_left = 459.0
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 text = "100%"
 
 [node name="Langue" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 92.0
+margin_top = 88.0
 margin_right = 520.0
-margin_bottom = 129.0
+margin_bottom = 123.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Langue"]
 margin_top = 3.0
-margin_right = 109.0
-margin_bottom = 34.0
+margin_right = 102.0
+margin_bottom = 32.0
 text = "Langue : "
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/Langue"]
-margin_left = 113.0
-margin_right = 242.0
-margin_bottom = 37.0
+margin_left = 106.0
+margin_right = 227.0
+margin_bottom = 35.0
 text = "Francais"
 items = [ "Francais", null, false, 0, null ]
 selected = 0
 
-[node name="MainPageType" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 144.0
+[node name="DebLat" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 138.0
 margin_right = 520.0
-margin_bottom = 181.0
+margin_bottom = 177.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DebLat"]
+margin_top = 5.0
+margin_right = 273.0
+margin_bottom = 34.0
+text = "Sequence to begin latex :"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DebLat"]
+margin_left = 277.0
+margin_right = 371.0
+margin_bottom = 39.0
+
+[node name="EndLat" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 192.0
+margin_right = 520.0
+margin_bottom = 231.0
+
+[node name="Label" type="Label" parent="VBoxContainer/EndLat"]
+margin_top = 5.0
+margin_right = 254.0
+margin_bottom = 34.0
+text = "Sequence to end latex :"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/EndLat"]
+margin_left = 258.0
+margin_right = 352.0
+margin_bottom = 39.0
+
+[node name="MainPageType" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 246.0
+margin_right = 520.0
+margin_bottom = 281.0
 
 [node name="Label" type="Label" parent="VBoxContainer/MainPageType"]
 margin_top = 3.0
-margin_right = 270.0
-margin_bottom = 34.0
+margin_right = 250.0
+margin_bottom = 32.0
 text = "Type page principale : "
 
 [node name="Bt_mpt_prec" type="Button" parent="VBoxContainer/MainPageType"]
-margin_left = 274.0
-margin_right = 300.0
-margin_bottom = 37.0
+margin_left = 254.0
+margin_right = 279.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -106,9 +138,9 @@ custom_styles/normal = ExtResource( 2 )
 text = "<"
 
 [node name="Panel" type="Panel" parent="VBoxContainer/MainPageType"]
-margin_left = 304.0
-margin_right = 490.0
-margin_bottom = 37.0
+margin_left = 283.0
+margin_right = 491.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/MainPageType/Panel"]
@@ -119,9 +151,9 @@ align = 1
 valign = 1
 
 [node name="Bt_mpt_suiv" type="Button" parent="VBoxContainer/MainPageType"]
-margin_left = 494.0
+margin_left = 495.0
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -131,20 +163,20 @@ custom_styles/normal = ExtResource( 2 )
 text = ">"
 
 [node name="ThemeApp" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 196.0
+margin_top = 296.0
 margin_right = 520.0
-margin_bottom = 233.0
+margin_bottom = 331.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ThemeApp"]
 margin_top = 3.0
-margin_right = 206.0
-margin_bottom = 34.0
+margin_right = 193.0
+margin_bottom = 32.0
 text = "Theme de l'app : "
 
 [node name="Bt_mpt_prec" type="Button" parent="VBoxContainer/ThemeApp"]
-margin_left = 210.0
-margin_right = 236.0
-margin_bottom = 37.0
+margin_left = 197.0
+margin_right = 222.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -154,9 +186,9 @@ custom_styles/normal = ExtResource( 2 )
 text = "<"
 
 [node name="Panel" type="Panel" parent="VBoxContainer/ThemeApp"]
-margin_left = 240.0
-margin_right = 490.0
-margin_bottom = 37.0
+margin_left = 226.0
+margin_right = 491.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/ThemeApp/Panel"]
@@ -167,9 +199,9 @@ align = 1
 valign = 1
 
 [node name="Bt_mpt_suiv" type="Button" parent="VBoxContainer/ThemeApp"]
-margin_left = 494.0
+margin_left = 495.0
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
@@ -179,9 +211,9 @@ custom_styles/normal = ExtResource( 2 )
 text = ">"
 
 [node name="DataLoc" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 248.0
+margin_top = 346.0
 margin_right = 520.0
-margin_bottom = 288.0
+margin_bottom = 386.0
 
 [node name="Label" type="Label" parent="VBoxContainer/DataLoc"]
 margin_right = 236.0
@@ -243,15 +275,15 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 303.0
+margin_top = 401.0
 margin_right = 520.0
-margin_bottom = 368.0
+margin_bottom = 462.0
 custom_colors/font_color = Color( 0.815686, 0.403922, 0.403922, 1 )
 text = "! Ne changez le chemin du data que si vous savez ce que vous faites !"
 autowrap = true
 
 [node name="Empty" type="Control" parent="VBoxContainer"]
-margin_top = 383.0
+margin_top = 477.0
 margin_right = 520.0
 margin_bottom = 880.0
 size_flags_vertical = 3
@@ -262,8 +294,8 @@ margin_right = 520.0
 margin_bottom = 940.0
 
 [node name="Bt_retour" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 87.0
-margin_right = 171.0
+margin_left = 90.0
+margin_right = 168.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 0, 45 )
 size_flags_horizontal = 6
@@ -276,8 +308,8 @@ custom_styles/normal = ExtResource( 2 )
 text = "retour"
 
 [node name="Bt_apply" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 329.0
-margin_right = 452.0
+margin_left = 334.0
+margin_right = 447.0
 margin_bottom = 45.0
 size_flags_horizontal = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )

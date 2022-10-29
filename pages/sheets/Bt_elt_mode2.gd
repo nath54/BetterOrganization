@@ -12,4 +12,5 @@ func set_text(t: String):
 func _process(delta):
 	if changed:
 		changed = false;
-		rect_min_size.y = max($RenderText.get_node("Control/Label").rect_size.y, $RenderText.get_node("Control/Control/Control/Sprite").texture.size.y*$RenderText.get_node("Control/Control/Control/Sprite").scale.y) + 15;
+		rect_min_size.y = $RenderText.rect_size.y + 15;
+		# rect_min_size.y = max($RenderText.get_node("Control/Label").rect_size.y, $RenderText.get_node("Control/Control/Control/Sprite").texture.size.y*$RenderText.get_node("Control/Control/Control/Sprite").scale.y) + 15;
