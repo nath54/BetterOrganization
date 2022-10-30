@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=2]
@@ -11,6 +11,15 @@
 [ext_resource path="res://res/ui/icons_alpha/pencil2_icon.png" type="Texture" id=9]
 [ext_resource path="res://res/ui/icons_alpha/validation_icon.png" type="Texture" id=10]
 [ext_resource path="res://res/ui/icons_alpha/export_icon.png" type="Texture" id=11]
+[ext_resource path="res://res/ui/checkbox/unchecked2.png" type="Texture" id=12]
+[ext_resource path="res://res/ui/checkbox/checked2.png" type="Texture" id=13]
+[ext_resource path="res://res/fonts/merriweather.regular.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
 
 [node name="Sheet_Elt_List_Mode2" type="Control"]
 anchor_right = 1.0
@@ -122,10 +131,50 @@ margin_top = 44.0
 margin_right = 520.0
 margin_bottom = 48.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Cb_diminution" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 52.0
 margin_right = 520.0
-margin_bottom = 87.0
+margin_bottom = 100.0
+
+[node name="Cb_diminution" type="CheckBox" parent="VBoxContainer/Cb_diminution"]
+margin_right = 48.0
+margin_bottom = 48.0
+custom_icons/checked = ExtResource( 13 )
+custom_icons/unchecked = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Cb_diminution"]
+margin_left = 52.0
+margin_top = 9.0
+margin_right = 162.0
+margin_bottom = 38.0
+text = "KEY_DIM"
+
+[node name="DIMINUTION" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 104.0
+margin_right = 520.0
+margin_bottom = 143.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DIMINUTION"]
+margin_top = 8.0
+margin_right = 422.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "KEY_VIT_DIM"
+valign = 1
+autowrap = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DIMINUTION"]
+margin_left = 426.0
+margin_right = 520.0
+margin_bottom = 39.0
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 104.0
+margin_right = 520.0
+margin_bottom = 139.0
 alignment = 2
 
 [node name="Bt_Export" type="Button" parent="VBoxContainer/HBoxContainer2"]
@@ -157,14 +206,14 @@ custom_styles/normal = ExtResource( 1 )
 text = "KEY_AFF_MODE1"
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
-margin_top = 91.0
+margin_top = 143.0
 margin_right = 520.0
-margin_bottom = 95.0
+margin_bottom = 147.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 99.0
+margin_top = 151.0
 margin_right = 520.0
-margin_bottom = 135.0
+margin_bottom = 187.0
 
 [node name="Bt_add_element" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_right = 200.0
@@ -179,14 +228,14 @@ custom_styles/normal = ExtResource( 1 )
 text = "KEY_ADD_ELT"
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-margin_top = 139.0
+margin_top = 191.0
 margin_right = 520.0
-margin_bottom = 143.0
+margin_bottom = 195.0
 
 [node name="Cols" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 147.0
+margin_top = 199.0
 margin_right = 520.0
-margin_bottom = 187.0
+margin_bottom = 239.0
 custom_constants/separation = 10
 
 [node name="Col1" type="HBoxContainer" parent="VBoxContainer/Cols"]
@@ -311,7 +360,7 @@ expand = true
 stretch_mode = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 191.0
+margin_top = 243.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -319,7 +368,7 @@ size_flags_vertical = 3
 
 [node name="Elements" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 749.0
+margin_bottom = 697.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
