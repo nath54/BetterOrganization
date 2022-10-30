@@ -37,21 +37,21 @@ func draw_subdirs() -> void:
 				$VBoxContainer/ScrollContainer/Sous_Dossiers.add_child(bt);
 				bt.set_text(c);
 			elif cur_dir_dict[c]["@type"] == "sheet":
-				var sum_known: float = 0;
-				var nb_known: int = 0;
-				var nb_unknown: int = 0;
+				var sum_known: float = 0.0;
+				var nb_known: float = 0.0;
+				var nb_unknown: float = 0.0;
 				for e in cur_dir_dict[c]["data"]:
 					if e[2] == -1:
-						nb_unknown += 1;
+						nb_unknown += 1.0;
 					else:
-						nb_known += 1;
-						sum_known += e[2];
+						nb_known += 1.0;
+						sum_known += e[2]/10.0;
 				var cl: Color;
-				if nb_known + nb_unknown > 0:
+				if nb_known + nb_unknown > 0.0:
 					var know_moy: float = 0.0;
-					if nb_known > 0:
+					if nb_known > 0.0:
 						know_moy = sum_known / float(nb_known);
-					cl = Color(0.5*nb_unknown/(nb_known+nb_unknown)+1*nb_known/(nb_known+nb_unknown)*(1-know_moy), 0.5*nb_known/(nb_known+nb_unknown)+1*nb_known/(nb_known+nb_unknown)*(know_moy), 0.5*nb_known/(nb_known+nb_unknown));
+					cl = Color(0.5*(nb_unknown/(nb_known+nb_unknown))+1.0*(nb_known/(nb_known+nb_unknown))*(1.0-know_moy), 0.5*(nb_unknown/(nb_known+nb_unknown))+1.0*(nb_known/(nb_known+nb_unknown))*(know_moy), 0.5*(nb_unknown/(nb_known+nb_unknown)));
 				else:
 					cl = Color(1, 1, 1);
 				#

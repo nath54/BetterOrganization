@@ -14,8 +14,8 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 
 * [x] add a translation to the app
 * [x] add a search page to allow users to search directly for an element instead of browsing into directories and sheet element lists
-* [ ] Solve the bug with the (A réviser) page
-* [ ] Solve the bug with knowledge
+* [x] Solve the bug with the (A réviser) page
+* [x] Solve the bug with knowledge
 * [x] add a system to reduce the knowledge of elements with time to force the user to learn them again and don't forget them
 * [ ] add confirmation popups for preventing errors where a delete button is pressed
 * [ ] add limitations to the size of the differents inputs elements (like titles, or sheets elements).

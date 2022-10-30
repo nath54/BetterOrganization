@@ -315,6 +315,6 @@ func get_fiche_knowledge_score(fiche: Dictionary) -> float:
 	#
 	var score: float = 0.0; # négatif = plutot mauvais, positif = plutot bon
 	for row in fiche["data"]:
-		score += row[2] - 5;
-	score /= float(len(fiche["data"]));
-	return score;
+		score += row[2] - 5; # Compris entre -5 et 5
+	score /= float(len(fiche["data"])); 
+	return score; # Compris entre -5 et 5
