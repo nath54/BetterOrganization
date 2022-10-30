@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/ui/icons_alpha/trash_icon.png" type="Texture" id=1]
+[ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://res/ui/bts2/hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/ui/bts2/normal.tres" type="StyleBox" id=4]
+
+[node name="Bt_del" type="Button"]
+modulate = Color( 1, 0, 0, 1 )
+margin_right = 12.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 4
+size_flags_vertical = 6
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6

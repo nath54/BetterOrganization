@@ -112,7 +112,8 @@ KEY_DONE,% Fait,Done,Hecho
 KEY_CRT_EDIT_TODO,Créer/Modif Todo :,Create/Edit Todo :,Crear/Editar Todo :
 KEY_TACHETODO,Tâche à faire,Todo task ,Tarea completa
 KEY_DEADLINE,Deadline :,Deadline :,Fecha límite :
-KEY_ADD_ELT,Ajouter,Add,Añadir
+KEY_ADD,Ajouter,Add,Añadir
 KEY_NEW_SUBTASK,nouvelle sous-tâche,New subtask,Nueva subtarea
 KEY_TODOLIST,Liste des tâches à faire :,Todo list :,Lista de tareas :
 KEY_DISPLAYALL,Tout afficher,Display all,Mostrar todo
+KEY_DELETE,Supprimer,Delete,Borrar

@@ -1,12 +1,23 @@
 extends Control
 
+var today: Dictionary = OS.get_datetime();
+var tdarr: Array = [today["year"], today["month"], today["day"]];
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.active_object == null:
 		Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 	Global.active_object["mode_aff"] = 1;
+	if not "dim_active" in Global.active_object.keys():
+		Global.active_object["dim_active"] = false;
+		Global.active_object["dim_last"] = tdarr;
+		Global.active_object["dim_vit"] = 0.25;
 	save_dt();
+	#
+	$VBoxContainer/Cb_diminution/Cb_diminution.pressed = Global.active_object["dim_active"];
+	$VBoxContainer/DIMINUTION.visible = Global.active_object["dim_active"];
+	$VBoxContainer/DIMINUTION/LineEdit.text = String(Global.active_object["dim_vit"]);
 	#
 	$VBoxContainer/Titre/Title.text = Global.active_object["titre"];
 	$VBoxContainer/SepChar/SepChars.text = Global.active_object["sep_chars"];
@@ -43,6 +54,14 @@ func delete_row_elt(elt, roelt):
 	save_dt();
 
 func _on_Bt_back_pressed():
+	if $VBoxContainer/Cb_diminution/Cb_diminution.pressed:
+		var today: Dictionary = OS.get_time();
+		var tdarr: Array = [today["year"], today["month"], today["day"]];
+		Global.active_object["dim_active"] = true;
+		Global.active_object["dim_last"] = tdarr;
+		Global.active_object["dim_vit"] = 0.25;
+		if Global.is_str_float($VBoxContainer/DIMINUTION/LineEdit.text):
+			Global.active_object["dim_vit"] = float($VBoxContainer/DIMINUTION/LineEdit.text);
 	save_dt();
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 

@@ -4,12 +4,24 @@ const col0: Color = Color(1, 0, 0);
 const col1: Color = Color(0, 1, 0);
 const colm1: Color = Color(0.5, 0.5, 0.5);
 
+var today: Dictionary = OS.get_datetime();
+var tdarr: Array = [today["year"], today["month"], today["day"]];
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if Global.active_object == null:
 		Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 	Global.active_object["mode_aff"] = 2;
+	if not "dim_active" in Global.active_object.keys():
+		Global.active_object["dim_active"] = false;
+		Global.active_object["dim_last"] = tdarr;
+		Global.active_object["dim_vit"] = 0.25;
+		
 	save_dt();
+	#
+	$VBoxContainer/Cb_diminution/Cb_diminution.pressed = Global.active_object["dim_active"];
+	$VBoxContainer/DIMINUTION.visible = Global.active_object["dim_active"];
+	$VBoxContainer/DIMINUTION/LineEdit.text = String(Global.active_object["dim_vit"]);
 	#
 	$VBoxContainer/Titre/Title.text = Global.active_object["titre"];
 	$VBoxContainer/Cols/Col1/col1.text = Global.active_object["col1"];
@@ -58,6 +70,12 @@ func delete_row_elt(elt, roelt):
 	save_dt();
 
 func _on_Bt_back_pressed():
+	if $VBoxContainer/Cb_diminution/Cb_diminution.pressed:
+		Global.active_object["dim_active"] = true;
+		Global.active_object["dim_last"] = tdarr;
+		Global.active_object["dim_vit"] = 0.25;
+		if Global.is_str_float($VBoxContainer/DIMINUTION/LineEdit.text):
+			Global.active_object["dim_vit"] = float($VBoxContainer/DIMINUTION/LineEdit.text);
 	save_dt();
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 
@@ -135,3 +153,7 @@ func _on_Bt_toggle_mode_to_mode1_pressed():
 
 func _on_Bt_Export_pressed():
 	Global.go_to_page("res://pages/sheets/Export_Sheet.tscn");
+
+
+func _on_Cb_diminution_toggled(button_pressed):
+	$VBoxContainer/DIMINUTION.visible = button_pressed;

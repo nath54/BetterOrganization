@@ -205,7 +205,7 @@ autowrap = true
 margin_left = 426.0
 margin_right = 520.0
 margin_bottom = 39.0
-text = "0"
+text = "0.25"
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
 margin_top = 146.0

@@ -73,13 +73,12 @@ func add_subtask_ui(t, done, idx):
 	var hb = HBoxContainer.new();
 	var cb = CheckBox.new();
 	var lb = Label.new();
-	var bt = Button.new();
+	var bt = preload("res://pages/todos/Bt_del.tscn").instance();
 	cb.add_icon_override("checked", preload("res://res/ui/checkbox/checked2.png"));
 	cb.add_icon_override("unchecked", preload("res://res/ui/checkbox/unchecked2.png"));
 	#
 	cb.pressed = done;
 	lb.text = t;
-	bt.text = "X";
 	hb.add_child(cb);
 	hb.add_child(lb);
 	hb.add_child(bt);

@@ -376,6 +376,7 @@ size_flags_vertical = 3
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_validate_titre" to="." method="_on_Bt_validate_titre_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_edit_titre" to="." method="_on_Bt_edit_titre_pressed"]
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_delete_sheet" to="." method="_on_Bt_delete_sheet_pressed"]
+[connection signal="toggled" from="VBoxContainer/Cb_diminution/Cb_diminution" to="." method="_on_Cb_diminution_toggled"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Bt_Export" to="." method="_on_Bt_Export_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Bt_toggle_mode_to_mode1" to="." method="_on_Bt_toggle_mode_to_mode1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_add_element" to="." method="_on_Bt_add_element_pressed"]

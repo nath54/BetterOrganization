@@ -148,9 +148,34 @@ func load_data() -> void:
 			for e in asup:
 				c.elements.erase(e);
 		#
+		parcour_aux_sheets_with_func(self.data.directories, funcref(self, "diminush_time"));
+		#
 		Global.save_data();
 	else:
 		data = init_data();
+
+func parcour_aux_sheets_with_func(d: Dictionary, fun: FuncRef):
+	for de in d.keys():
+		if typeof(d[de]) == TYPE_DICTIONARY:
+			if d[de]["@type"] == "dir":
+				parcour_aux_sheets_with_func(d[de], fun);
+			elif d[de]["@type"] == "sheet":
+				d[de] = fun.call_func(d[de]);
+
+func diminush_time(sd: Dictionary) -> Dictionary:
+	var today: Dictionary = OS.get_datetime();
+	var tdarr: Array = [today["year"], today["month"], today["day"]];
+	if "dim_active" in sd.keys() and sd["dim_active"] == true:
+		if not "dim_last" in sd.keys():
+			sd["dim_last"] = tdarr;
+		if not "dim_vit" in sd.keys():
+			sd["dim_vit"] = 0.25;
+		var time_since: int = cal.distance_days(tdarr, sd["dim_last"]);
+		var qt: float = sd["dim_vit"] * time_since;
+		for i in range(len(sd["data"])):
+			sd["data"][i][2] = clamp(sd["data"][i][2]-qt, 0, 10);
+	return sd; 
+
 
 func percent_of_subtask(st: Array) -> float:
 	var nb_finis: float = 0;

@@ -1,7 +1,7 @@
 extends Control
 
 const jours: Array = ["KEY_LUN", "KEY_MAR", "KEY_MER", "KEY_JEU", "KEY_VEN", "KEY_SAM", "KEY_DIM"];
-const periods: Array = ["KEY_1DAY", "KEY_1DAY", "KEY_1DAY", "KEY_DAY"];
+const periods: Array = ["KEY_1DAY", "KEY_3DAY", "KEY_5DAY", "KEY_7DAY"];
 const iperiods: Array = [0, 2, 4, 6];
 # Global.tt_crt_period
 var cal: Calendar = Calendar.new();
