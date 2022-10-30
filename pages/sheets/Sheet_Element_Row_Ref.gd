@@ -10,8 +10,15 @@ var text2: String = "";
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$C1/RenderText.set_text(text1);
-	$C2/RenderText2.set_text(text2);
+	pass
+
+func aff():
+	if not Global.active_object["multi_active"]:
+		$C1/RenderText.set_text(text1);
+		$C2/RenderText2.set_text(text2);
+	else:
+		pass
+
 
 func set_val(t1: String, t2: String):
 	# print("SET VAL : ", t1, "  ", t2);

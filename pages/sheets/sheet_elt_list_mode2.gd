@@ -76,6 +76,8 @@ func _on_Bt_back_pressed():
 		Global.active_object["dim_vit"] = 0.25;
 		if Global.is_str_float($VBoxContainer/DIMINUTION/LineEdit.text):
 			Global.active_object["dim_vit"] = float($VBoxContainer/DIMINUTION/LineEdit.text);
+	else:
+		Global.active_object["dim_active"] = false;
 	save_dt();
 	Global.go_to_page("res://pages/sheets/page_dossiers_sheets.tscn", false);
 
