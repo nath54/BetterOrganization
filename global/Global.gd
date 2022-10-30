@@ -28,7 +28,7 @@ var cdar: Array = [current_date["year"], current_date["month"], current_date["da
 
 var cal: Calendar = Calendar.new();
 
-const langs: Array = ["fr", "en"];
+const langs: Array = ["fr", "en", "es"];
 
 const default_settings: Dictionary = {
 	"font_size": 100, # %

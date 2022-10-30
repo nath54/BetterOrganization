@@ -25,7 +25,7 @@ func _ready():
 			bttd.get_node("Button").connect("pressed", self, "on_bt_clicked", [td[1]]);
 			var pc = Global.percent_of_subtask(td[1]["subtasks"]) * 100;
 			bttd.get_node("VBoxContainer/HBoxContainer/ProgressBar").value = pc;
-			bttd.get_node("VBoxContainer/HBoxContainer/Label").text = String(int(pc))+"% done";
+			bttd.get_node("VBoxContainer/HBoxContainer/percent").text = String(int(pc));
 			$VBoxContainer/ScrollContainer/VBoxContainer.add_child(bttd);
 	#
 	Global.resize_all_fonts();

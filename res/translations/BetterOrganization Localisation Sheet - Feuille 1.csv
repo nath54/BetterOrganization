@@ -1,45 +1,118 @@
 keys,fr,en,es
-KEY_TITRE_CREER_MODIF_EVENT,Créer/Modif Evenement :,Create/Edit Event :,
-KEY_TITRE,Titre :,Title :,
-KEY_COLOR,Couleur :,Color :,
-KEY_CALENDAR,Calendrier :,Calendar :,
-KEY_DATE,Date :,Date :,
-KEY_HEURE_DEB,Heure deb :,Start hour :,
-KEY_HEURE_FIN,Heure fin :,End hour :,
-KEY_EXPL_FMT_HEURE,"Format : ""[heure]h[minutes]"" ou ""[heure]:[minutes]"", avec heure entre 0 et 23 et minutes entre 0 et 59","Format: ""[hour]h[minutes]"" or ""[hour]:[minutes]"", with hours between 0 and 23 and minutes between 0 and 59",
-KEY_SUPPRIMER,Supprimer,Delete,
-KEY_ANNULER,Annuler,Cancel,
-KEY_VALIDER,Valider,Validate,
-KEY_PROCHAIN_EVENTS,Prochains évenements :,Next events :,
-KEY_VOIR_OLD_EVENTS,voir les évenements qui sont passés,See old events,
-KEY_NO_EVENTS,Vous n'avez pas de prochains évenements,You don't have next events,
-KEY_RETOUR,Retour,Back,
-KEY_OLD_EVENTS,Ancients évenements,Old events,
-KEY_NO_OLD_EVENTS,Vous n'avez pas d'ancient évenements,You don't have old events,
-KEY_SETTINGS,Paramètres,Settings,
-KEY_HEURE,Heure,Hour,
-KEY_FONT_SIZE,Taille du texte :,Font size :,
-KEY_LANGUE,Langue :,Language :,
-KEY_SEQ_BEG_LAT,Seq deb latex :,Sequence to begin latex :,
-KEY_SEQ_END_LAT,Seq fin latex :,Sequence to end latex :,
-KEY_TYPE_MAINPAGE,Type page principale : ,Mainscreen type :,
-KEY_APPTHEME,Theme de l'app : ,App theme,
-KEY_DATAPATH,Chemin du data : ,Data path :,
-KEY_WARNING_DATAPATH,! Ne changez le chemin du data que si vous savez ce que vous faites !,! Don't change data path if you don't know what you do !,
-KEY_APPLY,Appliquer,Apply,
-KEY_FICHES_PRIORITE,Fiches à réviser en priorité :,Sheets more needed to remind :,
-KEY_CHERCHER_ELT,Rechercher un élément :,Search an element :,
-KEY_SEARCH,Chercher,Search,
-KEY_QUIZ,Quiz,Quiz,
-KEY_V_SEL,Vous avez sélectionné,You have selected,
-KEY_FICHES,fiches,sheets,
-KEY_P_TOT,Pour un total de ,For a total of ,
-KEY_ELEMENTS,éléments,items,
-KEY_PRST_REPEAT,Preset répéter,Preset repeat,
-KEY_PRESET_Q10,Preset 10 qsts sans reps,Preset 10 q° no repeats,
-KEY_REPETS,Répétitions :,Repeat :,
-KEY_NB_MAXQ,Nb max questions : ,Max number of questions :,
-KEY_MODE,Mode :,Mode :,
-KEY_CARTES,Cartes,Cards :,
-KEY_ECRIRE,Ecrire,Write :,
-KEY_LANCER_QUIZ,Lancer un quiz !,Start a quiz !,
+KEY_TITRE_CREER_MODIF_EVENT,Créer/Modif Evenement :,Create/Edit Event :,Crear/editar evento :
+KEY_TITRE,Titre :,Title :,Título :
+KEY_COLOR,Couleur :,Color :,Color :
+KEY_CALENDAR,Calendrier :,Calendar :,Calendario :
+KEY_DATE,Date :,Date :,Fecha :
+KEY_HEURE_DEB,Heure deb :,Start hour :,Hora de inicio :
+KEY_HEURE_FIN,Heure fin :,End hour :,Hora de finalización :
+KEY_EXPL_FMT_HEURE,"Format : ""[heure]h[minutes]"" ou ""[heure]:[minutes]"", avec heure entre 0 et 23 et minutes entre 0 et 59","Format: ""[hour]h[minutes]"" or ""[hour]:[minutes]"", with hours between 0 and 23 and minutes between 0 and 59","Formato: ""[hora]h[minutos]"" o ""[hora]:[minutos]"", con horas entre 0 y 23 y minutos entre 0 y 59"
+KEY_SUPPRIMER,Supprimer,Delete,Borrar
+KEY_ANNULER,Annuler,Cancel,Cancelar
+KEY_VALIDER,Valider,Validate,Validar
+KEY_PROCHAIN_EVENTS,Prochains évenements :,Next events :,Próximos eventos :
+KEY_VOIR_OLD_EVENTS,voir les évenements qui sont passés,See old events,Ver eventos antiguos
+KEY_NO_EVENTS,Vous n'avez pas de prochains évenements,You don't have next events,No tienes próximos eventos
+KEY_RETOUR,Retour,Back,Volver
+KEY_OLD_EVENTS,Ancients évenements,Old events,Eventos antiguos
+KEY_NO_OLD_EVENTS,Vous n'avez pas d'ancient évenements,You don't have old events,No tiene eventos antiguos
+KEY_SETTINGS,Paramètres,Settings,Configuración
+KEY_HEURE,Heure,Hour,Hora
+KEY_FONT_SIZE,Taille du texte :,Font size :,Tamaño de letra :
+KEY_LANGUE,Langue :,Language :,Idioma :
+KEY_SEQ_BEG_LAT,Seq deb latex :,Sequence to begin latex :,Secuencia de inicio del látex :
+KEY_SEQ_END_LAT,Seq fin latex :,Sequence to end latex :,Secuencia de finalización del látex :
+KEY_TYPE_MAINPAGE,Type page principale : ,Mainscreen type :,Tipo de pantalla principal :
+KEY_APPTHEME,Theme de l'app : ,App theme,Tema de la aplicación
+KEY_DATAPATH,Chemin du data : ,Data path :,Ruta de datos :
+KEY_WARNING_DATAPATH,! Ne changez le chemin du data que si vous savez ce que vous faites !,! Don't change data path if you don't know what you do !,! No cambie la ruta de datos si no sabe lo que hace !
+KEY_APPLY,Appliquer,Apply,Aplicar
+KEY_FICHES_PRIORITE,Fiches à réviser en priorité :,Sheets more needed to remind :,Hojas más necesarias para recordar :
+KEY_CHERCHER_ELT,Rechercher un élément :,Search an element :,Buscar un elemento :
+KEY_SEARCH,Rechercher,Search,Buscar en
+KEY_QUIZ,Quiz,Quiz,Cuestionario
+KEY_V_SEL,Vous avez sélectionné,You have selected,Ha seleccionado
+KEY_FICHES,Fiches,sheets,hojas
+KEY_P_TOT,Pour un total de ,For a total of ,Para un total de
+KEY_ELEMENTS,éléments,items,elementos
+KEY_PRST_REPEAT,Preset répéter,Preset repeat,Preajuste Repetición
+KEY_PRESET_Q10,Preset 10 qsts sans reps,Preset 10 q° no repeats,Preajuste 10 q° sin repeticiones
+KEY_REPETS,Répétitions :,Repeat :,Repetición :
+KEY_NB_MAXQ,Nb max questions : ,Max number of questions :,Número máximo de preguntas :
+KEY_MODE,Mode :,Mode :,Modo :
+KEY_CARTES,Cartes,Cards :,Tarjetas :
+KEY_ECRIRE,Ecrire,Write :,Escribir :
+KEY_LANCER_QUIZ,Lancer un quiz !,Start a quiz !,¡Empezar un concurso!
+KEY_QUESTION,Question :,Question :,Pregunta :
+KEY_DEVOILER,Dévoiler,Reveal,Revelar
+KEY_REPONSE,Réponse : ,Answer :,Respuesta :
+KEY_BONNE_REPONSE,Bonne réponse :,True answer :,Respuesta verdadera :
+KEY_NOTE_KNOWLEDGE,Noter votre connaissance de cet élément :,Evaluate your knowledge of this question :,Evalúe su conocimiento de esta pregunta :
+KEY_JUSTE,JUSTE !,RIGHT !,¡ CORRECTO !
+KEY_FAUX,FAUX !,WRONG !,¡ INCORRECTO !
+KEY_VOTRE_REPONSE,Votre réponse :,Your answer :,Su respuesta :
+KEY_STOP,Arrêter,Stop,Detener
+KEY_NEXT,Suivant,Next,Siguiente
+KEY_FIN_QUIZ,Fin du quiz !,End of the quiz !,¡Fin de la prueba!
+KEY_V_EFF,Vous avez effectué ,You have done ,Usted ha hecho
+KEY_Q_RES," questions, avec une réussite de ","questions, with a success rate of ","preguntas, con un porcentaje de aciertos de"
+KEY_DO_SAME,Refaire pareil,Do it again,Vuelva a hacerlo
+KEY_MENU,Menu,Menu,Menú
+KEY_CREATE_EDIT_DIR,Créer/Modifier un dossier :,Create/Edit Directory :,Crear/Editar Directorio :
+KEY_NOM,Nom :,Name :,Nombre :
+KEY_NOM_DIR,Nom du dossier,Name of the directory,Nombre del directorio
+KEY_FICHE,Fiche :,Sheet :,Hoja :
+KEY_MULTI_ANS,Plusieurs possibilités pour une réponse,Multiple possibilities for an answer,Múltiples posibilidades de respuesta
+KEY_MODE2,Type d'affichage 2,Display mode 2,Modo de visualización 2
+KEY_SEP_CHARS,Charactères de séparation :,Separation caracters :,Caracteres de separación :
+KEY_DIM,Diminution de la connaissance des éléments au fil du temps,Decrease in knowledge of elements over time,Disminución del conocimiento de los elementos a lo largo del tiempo
+KEY_VIT_DIM,Vitesse de diminution de la connaissance (par heure) :,Rate of decrease in knowledge (per hour):,Ritmo de disminución del conocimiento (por hora):
+KEY_ADD_ELT,Ajouter un élément,Add an element,Añadir un elemento
+KEY_EXPORT,Exporter la fiche,Export the sheet,Exportar la hoja
+KEY_TYPE_EXPORT,Type d'exportation : ,Export type :,Tipo de exportación :
+KEY_FICHIER,Fichier : ,File :,Archivo :
+KEY_PATH,Chemin,Path,Ruta
+KEY_EXPORTER,Exporter,Export,Exportar
+KEY_O_CSV,Options d'exportation CSV :,CSV export settings,Configuración de la exportación CSV
+KEY_SEP_ROWS,Separation de lignes : ,Rows Separation :,Separación de filas :
+KEY_SEP_COLS,Separation de colonnes  : ,Cols Separation :,Separación de Cols :
+KEY_DEFAULT_DONT_KNOW,"Si vous ne savez pas, laisser par défaut","If you don't know, leave by default","Si no lo sabe, déjelo por defecto"
+KEY_FLIP_CARD,Retourner la carte !,Flip the card !,¡Voltear la tarjeta !
+KEY_IMPORT,Importer une fiche :,Import a sheet,Importar una hoja
+KEY_IMPORT_TYPE,Type d'importation : ,Importation type :,Tipo de importación :
+KEY_IMPORTER,Importer une fiche :,Import a sheet :,Importar una hoja :
+KEY_EXPL_SEP,(Pour des réponses multiples),(For multiple answers),(Para respuestas múltiples)
+KEY_NOM_COL1,Nom col1 :,col1 Name :,col1 Nombre :
+KEY_NOM_COL2,Nom col2 :,col2 Name :,col2 Nombre :
+KEY_+_DOSSIER, + Sous-dossier, + sub-dir, + subdirector
+KEY_+_FICHE, + Fiche, + sheet, + hoja
+KEY_T_FICHES,Fiches :,Sheets :,Hojas :
+KEY_A_REVISER,A réviser,To remind :,Para recordar :
+KEY_AFF_MODE1,Type d'affichage 1,Display mode 1,Modo de visualización 1
+KEY_CRT_EDIT_CAL,Créer/Modifier un calendrier :,Create/Edit a calendar :,Crear/editar un calendario :
+KEY_NOM_CAL,Nom du calendrier,Calendar Name,Nombre del calendario
+KEY_ACTIVE,Activé :,Active :,Activo :
+KEY_CRT_EDIT_ELT,Créer/Modif Element :,Create/Edit an event,Crear/editar un evento
+KEY_ELEMENT,Element,Element,Elemento
+KEY_DAY,Jour :,Day :,Día :
+KEY_TIMETABLE,Emplois du temps :,Timetable :,Horario :
+KEY_GERE_EDT,gerer les EDT,Timetable gestion,Gestión del horario
+KEY_1DAY,1 jour,1 day,1 día
+KEY_3DAY,3 jours,3 days,3 días
+KEY_5DAY,5 jours,5 days,5 días
+KEY_7DAY,7 jours,7 days,7 días
+KEY_LUN,Lun,Mon,Lun
+KEY_MAR,Mar,Tue,Mar
+KEY_MER,Mer,Wed,Mié
+KEY_JEU,Jeu,Thu,Jue
+KEY_VEN,Ven,Fri,Vier
+KEY_SAM,Sam,Sat,Sáb
+KEY_DIM,Dim,Sun,Dom
+KEY_DONE,% Fait,Done,Hecho
+KEY_CRT_EDIT_TODO,Créer/Modif Todo :,Create/Edit Todo :,Crear/Editar Todo :
+KEY_TACHETODO,Tâche à faire,Todo task ,Tarea completa
+KEY_DEADLINE,Deadline :,Deadline :,Fecha límite :
+KEY_ADD_ELT,Ajouter,Add,Añadir
+KEY_NEW_SUBTASK,nouvelle sous-tâche,New subtask,Nueva subtarea
+KEY_TODOLIST,Liste des tâches à faire :,Todo list :,Lista de tareas :
+KEY_DISPLAYALL,Tout afficher,Display all,Mostrar todo

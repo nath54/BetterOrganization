@@ -27,24 +27,24 @@ margin_bottom = -10.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Fiches :"
+text = "KEY_T_FICHES"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 39.0
+margin_bottom = 37.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 43.0
+margin_top = 41.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -52,16 +52,16 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 897.0
+margin_bottom = 899.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 alignment = 1
 
 [node name="Bt_Fiches" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 233.0
+margin_top = 234.0
 margin_right = 520.0
-margin_bottom = 318.0
+margin_bottom = 319.0
 rect_min_size = Vector2( 0, 85 )
 size_flags_horizontal = 3
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -73,12 +73,12 @@ custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Fiches"
+text = "KEY_FICHES"
 
 [node name="Bt_Search" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 348.0
+margin_top = 349.0
 margin_right = 520.0
-margin_bottom = 433.0
+margin_bottom = 434.0
 rect_min_size = Vector2( 0, 85 )
 size_flags_horizontal = 3
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -90,12 +90,12 @@ custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Rechercher"
+text = "KEY_SEARCH"
 
 [node name="Bt_A_reviser" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 463.0
+margin_top = 464.0
 margin_right = 520.0
-margin_bottom = 548.0
+margin_bottom = 549.0
 rect_min_size = Vector2( 0, 85 )
 size_flags_horizontal = 3
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -107,12 +107,12 @@ custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "A réviser"
+text = "KEY_A_REVISER"
 
 [node name="Bt_Quiz" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 578.0
+margin_top = 579.0
 margin_right = 520.0
-margin_bottom = 663.0
+margin_bottom = 664.0
 rect_min_size = Vector2( 0, 85 )
 size_flags_horizontal = 3
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -124,7 +124,7 @@ custom_fonts/font = SubResource( 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Quiz"
+text = "KEY_QUIZ"
 
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/Bt_Fiches" to="." method="_on_Bt_Fiches_pressed"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/Bt_Search" to="." method="_on_Bt_Search_pressed"]

@@ -1,7 +1,7 @@
 extends Control
 
-const jours: Array = ["lun", "mar", "mer", "jeu", "ven", "sam", "dim"];
-const periods: Array = ["1 jour", "3 jours", "5 jours", "7 jours"];
+const jours: Array = ["KEY_LUN", "KEY_MAR", "KEY_MER", "KEY_JEU", "KEY_VEN", "KEY_SAM", "KEY_DIM"];
+const periods: Array = ["KEY_1DAY", "KEY_1DAY", "KEY_1DAY", "KEY_DAY"];
 const iperiods: Array = [0, 2, 4, 6];
 # Global.tt_crt_period
 var cal: Calendar = Calendar.new();
@@ -10,7 +10,7 @@ var current_date = OS.get_date();
 
 func aff_date():
 	for i in range(7):
-		get_node("VBoxContainer/ScrollContainer/HBoxContainer/j"+String(i)+"/day").text = jours[(current_date["weekday"]-1+i)%7];
+		get_node("VBoxContainer/ScrollContainer/HBoxContainer/j"+String(i)+"/day").text = tr(jours[(current_date["weekday"]-1+i)%7]);
 	#
 	var next_day: Dictionary = cal.avance_days(current_date["day"], current_date["month"], current_date["year"], iperiods[Global.tt_crt_period]);
 	$VBoxContainer/HBoxContainer2/HBoxContainer/interval.text = String(current_date["day"])+"/"+String(current_date["month"])+"/"+String(current_date["year"])+" - "+String(next_day["day"])+"/"+String(next_day["month"])+"/"+String(next_day["year"]);
@@ -26,7 +26,7 @@ func draw_timetable():
 	var js = {0: [], 1: [],2: [],3: [],4: [],5: [],6: []};
 	var dec = current_date["weekday"];
 	var jj: int;
-	print("BEGIN DRAW TIMETABLE : ", cdar, " - ", ndar);
+	# print("BEGIN DRAW TIMETABLE : ", cdar, " - ", ndar);
 	# On récupère tous les éléments
 	for c in Global.data.calendars:
 		if c.active:
@@ -181,7 +181,7 @@ func _on_Bt_Create_pressed():
 
 func _on_Bt_period_pressed():
 	Global.tt_crt_period = (Global.tt_crt_period+1)%len(periods);
-	$VBoxContainer/HBoxContainer2/Bt_period.text = periods[Global.tt_crt_period];
+	$VBoxContainer/HBoxContainer2/Bt_period.text = tr(periods[Global.tt_crt_period]);
 	var next_day: Dictionary = Calendar.new().avance_days(current_date["day"], current_date["month"], current_date["year"], iperiods[Global.tt_crt_period]);
 	$VBoxContainer/HBoxContainer2/HBoxContainer/interval.text = String(current_date["day"])+"/"+String(current_date["month"])+"/"+String(current_date["year"])+" - "+String(next_day["day"])+"/"+String(next_day["month"])+"/"+String(next_day["year"]);
 	update_period();

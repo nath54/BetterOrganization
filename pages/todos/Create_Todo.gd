@@ -49,7 +49,7 @@ func _ready():
 		$VBoxContainer/Date/Date.text = String(day) + "/"+ String(month) + "/" + String(year);
 		var pc = Global.percent_of_subtask(subtasks) * 100.0;
 		$VBoxContainer/percent/ProgressBar.value = pc;
-		$VBoxContainer/percent/Label.text = String(int(pc))+"% done";
+		$VBoxContainer/percent/Label.text = String(int(pc));
 	#
 	display_date();
 	#

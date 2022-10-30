@@ -28,7 +28,7 @@ margin_right = 520.0
 margin_bottom = 40.0
 
 [node name="Bt_back" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 78.0
+margin_right = 163.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -39,10 +39,10 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "retour"
+text = "KEY_RETOUR"
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 82.0
+margin_left = 167.0
 margin_right = 476.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
@@ -95,7 +95,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "+sous-dossier"
+text = "KEY_+_DOSSIER"
 
 [node name="Bt_Create_Sheet" type="Button" parent="VBoxContainer/Bts"]
 margin_left = 240.0
@@ -111,7 +111,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "+ fiche"
+text = "KEY_+_FICHE"
 
 [node name="Bt_import_sheet" type="Button" parent="VBoxContainer/Bts"]
 modulate = Color( 0.92549, 0.768627, 0.396078, 1 )

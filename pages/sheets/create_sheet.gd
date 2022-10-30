@@ -124,3 +124,7 @@ func _on_Bt_toggle_mode_to_mode_2_pressed():
 
 func _on_Bt_Export_pressed():
 	Global.go_to_page("res://pages/sheets/Export_Sheet.tscn");
+
+
+func _on_Cb_diminution_toggled(button_pressed: bool) -> void:
+	$VBoxContainer/DIMINUTION.visible = button_pressed;

@@ -38,7 +38,7 @@ anchor_bottom = 1.0
 margin_right = 520.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
-text = "Question : "
+text = "KEY_QUESTION"
 align = 1
 valign = 1
 autowrap = true
@@ -61,9 +61,9 @@ size_flags_stretch_ratio = 0.25
 alignment = 1
 
 [node name="Bt_devoiler_cartes" type="Button" parent="Question_mode_carte/VBoxContainer/Control"]
-margin_left = 205.0
+margin_left = 167.0
 margin_top = 69.0
-margin_right = 315.0
+margin_right = 353.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 110, 40 )
 size_flags_horizontal = 4
@@ -74,7 +74,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "dévoiler"
+text = "KEY_DEVOILER"
 
 [node name="Question_mode_ecrire" type="Control" parent="."]
 visible = false
@@ -93,7 +93,7 @@ anchor_bottom = 1.0
 margin_right = 520.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
-text = "Question : "
+text = "KEY_QUESTION"
 valign = 1
 autowrap = true
 
@@ -118,14 +118,14 @@ margin_right = 520.0
 margin_bottom = 40.0
 
 [node name="Label" type="Label" parent="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer"]
-margin_top = 4.0
-margin_right = 122.0
-margin_bottom = 35.0
-text = "Réponse : "
+margin_top = 5.0
+margin_right = 166.0
+margin_bottom = 34.0
+text = "KEY_REPONSE"
 
 [node name="Bt_View" type="Button" parent="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer"]
-margin_left = 126.0
-margin_right = 166.0
+margin_left = 170.0
+margin_right = 210.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 custom_styles/hover = ExtResource( 6 )
@@ -165,8 +165,8 @@ margin_right = 520.0
 margin_bottom = 939.0
 
 [node name="Bt_devoiler_ecrire" type="Button" parent="Question_mode_ecrire/VBoxContainer/Bt_devoiler"]
-margin_left = 205.0
-margin_right = 315.0
+margin_left = 167.0
+margin_right = 353.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 110, 40 )
 size_flags_horizontal = 4
@@ -177,7 +177,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "dévoiler"
+text = "KEY_DEVOILER"
 
 [node name="Reponse_mode_carte" type="Control" parent="."]
 visible = false
@@ -194,38 +194,38 @@ anchor_bottom = 1.0
 
 [node name="TitreBonneRep" type="Label" parent="Reponse_mode_carte/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
-text = "Bonne réponse :"
+margin_bottom = 29.0
+text = "KEY_BONNE_REPONSE"
 
 [node name="RenderText" parent="Reponse_mode_carte/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 846.0
+margin_bottom = 896.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="HBoxScore" type="HBoxContainer" parent="Reponse_mode_carte/VBoxContainer"]
-margin_top = 850.0
+margin_top = 900.0
 margin_right = 520.0
-margin_bottom = 899.0
+margin_bottom = 940.0
 
 [node name="TitreNoterConnaissance" type="Label" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
+margin_top = 8.0
 margin_right = 300.0
-margin_bottom = 49.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 custom_fonts/font = SubResource( 1 )
-text = "Noter votre connaissance de cet élément :"
+text = "KEY_NOTE_KNOWLEDGE"
 autowrap = true
 
 [node name="Bt_eval0" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 1, 0, 0, 1 )
 margin_left = 304.0
-margin_top = 4.0
 margin_right = 344.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -239,9 +239,8 @@ text = "0"
 [node name="Bt_eval1" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.952941, 0.423529, 0, 1 )
 margin_left = 348.0
-margin_top = 4.0
 margin_right = 388.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -255,9 +254,8 @@ text = "1"
 [node name="Bt_eval2" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.839216, 0.647059, 0, 1 )
 margin_left = 392.0
-margin_top = 4.0
 margin_right = 432.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -271,9 +269,8 @@ text = "2"
 [node name="Bt_eval3" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.631373, 0.835294, 0, 1 )
 margin_left = 436.0
-margin_top = 4.0
 margin_right = 476.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -287,9 +284,8 @@ text = "3"
 [node name="Bt_eval4" type="Button" parent="Reponse_mode_carte/VBoxContainer/HBoxScore"]
 modulate = Color( 0.14902, 1, 0, 1 )
 margin_left = 480.0
-margin_top = 4.0
 margin_right = 520.0
-margin_bottom = 44.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 size_flags_vertical = 4
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -332,6 +328,7 @@ custom_styles/normal = ExtResource( 2 )
 text = "suivant"
 
 [node name="Reponse_mode_ecrire" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -345,45 +342,45 @@ anchor_bottom = 1.0
 
 [node name="TitreBonneRep" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
-text = "Bonne réponse :"
+margin_bottom = 29.0
+text = "KEY_BONNE_REPONSE"
 
 [node name="RenderText" parent="Reponse_mode_ecrire/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 427.0
+margin_bottom = 428.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="JUSTE" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
 modulate = Color( 0.407843, 1, 0, 1 )
-margin_top = 431.0
+margin_top = 432.0
 margin_right = 520.0
-margin_bottom = 462.0
-text = "JUSTE !"
+margin_bottom = 461.0
+text = "KEY_JUSTE"
 align = 1
 
 [node name="FAUX" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
 visible = false
 modulate = Color( 1, 0, 0, 1 )
-margin_top = 472.0
+margin_top = 449.0
 margin_right = 520.0
-margin_bottom = 503.0
-text = "FAUX !"
+margin_bottom = 478.0
+text = "KEY_FAUX"
 align = 1
 
 [node name="TitreVotreRep" type="Label" parent="Reponse_mode_ecrire/VBoxContainer"]
-margin_top = 466.0
+margin_top = 465.0
 margin_right = 520.0
-margin_bottom = 497.0
-text = "Votre réponse :"
+margin_bottom = 494.0
+text = "KEY_VOTRE_REPONSE"
 
 [node name="RenderText2" parent="Reponse_mode_ecrire/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 501.0
+margin_top = 498.0
 margin_right = 520.0
 margin_bottom = 894.0
 size_flags_horizontal = 3
@@ -406,7 +403,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "arreter"
+text = "KEY_STOP"
 
 [node name="Bt_suivant" type="Button" parent="Reponse_mode_ecrire/VBoxContainer/HBoxContainer"]
 margin_left = 262.0
@@ -421,10 +418,9 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "suivant"
+text = "KEY_NEXT"
 
 [node name="Ecran_Fin" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -439,34 +435,62 @@ custom_constants/separation = 15
 alignment = 1
 
 [node name="Label" type="Label" parent="Ecran_Fin/VBoxContainer"]
-margin_top = 362.0
+margin_top = 381.0
 margin_right = 510.0
-margin_bottom = 393.0
-text = "Fin du quiz !"
+margin_bottom = 410.0
+text = "KEY_FIN_QUIZ"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="Ecran_Fin/VBoxContainer"]
-margin_top = 408.0
+margin_top = 425.0
 margin_right = 510.0
-margin_bottom = 412.0
+margin_bottom = 429.0
 
-[node name="score" type="Label" parent="Ecran_Fin/VBoxContainer"]
-margin_top = 427.0
+[node name="HBoxContainer2" type="HFlowContainer" parent="Ecran_Fin/VBoxContainer"]
+margin_top = 444.0
 margin_right = 510.0
-margin_bottom = 492.0
-text = "Vous avez effectué 0 questions, avec une réussite de 0%"
-autowrap = true
+margin_bottom = 473.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+
+[node name="l1" type="Label" parent="Ecran_Fin/VBoxContainer/HBoxContainer2"]
+margin_right = 137.0
+margin_bottom = 29.0
+size_flags_horizontal = 0
+text = "KEY_V_EFF"
+
+[node name="nb_q" type="Label" parent="Ecran_Fin/VBoxContainer/HBoxContainer2"]
+margin_left = 137.0
+margin_right = 151.0
+margin_bottom = 29.0
+size_flags_horizontal = 0
+text = "0"
+
+[node name="l2" type="Label" parent="Ecran_Fin/VBoxContainer/HBoxContainer2"]
+margin_left = 151.0
+margin_right = 289.0
+margin_bottom = 29.0
+size_flags_horizontal = 0
+text = "KEY_Q_RES"
+
+[node name="score" type="Label" parent="Ecran_Fin/VBoxContainer/HBoxContainer2"]
+margin_left = 289.0
+margin_right = 326.0
+margin_bottom = 29.0
+size_flags_horizontal = 2
+text = "0%"
 
 [node name="HSeparator2" type="HSeparator" parent="Ecran_Fin/VBoxContainer"]
-margin_top = 507.0
+margin_top = 488.0
 margin_right = 510.0
-margin_bottom = 511.0
+margin_bottom = 492.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Ecran_Fin/VBoxContainer"]
-margin_top = 526.0
+margin_top = 507.0
 margin_right = 510.0
-margin_bottom = 568.0
+margin_bottom = 549.0
 custom_constants/separation = 15
 
 [node name="Bt_restart_the_same" type="Button" parent="Ecran_Fin/VBoxContainer/HBoxContainer"]
@@ -480,7 +504,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "refaire pareil"
+text = "KEY_DO_SAME"
 
 [node name="Bt_go_menu" type="Button" parent="Ecran_Fin/VBoxContainer/HBoxContainer"]
 margin_left = 262.0
@@ -494,7 +518,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "menu"
+text = "KEY_MENU"
 
 [connection signal="pressed" from="Question_mode_carte/VBoxContainer/Control/Bt_devoiler_cartes" to="." method="_on_Bt_devoiler_cartes_pressed"]
 [connection signal="pressed" from="Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_View" to="." method="_on_Bt_View_pressed"]

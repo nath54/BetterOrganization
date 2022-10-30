@@ -52,7 +52,7 @@ mouse_filter = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 437.0
+margin_top = 439.0
 margin_right = 520.0
 margin_bottom = 468.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -61,12 +61,12 @@ text = "Event to do"
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 472.0
 margin_right = 520.0
-margin_bottom = 503.0
+margin_bottom = 501.0
 mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
-margin_right = 411.0
-margin_bottom = 31.0
+margin_right = 348.0
+margin_bottom = 29.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -75,9 +75,16 @@ custom_styles/bg = SubResource( 2 )
 value = 45.0
 percent_visible = false
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 415.0
-margin_right = 520.0
-margin_bottom = 31.0
+[node name="percent" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 352.0
+margin_right = 389.0
+margin_bottom = 29.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "0% done"
+text = "0%"
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 393.0
+margin_right = 520.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "KEY_DONE"

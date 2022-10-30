@@ -21,136 +21,136 @@ custom_constants/separation = 15
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_right = 520.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Créer/Modif Element :"
+text = "KEY_CRT_EDIT_ELT"
 align = 1
 valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 46.0
+margin_top = 44.0
 margin_right = 520.0
-margin_bottom = 50.0
+margin_bottom = 48.0
 
 [node name="Titre" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 65.0
+margin_top = 63.0
 margin_right = 520.0
-margin_bottom = 141.0
+margin_bottom = 135.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
 margin_right = 520.0
-margin_bottom = 31.0
-text = "Titre : "
+margin_bottom = 29.0
+text = "KEY_TITRE"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Titre"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 76.0
-placeholder_text = "Element"
+margin_bottom = 72.0
+placeholder_text = "KEY_ELEMENT"
 
 [node name="Calendrier" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 156.0
+margin_top = 150.0
 margin_right = 520.0
-margin_bottom = 193.0
+margin_bottom = 185.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Calendrier"]
 margin_top = 3.0
-margin_right = 146.0
-margin_bottom = 34.0
-text = "Calendrier : "
+margin_right = 184.0
+margin_bottom = 32.0
+text = "KEY_CALENDAR"
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/Calendrier"]
-margin_left = 150.0
-margin_right = 179.0
-margin_bottom = 37.0
+margin_left = 188.0
+margin_right = 217.0
+margin_bottom = 35.0
 
 [node name="Date" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 208.0
+margin_top = 200.0
 margin_right = 520.0
-margin_bottom = 245.0
+margin_bottom = 235.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Date"]
 margin_top = 3.0
-margin_right = 71.0
-margin_bottom = 34.0
-text = "Jour : "
+margin_right = 108.0
+margin_bottom = 32.0
+text = "KEY_DAY"
 
 [node name="Jour" type="OptionButton" parent="VBoxContainer/Date"]
-margin_left = 75.0
-margin_right = 173.0
-margin_bottom = 37.0
+margin_left = 112.0
+margin_right = 205.0
+margin_bottom = 35.0
 text = "Lundi"
 items = [ "Lundi", null, false, 0, null, "Mardi", null, false, 1, null, "Mercredi", null, false, 2, null, "Jeudi", null, false, 3, null, "Vendredi", null, false, 4, null, "Samedi", null, false, 5, null, "Dimanche", null, false, 6, null ]
 selected = 0
 
 [node name="color" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 260.0
+margin_top = 250.0
 margin_right = 520.0
-margin_bottom = 297.0
+margin_bottom = 285.0
 
 [node name="Label" type="Label" parent="VBoxContainer/color"]
 margin_top = 3.0
-margin_right = 85.0
-margin_bottom = 34.0
-text = "Color : "
+margin_right = 137.0
+margin_bottom = 32.0
+text = "KEY_COLOR"
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/color"]
-margin_left = 89.0
-margin_right = 182.0
-margin_bottom = 37.0
+margin_left = 141.0
+margin_right = 227.0
+margin_bottom = 35.0
 text = "(0,0,0)"
 
 [node name="Heure_Deb" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 312.0
+margin_top = 300.0
 margin_right = 520.0
-margin_bottom = 353.0
+margin_bottom = 339.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Heure_Deb"]
 margin_top = 5.0
-margin_right = 169.0
-margin_bottom = 36.0
-text = "Heure début : "
+margin_right = 203.0
+margin_bottom = 34.0
+text = "KEY_HEURE_DEB"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Heure_Deb"]
-margin_left = 173.0
-margin_right = 267.0
-margin_bottom = 41.0
+margin_left = 207.0
+margin_right = 301.0
+margin_bottom = 39.0
 text = "8h00"
 
 [node name="Heure_Fin" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 368.0
+margin_top = 354.0
 margin_right = 520.0
-margin_bottom = 409.0
+margin_bottom = 393.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Heure_Fin"]
 margin_top = 5.0
-margin_right = 135.0
-margin_bottom = 36.0
-text = "Heure fin : "
+margin_right = 198.0
+margin_bottom = 34.0
+text = "KEY_HEURE_FIN"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/Heure_Fin"]
-margin_left = 139.0
-margin_right = 233.0
-margin_bottom = 41.0
+margin_left = 202.0
+margin_right = 296.0
+margin_bottom = 39.0
 text = "10h00"
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 modulate = Color( 0.615686, 0.54902, 0.54902, 1 )
-margin_top = 424.0
+margin_top = 408.0
 margin_right = 520.0
-margin_bottom = 523.0
-text = "Format : \"[heure]h[minutes]\" ou \"[heure]:[minutes]\", avec heure entre 0 et 23 et minutes entre 0 et 59"
+margin_bottom = 437.0
+text = "KEY_EXPL_FMT_HEURE"
 autowrap = true
 
 [node name="Bt_suppr" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 538.0
+margin_top = 452.0
 margin_right = 520.0
-margin_bottom = 578.0
+margin_bottom = 492.0
 
 [node name="Bt_delete" type="Button" parent="VBoxContainer/Bt_suppr"]
 margin_right = 258.0
@@ -165,7 +165,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
-text = "supprimer"
+text = "KEY_DELETE"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/Bt_suppr"]
 modulate = Color( 1, 1, 1, 0 )
@@ -175,9 +175,9 @@ margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="Bt_ok_cancel" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 593.0
+margin_top = 507.0
 margin_right = 520.0
-margin_bottom = 633.0
+margin_bottom = 547.0
 
 [node name="Bt_cancel" type="Button" parent="VBoxContainer/Bt_ok_cancel"]
 margin_right = 258.0
@@ -192,7 +192,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
-text = "annuler"
+text = "KEY_ANNULER"
 
 [node name="Bt_validate" type="Button" parent="VBoxContainer/Bt_ok_cancel"]
 margin_left = 262.0
@@ -208,7 +208,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
-text = "valider"
+text = "KEY_VALIDER"
 
 [connection signal="item_selected" from="VBoxContainer/Calendrier/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="item_selected" from="VBoxContainer/Date/Jour" to="." method="_on_Jour_item_selected"]

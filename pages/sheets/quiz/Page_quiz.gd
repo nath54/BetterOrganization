@@ -92,7 +92,8 @@ func suivant() -> void:
 
 func ecran_fin() -> void:
 	aff_page(false, false, false, false, true);
-	$Ecran_Fin/VBoxContainer/score.text = "Vous avez effectué "+String(nb_q)+" questions, avec une réussite de "+String(score/float(nb_q))+"%";
+	$Ecran_Fin/VBoxContainer/HBoxContainer2/nb_q.text = String(nb_q);
+	$Ecran_Fin/VBoxContainer/HBoxContainer2/score.text = String(score/float(nb_q))+"%";
 
 
 func _on_Bt_View_pressed():

@@ -80,7 +80,7 @@ margin_left = 159.0
 margin_right = 280.0
 margin_bottom = 35.0
 text = "Francais"
-items = [ "Francais", null, false, 0, null, "English", null, false, 1, null ]
+items = [ "Francais", null, false, 0, null, "English", null, false, 1, null, "Espanol (DEEPL)", null, false, 2, null ]
 selected = 0
 
 [node name="DebLat" type="HBoxContainer" parent="VBoxContainer"]

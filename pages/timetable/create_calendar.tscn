@@ -29,7 +29,7 @@ margin_right = 520.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Créer/Modifier un calendrier :"
+text = "KEY_CRT_EDIT_CAL"
 align = 1
 valign = 1
 
@@ -66,13 +66,13 @@ margin_bottom = 308.0
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
 margin_right = 520.0
 margin_bottom = 29.0
-text = "Nom :"
+text = "KEY_NOM"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
 margin_top = 33.0
 margin_right = 520.0
 margin_bottom = 72.0
-placeholder_text = "Nom du calendrier"
+placeholder_text = "KEY_NOM_CAL"
 
 [node name="Activé" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
 margin_top = 323.0
@@ -81,13 +81,13 @@ margin_bottom = 371.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Inputs/Activé"]
 margin_top = 9.0
-margin_right = 82.0
+margin_right = 144.0
 margin_bottom = 38.0
-text = "Activé :"
+text = "KEY_ACTIVE"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/ScrollContainer/Inputs/Activé"]
-margin_left = 86.0
-margin_right = 134.0
+margin_left = 148.0
+margin_right = 196.0
 margin_bottom = 48.0
 custom_icons/checked = ExtResource( 5 )
 custom_icons/unchecked = ExtResource( 6 )
@@ -101,9 +101,9 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/Inputs"]
 visible = false
-margin_top = 583.0
+margin_top = 586.0
 margin_right = 520.0
-margin_bottom = 623.0
+margin_bottom = 626.0
 
 [node name="Bt_Delete" type="Button" parent="VBoxContainer/ScrollContainer/Inputs/VBoxContainer2"]
 margin_right = 258.0
@@ -118,7 +118,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Supprimer"
+text = "KEY_DELETE"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs/VBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
@@ -144,7 +144,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Annuler"
+text = "KEY_ANNULER"
 
 [node name="Bt_Validate" type="Button" parent="VBoxContainer/ScrollContainer/Inputs/VBoxContainer"]
 margin_left = 262.0
@@ -160,7 +160,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "Valider"
+text = "KEY_VALIDER"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )

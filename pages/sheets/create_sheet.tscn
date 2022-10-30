@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=1]
 [ext_resource path="res://res/ui/bts2/pressed.tres" type="StyleBox" id=2]
@@ -11,6 +11,15 @@
 [ext_resource path="res://res/ui/icons_alpha/trash_icon.png" type="Texture" id=9]
 [ext_resource path="res://res/ui/icons_alpha/validation_icon.png" type="Texture" id=10]
 [ext_resource path="res://res/ui/icons_alpha/export_icon.png" type="Texture" id=11]
+[ext_resource path="res://res/ui/checkbox/unchecked2.png" type="Texture" id=12]
+[ext_resource path="res://res/ui/checkbox/checked2.png" type="Texture" id=13]
+[ext_resource path="res://res/fonts/merriweather.regular.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
 
 [node name="Create_sheet" type="Control"]
 anchor_right = 1.0
@@ -30,24 +39,24 @@ margin_right = 520.0
 margin_bottom = 35.0
 
 [node name="Bt_back" type="Button" parent="VBoxContainer/Titre"]
-margin_right = 78.0
+margin_right = 163.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 1 )
-text = "retour"
+text = "KEY_RETOUR"
 
 [node name="Label" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 82.0
+margin_left = 167.0
 margin_top = 3.0
-margin_right = 156.0
+margin_right = 298.0
 margin_bottom = 32.0
-text = "Fiche :"
+text = "KEY_FICHE"
 
 [node name="Title" type="Label" parent="VBoxContainer/Titre"]
-margin_left = 160.0
+margin_left = 302.0
 margin_top = 3.0
 margin_right = 432.0
 margin_bottom = 32.0
@@ -57,9 +66,9 @@ autowrap = true
 
 [node name="TitleEdit" type="LineEdit" parent="VBoxContainer/Titre"]
 visible = false
-margin_left = 120.0
-margin_right = 452.0
-margin_bottom = 41.0
+margin_left = 338.0
+margin_right = 432.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 
 [node name="Bt_validate_titre" type="Button" parent="VBoxContainer/Titre"]
@@ -127,8 +136,8 @@ alignment = 2
 
 [node name="Bt_Export" type="Button" parent="VBoxContainer/HBOX"]
 modulate = Color( 0.980392, 0.788235, 0.0313726, 1 )
-margin_left = 385.0
-margin_right = 425.0
+margin_left = 322.0
+margin_right = 362.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 40, 0 )
 custom_styles/hover = ExtResource( 4 )
@@ -143,7 +152,7 @@ expand = true
 stretch_mode = 6
 
 [node name="Bt_toggle_mode_to_mode_2" type="Button" parent="VBoxContainer/HBOX"]
-margin_left = 429.0
+margin_left = 366.0
 margin_right = 520.0
 margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -151,59 +160,106 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 1 )
-text = "mode 2"
+text = "KEY_MODE2"
 
-[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
 margin_top = 86.0
 margin_right = 520.0
 margin_bottom = 90.0
 
-[node name="Cb_multi_pos" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Cb_diminution" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 94.0
 margin_right = 520.0
-margin_bottom = 131.0
+margin_bottom = 142.0
+
+[node name="Cb_diminution" type="CheckBox" parent="VBoxContainer/Cb_diminution"]
+margin_right = 48.0
+margin_bottom = 48.0
+custom_icons/checked = ExtResource( 13 )
+custom_icons/unchecked = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Cb_diminution"]
+margin_left = 52.0
+margin_top = 9.0
+margin_right = 162.0
+margin_bottom = 38.0
+text = "KEY_DIM"
+
+[node name="DIMINUTION" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 146.0
+margin_right = 520.0
+margin_bottom = 185.0
+
+[node name="Label" type="Label" parent="VBoxContainer/DIMINUTION"]
+margin_top = 8.0
+margin_right = 422.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "KEY_VIT_DIM"
+valign = 1
+autowrap = true
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DIMINUTION"]
+margin_left = 426.0
+margin_right = 520.0
+margin_bottom = 39.0
+text = "0"
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+margin_top = 146.0
+margin_right = 520.0
+margin_bottom = 150.0
+
+[node name="Cb_multi_pos" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 154.0
+margin_right = 520.0
+margin_bottom = 202.0
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/Cb_multi_pos"]
-margin_right = 24.0
-margin_bottom = 37.0
+margin_right = 48.0
+margin_bottom = 48.0
+custom_icons/checked = ExtResource( 13 )
+custom_icons/unchecked = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="VBoxContainer/Cb_multi_pos"]
-margin_left = 28.0
-margin_top = 4.0
-margin_right = 457.0
-margin_bottom = 33.0
-text = "Plusieurs possibilités pour une réponse"
+margin_left = 52.0
+margin_top = 9.0
+margin_right = 254.0
+margin_bottom = 38.0
+text = "KEY_MULTI_ANS"
 
 [node name="SepChar" type="HBoxContainer" parent="VBoxContainer"]
 visible = false
-margin_top = 88.0
+margin_top = 135.0
 margin_right = 520.0
-margin_bottom = 129.0
+margin_bottom = 174.0
 
 [node name="Label" type="Label" parent="VBoxContainer/SepChar"]
 margin_top = 5.0
-margin_right = 135.0
-margin_bottom = 36.0
-text = "Sep chars : "
+margin_right = 196.0
+margin_bottom = 34.0
+text = "KEY_SEP_CHARS"
 
 [node name="SepChars" type="LineEdit" parent="VBoxContainer/SepChar"]
-margin_left = 139.0
-margin_right = 233.0
-margin_bottom = 41.0
+margin_left = 200.0
+margin_right = 294.0
+margin_bottom = 39.0
 text = "||"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-margin_top = 135.0
+margin_top = 206.0
 margin_right = 520.0
-margin_bottom = 139.0
+margin_bottom = 210.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 143.0
+margin_top = 214.0
 margin_right = 520.0
-margin_bottom = 179.0
+margin_bottom = 250.0
 
 [node name="Bt_add_element" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_right = 219.0
+margin_right = 200.0
 margin_bottom = 36.0
 rect_min_size = Vector2( 200, 36 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -212,17 +268,17 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 1 )
-text = "ajouter un élement"
+text = "KEY_ADD_ELT"
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-margin_top = 183.0
+margin_top = 254.0
 margin_right = 520.0
-margin_bottom = 187.0
+margin_bottom = 258.0
 
 [node name="Cols" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 191.0
+margin_top = 262.0
 margin_right = 520.0
-margin_bottom = 231.0
+margin_bottom = 302.0
 custom_constants/separation = 10
 
 [node name="Col1" type="HBoxContainer" parent="VBoxContainer/Cols"]
@@ -347,7 +403,7 @@ expand = true
 stretch_mode = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 235.0
+margin_top = 306.0
 margin_right = 520.0
 margin_bottom = 940.0
 size_flags_horizontal = 3
@@ -355,7 +411,7 @@ size_flags_vertical = 3
 
 [node name="Elements" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 margin_right = 520.0
-margin_bottom = 705.0
+margin_bottom = 634.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -365,6 +421,7 @@ size_flags_vertical = 3
 [connection signal="pressed" from="VBoxContainer/Titre/Bt_delete_sheet" to="." method="_on_Bt_delete_sheet_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBOX/Bt_Export" to="." method="_on_Bt_Export_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBOX/Bt_toggle_mode_to_mode_2" to="." method="_on_Bt_toggle_mode_to_mode_2_pressed"]
+[connection signal="toggled" from="VBoxContainer/Cb_diminution/Cb_diminution" to="." method="_on_Cb_diminution_toggled"]
 [connection signal="toggled" from="VBoxContainer/Cb_multi_pos/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Bt_add_element" to="." method="_on_Bt_add_element_pressed"]
 [connection signal="pressed" from="VBoxContainer/Cols/Col1/Bt_edit_col1" to="." method="_on_Bt_edit_col1_pressed"]

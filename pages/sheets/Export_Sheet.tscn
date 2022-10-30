@@ -20,123 +20,123 @@ margin_bottom = -10.0
 
 [node name="TItre" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 
 [node name="Bt_back" type="Button" parent="VBoxContainer/TItre"]
-margin_right = 84.0
-margin_bottom = 37.0
+margin_right = 163.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "retour"
+text = "KEY_RETOUR"
 
 [node name="Label" type="Label" parent="VBoxContainer/TItre"]
-margin_left = 88.0
+margin_left = 167.0
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Exporter la fiche"
+text = "KEY_EXPORT"
 align = 1
 valign = 1
 
 [node name="ExportType" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 41.0
+margin_top = 39.0
 margin_right = 520.0
-margin_bottom = 78.0
+margin_bottom = 74.0
 
 [node name="Label" type="Label" parent="VBoxContainer/ExportType"]
 margin_top = 3.0
-margin_right = 249.0
-margin_bottom = 34.0
-text = "Type d'exportation : "
+margin_right = 227.0
+margin_bottom = 32.0
+text = "KEY_TYPE_EXPORT"
 
 [node name="OptionButton" type="OptionButton" parent="VBoxContainer/ExportType"]
-margin_left = 253.0
-margin_right = 341.0
-margin_bottom = 37.0
+margin_left = 231.0
+margin_right = 315.0
+margin_bottom = 35.0
 text = "JSON"
 items = [ "CSV", null, false, 0, null, "JSON", null, false, 1, null ]
 selected = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-margin_top = 82.0
+margin_top = 78.0
 margin_right = 520.0
-margin_bottom = 86.0
+margin_bottom = 82.0
 
 [node name="CSV_OPTION" type="VBoxContainer" parent="VBoxContainer"]
 visible = false
-margin_top = 90.0
+margin_top = 86.0
 margin_right = 520.0
-margin_bottom = 254.0
+margin_bottom = 242.0
 
 [node name="TitreCSV" type="Label" parent="VBoxContainer/CSV_OPTION"]
 margin_right = 520.0
-margin_bottom = 31.0
-text = "Options d'exportation CSV :"
+margin_bottom = 29.0
+text = "KEY_O_CSV"
 
 [node name="Row_Sep" type="HBoxContainer" parent="VBoxContainer/CSV_OPTION"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 520.0
-margin_bottom = 76.0
+margin_bottom = 72.0
 
 [node name="Label" type="Label" parent="VBoxContainer/CSV_OPTION/Row_Sep"]
 margin_top = 5.0
-margin_right = 263.0
-margin_bottom = 36.0
-text = "Separation de lignes : "
+margin_right = 187.0
+margin_bottom = 34.0
+text = "KEY_SEP_ROWS"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/CSV_OPTION/Row_Sep"]
-margin_left = 267.0
-margin_right = 361.0
-margin_bottom = 41.0
+margin_left = 191.0
+margin_right = 285.0
+margin_bottom = 39.0
 text = "\\n"
 
 [node name="Col_Sep" type="HBoxContainer" parent="VBoxContainer/CSV_OPTION"]
-margin_top = 80.0
+margin_top = 76.0
 margin_right = 520.0
-margin_bottom = 121.0
+margin_bottom = 115.0
 
 [node name="Label" type="Label" parent="VBoxContainer/CSV_OPTION/Col_Sep"]
 margin_top = 5.0
-margin_right = 303.0
-margin_bottom = 36.0
-text = "Separation de colonnes  : "
+margin_right = 178.0
+margin_bottom = 34.0
+text = "KEY_SEP_COLS	"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/CSV_OPTION/Col_Sep"]
-margin_left = 307.0
-margin_right = 401.0
-margin_bottom = 41.0
+margin_left = 182.0
+margin_right = 276.0
+margin_bottom = 39.0
 text = "|^|"
 
 [node name="Label" type="Label" parent="VBoxContainer/CSV_OPTION"]
-margin_top = 125.0
+margin_top = 119.0
 margin_right = 520.0
-margin_bottom = 156.0
-text = "Si vous ne savez pas, laisser par défaut"
+margin_bottom = 148.0
+text = "KEY_DEFAULT_DONT_KNOW"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/CSV_OPTION"]
-margin_top = 160.0
+margin_top = 152.0
 margin_right = 520.0
-margin_bottom = 164.0
+margin_bottom = 156.0
 
 [node name="Chemin" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 90.0
+margin_top = 86.0
 margin_right = 520.0
-margin_bottom = 127.0
+margin_bottom = 121.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Chemin"]
 margin_top = 3.0
-margin_right = 107.0
-margin_bottom = 34.0
-text = "FIchier : "
+margin_right = 155.0
+margin_bottom = 32.0
+text = "KEY_FICHIER"
 
 [node name="PATH" type="Label" parent="VBoxContainer/Chemin"]
-margin_left = 111.0
-margin_right = 451.0
-margin_bottom = 37.0
+margin_left = 159.0
+margin_right = 382.0
+margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 text = "NONE "
@@ -145,30 +145,30 @@ valign = 1
 autowrap = true
 
 [node name="Bt_Path" type="Button" parent="VBoxContainer/Chemin"]
-margin_left = 455.0
+margin_left = 386.0
 margin_right = 520.0
-margin_bottom = 37.0
+margin_bottom = 35.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "Path"
+text = "KEY_PATH"
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-margin_top = 131.0
+margin_top = 125.0
 margin_right = 520.0
-margin_bottom = 135.0
+margin_bottom = 129.0
 
 [node name="ButtonExport" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 139.0
+margin_top = 133.0
 margin_right = 520.0
-margin_bottom = 184.0
+margin_bottom = 178.0
 alignment = 1
 
 [node name="Bt_Export" type="Button" parent="VBoxContainer/ButtonExport"]
-margin_left = 185.0
-margin_right = 335.0
+margin_left = 164.0
+margin_right = 355.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 150, 45 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -176,7 +176,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "Exporter"
+text = "KEY_EXPORTER"
 
 [node name="FileDialog" type="FileDialog" parent="."]
 anchor_right = 1.0

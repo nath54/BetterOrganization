@@ -47,16 +47,16 @@ text = "+"
 
 [node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
 margin_left = 44.0
-margin_right = 341.0
+margin_right = 321.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
-text = "Emplois du temps :"
+text = "KEY_TIMETABLE"
 align = 1
 valign = 1
 
 [node name="Bt_manage" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 345.0
+margin_left = 325.0
 margin_right = 520.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 175, 0 )
@@ -68,7 +68,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 2 )
 custom_styles/normal = ExtResource( 3 )
-text = "gerer les EDT"
+text = "KEY_GERE_EDT"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 margin_top = 50.0
@@ -102,8 +102,8 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Bt_before" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 65.0
-margin_right = 91.0
+margin_left = 73.0
+margin_right = 98.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 24, 0 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -117,15 +117,15 @@ custom_styles/normal = ExtResource( 3 )
 text = "<"
 
 [node name="interval" type="Label" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 95.0
-margin_top = 4.0
-margin_right = 321.0
-margin_bottom = 35.0
+margin_left = 102.0
+margin_top = 5.0
+margin_right = 314.0
+margin_bottom = 34.0
 text = "01/01/23 - 03/01/23"
 
 [node name="Bt_after" type="Button" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 325.0
-margin_right = 351.0
+margin_left = 318.0
+margin_right = 343.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 24, 0 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -228,13 +228,13 @@ size_flags_vertical = 3
 
 [node name="day" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j0"]
 margin_right = 173.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 text = "lun"
 align = 1
 valign = 1
 
 [node name="j" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j0"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 173.0
 margin_bottom = 826.0
 size_flags_horizontal = 3
@@ -250,13 +250,13 @@ size_flags_vertical = 3
 
 [node name="day" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j1"]
 margin_right = 173.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 text = "mar"
 align = 1
 valign = 1
 
 [node name="j" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j1"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 173.0
 margin_bottom = 826.0
 size_flags_horizontal = 3
@@ -272,13 +272,13 @@ size_flags_vertical = 3
 
 [node name="day" type="Label" parent="VBoxContainer/ScrollContainer/HBoxContainer/j2"]
 margin_right = 174.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 text = "mer"
 align = 1
 valign = 1
 
 [node name="j" type="Panel" parent="VBoxContainer/ScrollContainer/HBoxContainer/j2"]
-margin_top = 35.0
+margin_top = 33.0
 margin_right = 174.0
 margin_bottom = 826.0
 size_flags_horizontal = 3

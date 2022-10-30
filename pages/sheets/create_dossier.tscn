@@ -27,7 +27,7 @@ margin_right = 520.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
-text = "Créer/Modifier un dossier :"
+text = "KEY_CREATE_EDIT_DIR"
 align = 1
 valign = 1
 
@@ -63,13 +63,13 @@ margin_bottom = 333.0
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
 margin_right = 520.0
 margin_bottom = 29.0
-text = "Nom :"
+text = "KEY_NOM"
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/ScrollContainer/Inputs/Titre"]
 margin_top = 33.0
 margin_right = 520.0
 margin_bottom = 72.0
-placeholder_text = "Nom du dossier"
+placeholder_text = "KEY_NOM_DIR"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
@@ -97,7 +97,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "Supprimer"
+text = "KEY_DELETE"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs/VBoxContainer2"]
 modulate = Color( 1, 1, 1, 0 )
@@ -123,7 +123,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "Annuler"
+text = "KEY_ANNULER"
 
 [node name="Bt_Validate" type="Button" parent="VBoxContainer/ScrollContainer/Inputs/VBoxContainer"]
 margin_left = 262.0
@@ -139,7 +139,7 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 custom_styles/hover = ExtResource( 1 )
 custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
-text = "Valider"
+text = "KEY_VALIDER"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]
 modulate = Color( 1, 1, 1, 0 )
