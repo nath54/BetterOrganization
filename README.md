@@ -12,6 +12,7 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 
 ### Goals to end beta phase
 
+* [ ] fully test the app to find bugs/issues to fix
 * [ ] fix some major bugs/issues
 
 ### Further potential goals for potential new versions
