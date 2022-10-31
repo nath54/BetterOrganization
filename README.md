@@ -18,7 +18,7 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 ### Further potential goals for potential new versions
 
 * [ ] create a server to synchronise data among multiple devices under one account (I might need the help of some experts in the domain, especially for a good server security)
-* [ ] work on a better system for multi-answers
+* [ ] find a better system for multi-answers
 * [x] work on a better system for a better text rendering (mix text+latex)
 * [ ] add new themes to the app (and the possibility to change them)
 * [ ] add new main screen to the app (and the possibility to change them)
