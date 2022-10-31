@@ -71,7 +71,7 @@ func suivant() -> void:
 		ecran_fin();
 	# On tire la prochaine question
 	var a: int = rng.randi_range(0, tot_tire);
-	print("Liste : ", qsts, "\n val tirée : ", a, "\n tot_tire : ", tot_tire);
+	# print("Liste : ", qsts, "\n val tirée : ", a, "\n tot_tire : ", tot_tire);
 	var ii: int = 0;
 	var st: int = qsts[0][0];
 	while st <= a and ii < len(qsts) - 1:
@@ -82,10 +82,16 @@ func suivant() -> void:
 	# On affiche la question
 	if Global.quiz_mode == 0: # mode carte
 		aff_page(true, false, false, false, false);
-		$Question_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_q+1]);
+		if ss[qsts[id_q][3]]["multi_active"]:
+			$Question_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_q+1], ss[qsts[id_q][3]]["sep_chars"]);
+		else:
+			$Question_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_q+1]);
 	else: # mode ecrire
 		aff_page(false, true, false, false, false);
-		$Question_mode_ecrire/VBoxContainer/RenderText.set_text(qsts[id_q][col_q+1]);
+		if ss[qsts[id_q][3]]["multi_active"]:
+			$Question_mode_ecrire/VBoxContainer/RenderText.set_text(qsts[id_q][col_q+1], ss[qsts[id_q][3]]["sep_chars"]);
+		else:
+			$Question_mode_ecrire/VBoxContainer/RenderText.set_text(qsts[id_q][col_q+1]);
 		$Question_mode_ecrire/VBoxContainer/Control/TextEdit.text = "";
 		$Question_mode_ecrire/VBoxContainer/Control/HBoxContainer/Bt_Edit.emit_signal("pressed");
 	state = 1;
@@ -116,7 +122,10 @@ func _on_Bt_devoiler_cartes_pressed():
 	aff_page(false, false, true, false, false);
 	$Reponse_mode_carte/VBoxContainer/HBoxScore.visible = true;
 	$Reponse_mode_carte/VBoxContainer/HBoxBts.visible = false;
-	$Reponse_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_rep+1]);
+	if ss[qsts[id_q][3]]["multi_active"]:
+		$Reponse_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_rep+1], ss[qsts[id_q][3]]["sep_chars"]);
+	else:
+		$Reponse_mode_carte/VBoxContainer/RenderText.set_text(qsts[id_q][col_rep+1]);
 
 func bt_eval_gen(val: int):
 	Global.get_dict_at_path(ss[qsts[id_q][3]]["path"])["data"][qsts[id_q][4]][2] = val;
@@ -164,15 +173,24 @@ func _on_Bt_devoiler_ecrire_pressed():
 	aff_page(false, false, false, true, false);
 	var t1: String = qsts[id_q][col_rep+1];
 	var t2: String = $Question_mode_ecrire/VBoxContainer/Control/TextEdit.text;
-	$Reponse_mode_ecrire/VBoxContainer/RenderText.set_text(t1);
+	if ss[qsts[id_q][3]]["multi_active"]:
+		$Reponse_mode_ecrire/VBoxContainer/RenderText.set_text(t1, ss[qsts[id_q][3]]["sep_chars"]);
+	else:
+		$Reponse_mode_ecrire/VBoxContainer/RenderText.set_text(t1);
 	$Reponse_mode_ecrire/VBoxContainer/RenderText2.set_text(t2);
 	var val: int;
-	if qsts[id_q][col_rep+1].begins_with("/math"):
-		val = compare_txt_maths(t1, t2);
+	if ss[qsts[id_q][3]]["multi_active"]:	
+		var tt: PoolStringArray = t1.split(ss[qsts[id_q][3]]["sep_chars"]);
+		for ti in tt:
+			var v:int = compare_txt_norm(ti, t2);
+			if v > val: # On veut récuperer la valeur max
+				val = v;
+			print("Ti : ", ti," sim : ", v);
 	else:
 		val = compare_txt_norm(t1, t2);
 	#
-	if val > 5.0:
+	print("Valeur différence ", val);
+	if val >= 8.0:
 		$Reponse_mode_ecrire/VBoxContainer/JUSTE.visible = true;
 		$Reponse_mode_ecrire/VBoxContainer/FAUX.visible = false;
 	else:

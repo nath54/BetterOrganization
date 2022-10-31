@@ -12,20 +12,16 @@ var text2: String = "";
 func _ready():
 	pass
 
-func aff():
-	if not Global.active_object["multi_active"]:
-		$C1/RenderText.set_text(text1);
-		$C2/RenderText2.set_text(text2);
-	else:
-		pass
-
-
 func set_val(t1: String, t2: String):
 	# print("SET VAL : ", t1, "  ", t2);
 	text1 = t1;
 	text2 = t2;
-	$C1/RenderText.set_text(text1);
-	$C2/RenderText2.set_text(text2);
+	if not Global.active_object["multi_active"]:
+		$C1/RenderText.set_text(text1);
+		$C2/RenderText2.set_text(text2);
+	else:
+		$C1/RenderText.set_text(text1, Global.active_object["sep_chars"]);
+		$C2/RenderText2.set_text(text2, Global.active_object["sep_chars"]);
 	$C1/RenderText.visible = true;
 	$C2/RenderText2.visible = true;
 	$C1/TextEdit.visible = false;

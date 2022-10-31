@@ -126,8 +126,14 @@ func delete_aux():
 
 
 func _on_CheckBox_toggled(button_pressed: bool):
+	Global.active_object["multi_active"] = button_pressed;
+	Global.active_object["sep_chars"] = $VBoxContainer/SepChar/SepChars.text;
+	save_dt();
 	$VBoxContainer/SepChar.visible = button_pressed;
-	#
+	# On update l'affichage des éléments
+	for elt in $VBoxContainer/ScrollContainer/Elements.get_children():
+		if elt is RowSheetElement:
+			elt.set_val(elt.text1, elt.text2);
 
 func _on_Bt_edit_col1_pressed():
 	$VBoxContainer/Cols/Col1/edt_col1.text = $VBoxContainer/Cols/Col1/col1.text;
@@ -135,7 +141,6 @@ func _on_Bt_edit_col1_pressed():
 	$VBoxContainer/Cols/Col1/edt_col1.visible = true;
 	$VBoxContainer/Cols/Col1/Bt_edit_col1.visible = false;
 	$VBoxContainer/Cols/Col1/Bt_validate_col1.visible = true;
-
 
 func _on_Bt_validate_col1_pressed():
 	$VBoxContainer/Cols/Col1/col1.text = $VBoxContainer/Cols/Col1/edt_col1.text;

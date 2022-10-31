@@ -1,6 +1,7 @@
 extends Control
 
 var text: String = "";
+var multi: String = ""; # "" = no multi, other = multi
 var min_scale: float = 0.4;
 onready var hflow: HFlowContainer = $Control/HFlowContainer;
 
@@ -106,13 +107,22 @@ func decompose_parties_base(txt: String) -> void:
 	if len(txt)-i0 > 0:
 		decompose_text(txt.substr(i0));
 
-func set_text(txt: String):
+func set_text(txt: String, mult: String = ""):
 	text = txt;
+	multi = mult;
 	# On nettoie ce qu'il pourrait y avoit avant
 	Global.empty_childs(hflow);
 	# On décompose
 	parties = [];
-	decompose_parties_base(txt);
+	if multi == "":
+		decompose_parties_base(txt);
+	else:
+		var pts: PoolStringArray = txt.split(multi);
+		for i in range(len(pts)):
+			if i != 0:
+				parties.append([" "+tr("KEY_OR")+" ", 3, Color("#44075e")])
+			#
+			decompose_parties_base(pts[i]);
 	# Maintenant, pour chaque partie, on va l'afficher
 	for p in parties:
 		if p[1] == 0: # label
@@ -121,6 +131,10 @@ func set_text(txt: String):
 			hflow.add_child(create_math(p[0]));
 		elif p[1] == 2: # Ligne vide
 			hflow.add_child(create_empty_row());
+		elif p[1] == 3: # label d'une couleur précise
+			var lbl: Label = create_label(p[0]);
+			lbl.add_color_override("font_color", p[2]);
+			hflow.add_child(lbl);
 	#
 	changed = true;
 
@@ -128,7 +142,7 @@ func _process(delta):
 	if changed:
 		if count_changed < 10:
 			if count_changed == 5:
-				set_text(text);
+				set_text(text, multi);
 			count_changed += 1;
 		else:
 			count_changed = 0;
