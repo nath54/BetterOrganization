@@ -70,6 +70,7 @@ margin_left = 338.0
 margin_right = 432.0
 margin_bottom = 61.0
 size_flags_horizontal = 3
+max_length = 128
 
 [node name="Bt_validate_titre" type="Button" parent="VBoxContainer/Titre"]
 visible = false
@@ -206,6 +207,7 @@ margin_left = 426.0
 margin_right = 520.0
 margin_bottom = 39.0
 text = "0.25"
+max_length = 6
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
 margin_top = 146.0
@@ -232,9 +234,9 @@ text = "KEY_MULTI_ANS"
 
 [node name="SepChar" type="HBoxContainer" parent="VBoxContainer"]
 visible = false
-margin_top = 135.0
+margin_top = 206.0
 margin_right = 520.0
-margin_bottom = 174.0
+margin_bottom = 245.0
 
 [node name="Label" type="Label" parent="VBoxContainer/SepChar"]
 margin_top = 5.0
@@ -247,6 +249,7 @@ margin_left = 200.0
 margin_right = 294.0
 margin_bottom = 39.0
 text = "||"
+max_length = 5
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 margin_top = 206.0
@@ -297,10 +300,11 @@ valign = 1
 
 [node name="edt_col1" type="LineEdit" parent="VBoxContainer/Cols/Col1"]
 visible = false
-margin_left = 52.0
-margin_right = 146.0
-margin_bottom = 41.0
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
+max_length = 20
 
 [node name="Bt_edit_col1" type="Button" parent="VBoxContainer/Cols/Col1"]
 modulate = Color( 0.92549, 0.929412, 0.196078, 1 )
@@ -365,6 +369,7 @@ margin_left = 52.0
 margin_right = 146.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
+max_length = 20
 
 [node name="Bt_edit_col2" type="Button" parent="VBoxContainer/Cols/Col2"]
 modulate = Color( 0.92549, 0.929412, 0.196078, 1 )

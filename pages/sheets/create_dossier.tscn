@@ -69,6 +69,7 @@ text = "KEY_NOM"
 margin_top = 33.0
 margin_right = 520.0
 margin_bottom = 72.0
+max_length = 128
 placeholder_text = "KEY_NOM_DIR"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/ScrollContainer/Inputs"]

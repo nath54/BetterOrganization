@@ -78,6 +78,7 @@ text = "KEY_TITRE"
 margin_top = 33.0
 margin_right = 520.0
 margin_bottom = 72.0
+max_length = 128
 placeholder_text = "Evenement"
 
 [node name="Color" type="HBoxContainer" parent="VBoxContainer"]

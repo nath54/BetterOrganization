@@ -53,6 +53,17 @@ func on_element_changed(elt, roelt):
 		Global.save_data();
 
 func delete_row_elt(elt, roelt):
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CET_ELT")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux2", [elt, roelt]);
+	#
+
+func delete_aux2(elt, roelt):
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux2");
+	Global.popup_confirm.visible = false;
+	#
 	Global.active_object["data"].erase(elt);
 	roelt.queue_free();
 	save_dt();
@@ -97,6 +108,17 @@ func _on_Bt_edit_titre_pressed():
 
 
 func _on_Bt_delete_sheet_pressed():
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CETTE_FICHE")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux");
+	#
+
+func delete_aux():
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux");
+	Global.popup_confirm.visible = false;
+	#
 	Global.get_cur_dir_dict().erase(Global.active_object["id"]);
 	Global.save_data();
 	#
@@ -146,9 +168,9 @@ func _on_Bt_add_element_pressed():
 	Global.active_object["data"].append(["", "", -1]);
 	save_dt();
 	var roelt:RowSheetElement = preload("res://pages/sheets/Sheet_Element_Row_Ref.tscn").instance();
-	roelt.set_val("", "");
 	roelt.connect("delete_pressed", self, "delete_row_elt", [Global.active_object["data"][len(Global.active_object["data"])-1], roelt]);
 	$VBoxContainer/ScrollContainer/Elements.add_child(roelt);
+	roelt.set_val("", "");
 
 
 func _on_Bt_toggle_mode_to_mode_2_pressed():

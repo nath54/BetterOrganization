@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://pages/main_nav_menu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://pages/events/page_events.tscn" type="PackedScene" id=2]
+[ext_resource path="res://res/ui/bts1/pressed.tres" type="StyleBox" id=2]
 [ext_resource path="res://pages/main_page.gd" type="Script" id=3]
+[ext_resource path="res://res/ui/bts1/normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/ui/bts1/hover.tres" type="StyleBox" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.00392157, 0.0901961, 0.25098, 1 )
 
 [node name="MainPage" type="Control"]
 anchor_right = 1.0
@@ -20,17 +25,88 @@ margin_bottom = 860.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PageEvents" parent="VSplitContainer/Control" instance=ExtResource( 2 )]
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 486.0
-margin_bottom = 864.0
-size_flags_vertical = 3
-
 [node name="MainNavBar" parent="VSplitContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 860.0
 margin_right = 540.0
 margin_bottom = 960.0
+
+[node name="C_confirm_popup" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="AspectRatioContainer" parent="C_confirm_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+
+[node name="Panel" type="Panel" parent="C_confirm_popup/Control"]
+margin_top = 210.0
+margin_right = 440.0
+margin_bottom = 650.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="C_confirm_popup/Control/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="Titre" type="Label" parent="C_confirm_popup/Control/Panel/VBoxContainer"]
+margin_right = 420.0
+margin_bottom = 29.0
+text = "KEY_ATTENTION"
+align = 1
+valign = 1
+
+[node name="Texte" type="Label" parent="C_confirm_popup/Control/Panel/VBoxContainer"]
+margin_top = 33.0
+margin_right = 420.0
+margin_bottom = 381.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="C_confirm_popup/Control/Panel/VBoxContainer"]
+margin_top = 385.0
+margin_right = 420.0
+margin_bottom = 420.0
+
+[node name="Bt_cancel" type="Button" parent="C_confirm_popup/Control/Panel/VBoxContainer/HBoxContainer"]
+margin_left = 13.0
+margin_right = 195.0
+margin_bottom = 35.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 4 )
+text = "KEY_ANNULER"
+
+[node name="Bt_valider" type="Button" parent="C_confirm_popup/Control/Panel/VBoxContainer/HBoxContainer"]
+margin_left = 230.0
+margin_right = 401.0
+margin_bottom = 35.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 4 )
+text = "KEY_VALIDER"
+
+[connection signal="pressed" from="C_confirm_popup/Control/Panel/VBoxContainer/HBoxContainer/Bt_cancel" to="." method="_on_Bt_cancel_pressed"]

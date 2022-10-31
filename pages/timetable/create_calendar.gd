@@ -19,6 +19,17 @@ func _ready():
 
 
 func _on_Bt_Delete_pressed():
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CE_CAL")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux");
+	#
+
+func delete_aux():
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux");
+	Global.popup_confirm.visible = false;
+	#
 	if mode == "create":
 		Global.go_to_page("res://pages/timetable/gerer_edt.tscn");
 	else:

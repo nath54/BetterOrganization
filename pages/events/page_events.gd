@@ -15,7 +15,7 @@ func _ready():
 		if c.active:
 			for ev in c.events:
 				# On vérifie que l'évenements n'est pas encore fini
-				if Global.custom_arrdate_sort(cdar, [[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"], ev["heure_deb"]]]):
+				if not Global.custom_arrdate_sort([[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"], ev["heure_deb"]]], cdar):
 					# On trie dans l'ordre chronologique
 					events_list.append([[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"], ev["heure_deb"]], ev]);
 	#

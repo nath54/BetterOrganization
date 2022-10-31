@@ -165,6 +165,7 @@ margin_left = 186.0
 margin_right = 280.0
 margin_bottom = 39.0
 text = "10"
+max_length = 5
 placeholder_text = "-1"
 
 [node name="Mode" type="HBoxContainer" parent="VBoxContainer"]

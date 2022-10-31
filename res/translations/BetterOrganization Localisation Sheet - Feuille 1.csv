@@ -117,3 +117,12 @@ KEY_NEW_SUBTASK,nouvelle sous-tâche,New subtask,Nueva subtarea
 KEY_TODOLIST,Liste des tâches à faire :,Todo list :,Lista de tareas :
 KEY_DISPLAYALL,Tout afficher,Display all,Mostrar todo
 KEY_DELETE,Supprimer,Delete,Borrar
+KEY_ATTENTION,Attention !,Warning !,¡Cuidado!
+KEY_VL_SUPPR,Voulez vous vraiment supprimer,Do you really want to delete,Realmente quieres borrar
+KEY_CET_EVENT,cet évenement,this event,este evento
+KEY_CE_DIR,ce dossier,this directory,este directorio
+KEY_CETTE_FICHE,cette fiche,this sheet,esta hoja
+KEY_CET_ELT,cet élement,this element,este elemento
+KEY_CETTE_SUBTASK,cette sous-tache,this subtask,esta subtarea
+KEY_CE_CAL,ce calendrier,this calendar,este calendario
+KEY_CE_TODO,ce Todo,this Todo,este Todo

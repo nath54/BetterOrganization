@@ -98,6 +98,7 @@ text = "KEY_SEQ_BEG_LAT"
 margin_left = 234.0
 margin_right = 328.0
 margin_bottom = 39.0
+max_length = 10
 
 [node name="EndLat" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 192.0
@@ -114,6 +115,7 @@ text = "KEY_SEQ_END_LAT"
 margin_left = 238.0
 margin_right = 332.0
 margin_bottom = 39.0
+max_length = 10
 
 [node name="MainPageType" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 246.0

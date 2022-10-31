@@ -13,7 +13,7 @@ func _ready():
 		if c.active:
 			for ev in c.events:
 				# On vérifie que l'évenements n'est pas encore fini
-				if not Global.custom_arrdate_sort(cdar, [[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"], ev["heure_deb"]]]):
+				if Global.custom_arrdate_sort([[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"], ev["heure_deb"]]], cdar):
 					# On trie dans l'ordre chronologique
 					events_list.append([[ev["date"]["year"], ev["date"]["month"], ev["date"]["day"], ev["heure_deb"]], ev]);
 	#
@@ -36,6 +36,9 @@ func _ready():
 	#
 	Global.resize_all_fonts();
 
+func on_bt_clicked(ev):
+	Global.active_object = ev;
+	Global.go_to_page("res://pages/events/Create_Event.tscn", false);
 
 
 func _on_Bt_retour_pressed():

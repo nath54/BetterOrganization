@@ -58,6 +58,17 @@ func _ready():
 	Global.resize_all_fonts();
 
 func _on_Bt_delete_pressed():
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CET_ELT")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux");
+	#
+
+func delete_aux():
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux");
+	Global.popup_confirm.visible = false;
+	#
 	for c in Global.data.calendars:
 		if elmt in c.elements:
 			c.elements.erase(elmt);

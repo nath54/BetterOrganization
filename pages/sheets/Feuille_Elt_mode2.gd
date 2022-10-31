@@ -71,6 +71,17 @@ func _on_Bt_retour_pressed():
 
 
 func _on_Bt_delete_pressed():
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CET_EVENT")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux");
+	#
+
+func delete_aux():
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux");
+	Global.popup_confirm.visible = false;
+	#
 	Global.active_object["data"].remove(Global.active_elt);
 	Global.get_cur_dir_dict()[Global.active_object["id"]] = Global.active_object;
 	Global.save_data();

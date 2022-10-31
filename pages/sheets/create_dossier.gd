@@ -15,6 +15,17 @@ func _ready():
 	Global.resize_all_fonts();
 
 func _on_Bt_Delete_pressed():
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CE_DIR")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux");
+	#
+
+func delete_aux():
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux");
+	Global.popup_confirm.visible = false;
+	#
 	if len(Global.current_dir) > 0:
 		var arr = Array(Global.current_dir);
 		var last_dir = arr[len(arr)-1];

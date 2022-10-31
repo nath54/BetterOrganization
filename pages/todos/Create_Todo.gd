@@ -64,12 +64,12 @@ func _ready():
 	#
 	i = 0;
 	for st in subtasks:
-		add_subtask_ui(st[0], st[1], i);
+		add_subtask_ui(st[0], st[1], st);
 		i+=1;
 	#
 	Global.resize_all_fonts();
 
-func add_subtask_ui(t, done, idx):
+func add_subtask_ui(t, done, st):
 	var hb = HBoxContainer.new();
 	var cb = CheckBox.new();
 	var lb = Label.new();
@@ -83,17 +83,29 @@ func add_subtask_ui(t, done, idx):
 	hb.add_child(lb);
 	hb.add_child(bt);
 	$VBoxContainer/subtasks.add_child(hb);
-	bt.connect("pressed", self, "_on_delete_subtask", [idx, hb]);
-	cb.connect("pressed", self, "_on_toggle_subtask", [idx, cb]);
+	bt.connect("pressed", self, "_on_delete_subtask", [st, hb]);
+	cb.connect("pressed", self, "_on_toggle_subtask", [st, cb]);
 
-func _on_delete_subtask(idx, ui_row):
-	subtasks.remove(idx);
+func _on_delete_subtask(st, ui_row):
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CETTE_SUBTASK")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux2", [st, ui_row]);
+	#
+
+func delete_aux2(st, ui_row):
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux2");
+	Global.popup_confirm.visible = false;
+	#
+	subtasks.erase(st);
 	ui_row.queue_free();
 	var pc = Global.percent_of_subtask(subtasks) * 100.0;
 	$VBoxContainer/percent/ProgressBar.value = pc;
 	$VBoxContainer/percent/Label.text = String(int(pc))+"% done";
 
-func _on_toggle_subtask(idx, cb):
+func _on_toggle_subtask(st, cb):
+	var idx: int = subtasks.find(st);
 	subtasks[idx][1] = cb.pressed;
 	var pc = Global.percent_of_subtask(subtasks) * 100.0;
 	$VBoxContainer/percent/ProgressBar.value = pc;
@@ -105,6 +117,17 @@ func display_date():
 
 
 func _on_Bt_delete_pressed():
+	#
+	Global.popup_confirm.visible = true;
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/Texte").text = tr("KEY_VL_SUPPR")+" "+tr("KEY_CE_TODO")+" ?";
+	Global.disconnect_all_signals(Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider"));
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").connect("pressed", self, "delete_aux");
+	#
+
+func delete_aux():
+	Global.popup_confirm.get_node("Control/Panel/VBoxContainer/HBoxContainer/Bt_valider").disconnect("pressed", self, "delete_aux");
+	Global.popup_confirm.visible = false;
+	#
 	for c in Global.data.calendars:
 		if td in c.todos:
 			c.todos.erase(td);

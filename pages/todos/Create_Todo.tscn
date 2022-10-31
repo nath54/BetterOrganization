@@ -89,6 +89,7 @@ text = "KEY_TITRE"
 margin_top = 33.0
 margin_right = 520.0
 margin_bottom = 72.0
+max_length = 128
 placeholder_text = "KEY_TACHETODO"
 
 [node name="Calendrier" type="HBoxContainer" parent="VBoxContainer"]
@@ -184,6 +185,7 @@ margin_left = 131.0
 margin_right = 520.0
 margin_bottom = 39.0
 size_flags_horizontal = 3
+max_length = 128
 placeholder_text = "KEY_NEW_SUBTASK"
 
 [node name="subtasks" type="VBoxContainer" parent="VBoxContainer"]

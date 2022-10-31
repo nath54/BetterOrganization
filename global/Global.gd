@@ -46,6 +46,8 @@ var original_font_sizes: Dictionary = {};
 
 var already_modif_fonts: Array = [];
 
+var popup_confirm = null;
+
 func resize_aux(node: Node) -> void:
 	#
 	if (node is Label) or (node is Button) or (node is LineEdit) or (node is TextEdit):
@@ -318,3 +320,10 @@ func get_fiche_knowledge_score(fiche: Dictionary) -> float:
 		score += row[2] - 5; # Compris entre -5 et 5
 	score /= float(len(fiche["data"])); 
 	return score; # Compris entre -5 et 5
+
+func disconnect_all_signals(node: Node):
+	var signals = node.get_signal_list();
+	for cur_signal in signals:
+		var conns = node.get_signal_connection_list(cur_signal.name);
+		for cur_conn in conns:
+			node.disconnect(cur_conn.signal, cur_conn.target, cur_conn.method);
