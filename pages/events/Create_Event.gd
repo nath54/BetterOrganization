@@ -33,6 +33,7 @@ func _ready():
 		day = evnt["date"]["day"];
 		month = evnt["date"]["month"];
 		year = evnt["date"]["year"];
+		color = evnt["color"];
 		#
 		var i = 0;
 		for c in Global.data.calendars:
