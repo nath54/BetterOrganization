@@ -91,7 +91,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/GodoTeX/plugin.cfg", "res://addons/calendar_button/plugin.cfg" )
 
 [gui]
 
@@ -118,7 +118,7 @@ translations=PoolStringArray( "res://res/translations/BetterOrganization Localis
 
 [mono]
 
-project/assembly_name="Emmy's Adventure"
+project/assembly_name="BetterOrganization"
 
 [physics]
 
