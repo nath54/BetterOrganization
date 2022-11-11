@@ -12,6 +12,7 @@ You can test the app [here](https://github.com/nath54/BetterOrganization/release
 
 ### Goals to end beta phase
 
+* [ ] __Compiling correctly the app, including the GodoTex extension, that currently works only when launching from the editor and not from exported versions__
 * [ ] fully test the app to find bugs/issues to fix
 * [ ] fix some major bugs/issues
 
