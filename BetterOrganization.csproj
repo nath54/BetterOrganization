@@ -1,7 +1,10 @@
+
+
 <Project Sdk="Godot.NET.Sdk/3.3.0">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>BetterOrganization</RootNamespace>
+    <ShouldIncludeNativeSkiaSharp>True</ShouldIncludeNativeSkiaSharp>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,5 +20,10 @@
   <ItemGroup Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' ">
     <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="2.88.1-preview.108" />
   </ItemGroup>
+
+<!--   
+  <ItemGroup>
+    <Compile Include="addons\**\*.cs" />
+  </ItemGroup> -->
 
 </Project>
